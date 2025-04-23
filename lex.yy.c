@@ -477,15 +477,33 @@ char *yytext;
  #include <stdio.h>
  #include <stdlib.h>
  #include <string.h>
- 
+
+struct Atomos {
+    char *id;
+    unsigned int marcado; /* 0 o 1 */
+};
+
+struct Clausula {
+    struct Atomos **antecedente;
+    struct Atomos *consecuencia;
+};
+
+struct Formulas {
+    struct Clausula **clausulas;
+    int num_clausulas;
+};
+
+struct Formulas **Resultado;
+struct Formulas formula;
+
 int traduccion(){
     printf("Soy la traduccion\n");
 }
 int alg_satisfacible(){
     return 1;
 }
-#line 488 "lex.yy.c"
-#line 489 "lex.yy.c"
+#line 506 "lex.yy.c"
+#line 507 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -702,9 +720,9 @@ YY_DECL
 		}
 
 	{
-#line 22 "tarea1.lex"
+#line 40 "tarea1.lex"
 
-#line 708 "lex.yy.c"
+#line 726 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -763,76 +781,76 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 23 "tarea1.lex"
+#line 41 "tarea1.lex"
 { printf("NEG "); }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 24 "tarea1.lex"
+#line 42 "tarea1.lex"
 { printf("AND "); }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 25 "tarea1.lex"
-{ printf("OR "); }
+#line 43 "tarea1.lex"
+{ printf("OR ");}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 26 "tarea1.lex"
+#line 44 "tarea1.lex"
 { printf("IMPLIES "); }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 27 "tarea1.lex"
+#line 45 "tarea1.lex"
 { printf("T ");}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 28 "tarea1.lex"
+#line 46 "tarea1.lex"
 { printf("⊥ ");}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 29 "tarea1.lex"
+#line 47 "tarea1.lex"
 { printf("( "); }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 30 "tarea1.lex"
+#line 48 "tarea1.lex"
 { printf(") "); }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 31 "tarea1.lex"
+#line 49 "tarea1.lex"
 { printf("%s ", yytext); }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 32 "tarea1.lex"
+#line 50 "tarea1.lex"
 { /* ignora los delimitadores $$ */ }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 33 "tarea1.lex"
+#line 51 "tarea1.lex"
 { /* ignora espacios */ }
 	YY_BREAK
 case 12:
 /* rule 12 can match eol */
 YY_RULE_SETUP
-#line 34 "tarea1.lex"
+#line 52 "tarea1.lex"
 { printf("\n");} 
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 35 "tarea1.lex"
+#line 53 "tarea1.lex"
 { printf("UNKNOWN: %s\n", yytext); }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 36 "tarea1.lex"
+#line 54 "tarea1.lex"
 ECHO;
 	YY_BREAK
-#line 836 "lex.yy.c"
+#line 854 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1837,14 +1855,23 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 36 "tarea1.lex"
+#line 54 "tarea1.lex"
 
 
 
 
 int main(int argc, char **argv) {
+
     printf("Inicio de programa\n");
     yylex();
     printf("\n");
+    if (alg_satisfacible()==1){
+        printf("SATISFACIBLE\n");
+    }if(alg_satisfacible()==0){
+        printf("NO-SATISFACIBLE");
+    }else{
+        printf("NO-SOLUTION");
+    }
+    
     return 0;
 }

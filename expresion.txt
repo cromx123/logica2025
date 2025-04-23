@@ -1,4 +1,1 @@
-$$(p \wedge q \wedge s \rightarrow p) \wedge (q \wedge r \rightarrow p) \wedge (p \wedge s \rightarrow s)$$
-$$(p \wedge q \wedge s \rightarrow \bot) \wedge (q \wedge r \rightarrow p) \wedge (\top \rightarrow s)$$
-$$(p2 \wedge p3 \wedge p5 \rightarrow p13) \wedge (\top \rightarrow p5) \wedge (p5 \wedge p11 \rightarrow \bot)$$
-$$ (p \vee q) \rightarrow r $$
+$$(p \vee q) \rightarrow (r \wedge s)$$
