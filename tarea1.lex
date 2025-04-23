@@ -63,9 +63,9 @@ int main(int argc, char **argv) {
     if (alg_satisfacible()==1){
         printf("SATISFACIBLE\n");
     }if(alg_satisfacible()==0){
-        printf("NO-SATISFACIBLE");
+        printf("NO-SATISFACIBLE\n");
     }else{
-        printf("NO-SOLUTION");
+        printf("NO-SOLUTION\n");
     }
     
     return 0;
