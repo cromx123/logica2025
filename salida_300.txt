@@ -1,0 +1,2400 @@
+===> Ejecutando prueba 1
+Inicio de programa
+
+Fórmula original: (¬t ∨ (t ∧ r))
+Fórmula en Sat Lineal: ¬(¬¬t ∧ ¬(t ∧ r))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 2
+Inicio de programa
+
+Fórmula original: (¬p ∧ p)
+Fórmula en Sat Lineal: (¬p ∧ p)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 3
+Inicio de programa
+
+Fórmula original: (((s ∧ q) ∧ (p ∨ r)) ∧ ((¬s ∧ r) ∨ (¬s → ¬r)))
+Fórmula en Sat Lineal: (((s ∧ q) ∧ ¬(¬p ∧ ¬r)) ∧ ¬(¬(¬s ∧ r) ∧ ¬¬(¬s ∧ ¬¬r)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 4
+Inicio de programa
+
+Fórmula original: (p ∨ (p → t))
+Fórmula en Sat Lineal: ¬(¬p ∧ ¬¬(p ∧ ¬t))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 5
+Inicio de programa
+
+Fórmula original: (q → (¬s → q))
+Fórmula en Sat Lineal: ¬(q ∧ ¬¬(¬s ∧ ¬q))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 6
+Inicio de programa
+
+Fórmula original: (((¬p → q) ∧ (t ∨ ¬s)) ∧ (r ∧ (r → ¬p)))
+Fórmula en Sat Lineal: ((¬(¬p ∧ ¬q) ∧ ¬(¬t ∧ ¬¬s)) ∧ (r ∧ ¬(r ∧ ¬¬p)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 7
+Inicio de programa
+
+Fórmula original: ((¬t ∨ (r ∨ t)) → r)
+Fórmula en Sat Lineal: ¬(¬(¬¬t ∧ ¬¬(¬r ∧ ¬t)) ∧ ¬r)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 8
+Inicio de programa
+
+Fórmula original: ((r ∨ s) ∧ (r ∨ t))
+Fórmula en Sat Lineal: (¬(¬r ∧ ¬s) ∧ ¬(¬r ∧ ¬t))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 9
+Inicio de programa
+
+Fórmula original: s
+Fórmula en Sat Lineal: s
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 10
+Inicio de programa
+
+Fórmula original: ¬q
+Fórmula en Sat Lineal: ¬q
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 11
+Inicio de programa
+
+Fórmula original: (((q ∧ p) ∧ t) ∨ ((¬t ∧ ¬t) ∧ ¬t))
+Fórmula en Sat Lineal: ¬(¬((q ∧ p) ∧ t) ∧ ¬((¬t ∧ ¬t) ∧ ¬t))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 12
+Inicio de programa
+
+Fórmula original: (((¬q ∨ r) ∨ (q ∧ ¬t)) ∨ t)
+Fórmula en Sat Lineal: ¬(¬¬(¬¬(¬¬q ∧ ¬r) ∧ ¬(q ∧ ¬t)) ∧ ¬t)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 13
+Inicio de programa
+
+Fórmula original: (((¬r → ¬r) → ¬r) ∧ ((q → ¬p) ∨ (¬s → t)))
+Fórmula en Sat Lineal: (¬(¬(¬r ∧ ¬¬r) ∧ ¬¬r) ∧ ¬(¬¬(q ∧ ¬¬p) ∧ ¬¬(¬s ∧ ¬t)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 14
+Inicio de programa
+
+Fórmula original: ((¬t ∧ p) → s)
+Fórmula en Sat Lineal: ¬((¬t ∧ p) ∧ ¬s)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 15
+Inicio de programa
+
+Fórmula original: ¬s
+Fórmula en Sat Lineal: ¬s
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 16
+Inicio de programa
+
+Fórmula original: (¬t → ((t ∧ ¬s) ∧ (¬q → s)))
+Fórmula en Sat Lineal: ¬(¬t ∧ ¬((t ∧ ¬s) ∧ ¬(¬q ∧ ¬s)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 17
+Inicio de programa
+
+Fórmula original: ((¬t ∨ q) → ((¬t ∧ ¬s) ∨ (¬q ∨ ¬p)))
+Fórmula en Sat Lineal: ¬(¬(¬¬t ∧ ¬q) ∧ ¬¬(¬(¬t ∧ ¬s) ∧ ¬¬(¬¬q ∧ ¬¬p)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 18
+Inicio de programa
+
+Fórmula original: (¬p ∧ ¬s)
+Fórmula en Sat Lineal: (¬p ∧ ¬s)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 19
+Inicio de programa
+
+Fórmula original: (p → ((p → ¬r) ∨ (¬t → q)))
+Fórmula en Sat Lineal: ¬(p ∧ ¬¬(¬¬(p ∧ ¬¬r) ∧ ¬¬(¬t ∧ ¬q)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 20
+Inicio de programa
+
+Fórmula original: (¬t ∨ (s ∧ ¬s))
+Fórmula en Sat Lineal: ¬(¬¬t ∧ ¬(s ∧ ¬s))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 21
+Inicio de programa
+
+Fórmula original: ((s ∧ s) ∧ (¬t ∧ r))
+Fórmula en Sat Lineal: ((s ∧ s) ∧ (¬t ∧ r))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 22
+Inicio de programa
+
+Fórmula original: ((¬r ∨ ¬t) ∧ ((r ∧ ¬t) ∧ (¬t ∧ q)))
+Fórmula en Sat Lineal: (¬(¬¬r ∧ ¬¬t) ∧ ((r ∧ ¬t) ∧ (¬t ∧ q)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 23
+Inicio de programa
+
+Fórmula original: ((q ∨ t) ∧ q)
+Fórmula en Sat Lineal: (¬(¬q ∧ ¬t) ∧ q)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 24
+Inicio de programa
+
+Fórmula original: (¬q ∧ r)
+Fórmula en Sat Lineal: (¬q ∧ r)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 25
+Inicio de programa
+
+Fórmula original: (((q ∨ ¬q) → (p → t)) ∨ ((r → s) ∨ (¬s → q)))
+Fórmula en Sat Lineal: ¬(¬¬(¬(¬q ∧ ¬¬q) ∧ ¬¬(p ∧ ¬t)) ∧ ¬¬(¬¬(r ∧ ¬s) ∧ ¬¬(¬s ∧ ¬q)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 26
+Inicio de programa
+
+Fórmula original: (t ∧ (¬r → p))
+Fórmula en Sat Lineal: (t ∧ ¬(¬r ∧ ¬p))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 27
+Inicio de programa
+
+Fórmula original: (¬s → (t → (t ∧ ¬p)))
+Fórmula en Sat Lineal: ¬(¬s ∧ ¬¬(t ∧ ¬(t ∧ ¬p)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 28
+Inicio de programa
+
+Fórmula original: ((r ∧ ¬t) → (r ∨ s))
+Fórmula en Sat Lineal: ¬((r ∧ ¬t) ∧ ¬¬(¬r ∧ ¬s))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 29
+Inicio de programa
+
+Fórmula original: ((¬s ∧ ¬r) → (¬p ∨ ¬p))
+Fórmula en Sat Lineal: ¬((¬s ∧ ¬r) ∧ ¬¬(¬¬p ∧ ¬¬p))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 30
+Inicio de programa
+
+Fórmula original: (¬p ∧ ((s ∧ r) ∨ t))
+Fórmula en Sat Lineal: (¬p ∧ ¬(¬(s ∧ r) ∧ ¬t))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 31
+Inicio de programa
+
+Fórmula original: ((p ∨ ¬s) → (p → t))
+Fórmula en Sat Lineal: ¬(¬(¬p ∧ ¬¬s) ∧ ¬¬(p ∧ ¬t))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 32
+Inicio de programa
+
+Fórmula original: (((r → t) ∨ t) ∨ ((t → q) ∨ t))
+Fórmula en Sat Lineal: ¬(¬¬(¬¬(r ∧ ¬t) ∧ ¬t) ∧ ¬¬(¬¬(t ∧ ¬q) ∧ ¬t))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 33
+Inicio de programa
+
+Fórmula original: t
+Fórmula en Sat Lineal: t
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 34
+Inicio de programa
+
+Fórmula original: (((¬s → ¬q) ∨ (¬s ∨ r)) ∨ ((t → ¬s) → (¬p ∨ r)))
+Fórmula en Sat Lineal: ¬(¬¬(¬¬(¬s ∧ ¬¬q) ∧ ¬¬(¬¬s ∧ ¬r)) ∧ ¬¬(¬(t ∧ ¬¬s) ∧ ¬¬(¬¬p ∧ ¬r)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 35
+Inicio de programa
+
+Fórmula original: ((s → ¬t) ∨ (t → t))
+Fórmula en Sat Lineal: ¬(¬¬(s ∧ ¬¬t) ∧ ¬¬(t ∧ ¬t))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 36
+Inicio de programa
+
+Fórmula original: ((t → ¬s) → q)
+Fórmula en Sat Lineal: ¬(¬(t ∧ ¬¬s) ∧ ¬q)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 37
+Inicio de programa
+
+Fórmula original: ((¬r ∨ ¬q) → (¬p ∧ s))
+Fórmula en Sat Lineal: ¬(¬(¬¬r ∧ ¬¬q) ∧ ¬(¬p ∧ s))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 38
+Inicio de programa
+
+Fórmula original: t
+Fórmula en Sat Lineal: t
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 39
+Inicio de programa
+
+Fórmula original: ¬t
+Fórmula en Sat Lineal: ¬t
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 40
+Inicio de programa
+
+Fórmula original: (¬q → (¬t ∧ ¬s))
+Fórmula en Sat Lineal: ¬(¬q ∧ ¬(¬t ∧ ¬s))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 41
+Inicio de programa
+
+Fórmula original: t
+Fórmula en Sat Lineal: t
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 42
+Inicio de programa
+
+Fórmula original: ((¬p ∨ q) ∧ ¬r)
+Fórmula en Sat Lineal: (¬(¬¬p ∧ ¬q) ∧ ¬r)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 43
+Inicio de programa
+
+Fórmula original: ((s ∨ r) ∧ (¬t → q))
+Fórmula en Sat Lineal: (¬(¬s ∧ ¬r) ∧ ¬(¬t ∧ ¬q))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 44
+Inicio de programa
+
+Fórmula original: (((s ∧ t) ∨ ¬r) → ((¬t ∧ r) → (¬t ∨ q)))
+Fórmula en Sat Lineal: ¬(¬(¬(s ∧ t) ∧ ¬¬r) ∧ ¬¬((¬t ∧ r) ∧ ¬¬(¬¬t ∧ ¬q)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 45
+Inicio de programa
+
+Fórmula original: ((¬q → s) ∨ (¬s → ¬q))
+Fórmula en Sat Lineal: ¬(¬¬(¬q ∧ ¬s) ∧ ¬¬(¬s ∧ ¬¬q))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 46
+Inicio de programa
+
+Fórmula original: (((¬t ∧ s) ∧ ¬s) → ((¬q → ¬r) ∨ (¬t ∨ ¬r)))
+Fórmula en Sat Lineal: ¬(((¬t ∧ s) ∧ ¬s) ∧ ¬¬(¬¬(¬q ∧ ¬¬r) ∧ ¬¬(¬¬t ∧ ¬¬r)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 47
+Inicio de programa
+
+Fórmula original: ((¬q ∧ q) ∨ (t ∨ ¬r))
+Fórmula en Sat Lineal: ¬(¬(¬q ∧ q) ∧ ¬¬(¬t ∧ ¬¬r))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 48
+Inicio de programa
+
+Fórmula original: ¬p
+Fórmula en Sat Lineal: ¬p
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 49
+Inicio de programa
+
+Fórmula original: (((¬r ∧ ¬p) ∨ (¬t ∧ p)) ∧ ((¬q ∧ ¬s) → q))
+Fórmula en Sat Lineal: (¬(¬(¬r ∧ ¬p) ∧ ¬(¬t ∧ p)) ∧ ¬((¬q ∧ ¬s) ∧ ¬q))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 50
+Inicio de programa
+
+Fórmula original: (((¬q ∧ r) ∨ (q → t)) ∨ (¬t ∨ (r ∧ ¬s)))
+Fórmula en Sat Lineal: ¬(¬¬(¬(¬q ∧ r) ∧ ¬¬(q ∧ ¬t)) ∧ ¬¬(¬¬t ∧ ¬(r ∧ ¬s)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 51
+Inicio de programa
+
+Fórmula original: (((q ∨ ¬t) ∧ (q ∧ p)) ∧ ((q ∨ q) → (¬t ∨ r)))
+Fórmula en Sat Lineal: ((¬(¬q ∧ ¬¬t) ∧ (q ∧ p)) ∧ ¬(¬(¬q ∧ ¬q) ∧ ¬¬(¬¬t ∧ ¬r)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 52
+Inicio de programa
+
+Fórmula original: r
+Fórmula en Sat Lineal: r
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 53
+Inicio de programa
+
+Fórmula original: ¬q
+Fórmula en Sat Lineal: ¬q
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 54
+Inicio de programa
+
+Fórmula original: (¬q ∨ ((r ∧ p) ∨ (p ∨ q)))
+Fórmula en Sat Lineal: ¬(¬¬q ∧ ¬¬(¬(r ∧ p) ∧ ¬¬(¬p ∧ ¬q)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 55
+Inicio de programa
+
+Fórmula original: ((¬q → ¬t) ∨ (r ∧ ¬q))
+Fórmula en Sat Lineal: ¬(¬¬(¬q ∧ ¬¬t) ∧ ¬(r ∧ ¬q))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 56
+Inicio de programa
+
+Fórmula original: p
+Fórmula en Sat Lineal: p
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 57
+Inicio de programa
+
+Fórmula original: ((¬q ∧ (t ∨ p)) ∨ ((r ∧ t) → (¬s ∧ ¬s)))
+Fórmula en Sat Lineal: ¬(¬(¬q ∧ ¬(¬t ∧ ¬p)) ∧ ¬¬((r ∧ t) ∧ ¬(¬s ∧ ¬s)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 58
+Inicio de programa
+
+Fórmula original: r
+Fórmula en Sat Lineal: r
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 59
+Inicio de programa
+
+Fórmula original: (¬p ∧ (p ∨ (¬s → ¬r)))
+Fórmula en Sat Lineal: (¬p ∧ ¬(¬p ∧ ¬¬(¬s ∧ ¬¬r)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 60
+Inicio de programa
+
+Fórmula original: (((r → s) ∨ (¬t ∨ ¬q)) ∨ ¬r)
+Fórmula en Sat Lineal: ¬(¬¬(¬¬(r ∧ ¬s) ∧ ¬¬(¬¬t ∧ ¬¬q)) ∧ ¬¬r)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 61
+Inicio de programa
+
+Fórmula original: (¬r → (¬r ∨ s))
+Fórmula en Sat Lineal: ¬(¬r ∧ ¬¬(¬¬r ∧ ¬s))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 62
+Inicio de programa
+
+Fórmula original: (((q → ¬q) ∨ (r ∨ ¬s)) ∧ ((q ∨ q) ∧ (q ∨ p)))
+Fórmula en Sat Lineal: (¬(¬¬(q ∧ ¬¬q) ∧ ¬¬(¬r ∧ ¬¬s)) ∧ (¬(¬q ∧ ¬q) ∧ ¬(¬q ∧ ¬p)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 63
+Inicio de programa
+
+Fórmula original: ((¬q → ¬t) ∨ (¬t → q))
+Fórmula en Sat Lineal: ¬(¬¬(¬q ∧ ¬¬t) ∧ ¬¬(¬t ∧ ¬q))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 64
+Inicio de programa
+
+Fórmula original: ¬t
+Fórmula en Sat Lineal: ¬t
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 65
+Inicio de programa
+
+Fórmula original: (((p → r) ∨ (¬q ∨ ¬s)) ∧ p)
+Fórmula en Sat Lineal: (¬(¬¬(p ∧ ¬r) ∧ ¬¬(¬¬q ∧ ¬¬s)) ∧ p)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 66
+Inicio de programa
+
+Fórmula original: q
+Fórmula en Sat Lineal: q
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 67
+Inicio de programa
+
+Fórmula original: (t ∨ (s ∨ ¬r))
+Fórmula en Sat Lineal: ¬(¬t ∧ ¬¬(¬s ∧ ¬¬r))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 68
+Inicio de programa
+
+Fórmula original: (¬q ∨ (t ∧ (t ∧ r)))
+Fórmula en Sat Lineal: ¬(¬¬q ∧ ¬(t ∧ (t ∧ r)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 69
+Inicio de programa
+
+Fórmula original: s
+Fórmula en Sat Lineal: s
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 70
+Inicio de programa
+
+Fórmula original: (((¬r ∨ ¬q) ∨ ¬t) ∧ ¬s)
+Fórmula en Sat Lineal: (¬(¬¬(¬¬r ∧ ¬¬q) ∧ ¬¬t) ∧ ¬s)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 71
+Inicio de programa
+
+Fórmula original: (q → (¬r ∨ (p ∨ ¬t)))
+Fórmula en Sat Lineal: ¬(q ∧ ¬¬(¬¬r ∧ ¬¬(¬p ∧ ¬¬t)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 72
+Inicio de programa
+
+Fórmula original: (((q ∧ ¬q) → (r → ¬p)) ∧ ((t ∨ ¬p) ∨ (¬t → t)))
+Fórmula en Sat Lineal: (¬((q ∧ ¬q) ∧ ¬¬(r ∧ ¬¬p)) ∧ ¬(¬¬(¬t ∧ ¬¬p) ∧ ¬¬(¬t ∧ ¬t)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 73
+Inicio de programa
+
+Fórmula original: ((t → s) → p)
+Fórmula en Sat Lineal: ¬(¬(t ∧ ¬s) ∧ ¬p)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 74
+Inicio de programa
+
+Fórmula original: p
+Fórmula en Sat Lineal: p
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 75
+Inicio de programa
+
+Fórmula original: (t → ((¬r → ¬p) → r))
+Fórmula en Sat Lineal: ¬(t ∧ ¬¬(¬(¬r ∧ ¬¬p) ∧ ¬r))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 76
+Inicio de programa
+
+Fórmula original: (p ∧ ((r ∧ t) ∧ (s → t)))
+Fórmula en Sat Lineal: (p ∧ ((r ∧ t) ∧ ¬(s ∧ ¬t)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 77
+Inicio de programa
+
+Fórmula original: (((¬s ∧ r) → (¬q → ¬s)) → ((¬p ∧ r) ∧ (t ∧ ¬t)))
+Fórmula en Sat Lineal: ¬(¬((¬s ∧ r) ∧ ¬¬(¬q ∧ ¬¬s)) ∧ ¬((¬p ∧ r) ∧ (t ∧ ¬t)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 78
+Inicio de programa
+
+Fórmula original: ((¬r ∨ r) → (¬r ∧ q))
+Fórmula en Sat Lineal: ¬(¬(¬¬r ∧ ¬r) ∧ ¬(¬r ∧ q))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 79
+Inicio de programa
+
+Fórmula original: (t → (s → s))
+Fórmula en Sat Lineal: ¬(t ∧ ¬¬(s ∧ ¬s))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 80
+Inicio de programa
+
+Fórmula original: ((s ∧ t) → (¬p ∧ ¬r))
+Fórmula en Sat Lineal: ¬((s ∧ t) ∧ ¬(¬p ∧ ¬r))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 81
+Inicio de programa
+
+Fórmula original: ((r → ¬s) ∨ (p ∧ s))
+Fórmula en Sat Lineal: ¬(¬¬(r ∧ ¬¬s) ∧ ¬(p ∧ s))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 82
+Inicio de programa
+
+Fórmula original: (((¬t ∧ q) → (q → ¬p)) → ¬q)
+Fórmula en Sat Lineal: ¬(¬((¬t ∧ q) ∧ ¬¬(q ∧ ¬¬p)) ∧ ¬¬q)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 83
+Inicio de programa
+
+Fórmula original: ((t ∨ (¬r ∨ p)) ∨ ((s ∨ ¬p) ∨ (p ∧ ¬s)))
+Fórmula en Sat Lineal: ¬(¬¬(¬t ∧ ¬¬(¬¬r ∧ ¬p)) ∧ ¬¬(¬¬(¬s ∧ ¬¬p) ∧ ¬(p ∧ ¬s)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 84
+Inicio de programa
+
+Fórmula original: r
+Fórmula en Sat Lineal: r
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 85
+Inicio de programa
+
+Fórmula original: ((¬s ∧ (¬p ∧ ¬r)) ∨ (r ∧ t))
+Fórmula en Sat Lineal: ¬(¬(¬s ∧ (¬p ∧ ¬r)) ∧ ¬(r ∧ t))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 86
+Inicio de programa
+
+Fórmula original: (¬p → (s ∨ s))
+Fórmula en Sat Lineal: ¬(¬p ∧ ¬¬(¬s ∧ ¬s))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 87
+Inicio de programa
+
+Fórmula original: ((¬s ∧ ¬p) ∨ (p ∧ s))
+Fórmula en Sat Lineal: ¬(¬(¬s ∧ ¬p) ∧ ¬(p ∧ s))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 88
+Inicio de programa
+
+Fórmula original: (((¬s ∧ q) ∨ q) ∨ ((¬q → p) ∧ t))
+Fórmula en Sat Lineal: ¬(¬¬(¬(¬s ∧ q) ∧ ¬q) ∧ ¬(¬(¬q ∧ ¬p) ∧ t))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 89
+Inicio de programa
+
+Fórmula original: (¬t ∧ (q ∧ p))
+Fórmula en Sat Lineal: (¬t ∧ (q ∧ p))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 90
+Inicio de programa
+
+Fórmula original: ((¬t ∨ ¬r) → ((¬q ∧ ¬s) → (q ∧ q)))
+Fórmula en Sat Lineal: ¬(¬(¬¬t ∧ ¬¬r) ∧ ¬¬((¬q ∧ ¬s) ∧ ¬(q ∧ q)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 91
+Inicio de programa
+
+Fórmula original: ((¬t → t) ∧ (t → q))
+Fórmula en Sat Lineal: (¬(¬t ∧ ¬t) ∧ ¬(t ∧ ¬q))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 92
+Inicio de programa
+
+Fórmula original: ((r ∧ q) ∧ ¬t)
+Fórmula en Sat Lineal: ((r ∧ q) ∧ ¬t)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 93
+Inicio de programa
+
+Fórmula original: (((¬q ∧ p) ∧ (¬s ∧ ¬s)) ∨ ¬q)
+Fórmula en Sat Lineal: ¬(¬((¬q ∧ p) ∧ (¬s ∧ ¬s)) ∧ ¬¬q)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 94
+Inicio de programa
+
+Fórmula original: ((¬t → (t ∨ ¬q)) ∧ ((¬t ∨ ¬p) → ¬p))
+Fórmula en Sat Lineal: (¬(¬t ∧ ¬¬(¬t ∧ ¬¬q)) ∧ ¬(¬(¬¬t ∧ ¬¬p) ∧ ¬¬p))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 95
+Inicio de programa
+
+Fórmula original: ¬t
+Fórmula en Sat Lineal: ¬t
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 96
+Inicio de programa
+
+Fórmula original: ¬t
+Fórmula en Sat Lineal: ¬t
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 97
+Inicio de programa
+
+Fórmula original: ((¬s ∨ s) ∨ (¬s ∧ ¬t))
+Fórmula en Sat Lineal: ¬(¬¬(¬¬s ∧ ¬s) ∧ ¬(¬s ∧ ¬t))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 98
+Inicio de programa
+
+Fórmula original: ((t → ¬q) → (r → ¬r))
+Fórmula en Sat Lineal: ¬(¬(t ∧ ¬¬q) ∧ ¬¬(r ∧ ¬¬r))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 99
+Inicio de programa
+
+Fórmula original: ((¬q → p) ∧ (t ∧ ¬q))
+Fórmula en Sat Lineal: (¬(¬q ∧ ¬p) ∧ (t ∧ ¬q))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 100
+Inicio de programa
+
+Fórmula original: ((r → (¬s ∧ r)) → ((p ∨ s) ∧ t))
+Fórmula en Sat Lineal: ¬(¬(r ∧ ¬(¬s ∧ r)) ∧ ¬(¬(¬p ∧ ¬s) ∧ t))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 101
+Inicio de programa
+
+Fórmula original: (t ∧ s)
+Fórmula en Sat Lineal: (t ∧ s)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 102
+Inicio de programa
+
+Fórmula original: (s ∧ (q ∨ (p → ¬r)))
+Fórmula en Sat Lineal: (s ∧ ¬(¬q ∧ ¬¬(p ∧ ¬¬r)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 103
+Inicio de programa
+
+Fórmula original: (((¬r → q) → (¬q → ¬t)) → ¬s)
+Fórmula en Sat Lineal: ¬(¬(¬(¬r ∧ ¬q) ∧ ¬¬(¬q ∧ ¬¬t)) ∧ ¬¬s)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 104
+Inicio de programa
+
+Fórmula original: (((¬q → q) → (s ∨ ¬s)) ∧ ((r → s) ∧ t))
+Fórmula en Sat Lineal: (¬(¬(¬q ∧ ¬q) ∧ ¬¬(¬s ∧ ¬¬s)) ∧ (¬(r ∧ ¬s) ∧ t))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 105
+Inicio de programa
+
+Fórmula original: ((¬r ∧ (¬s → t)) → ((t ∨ ¬s) ∧ (q → ¬r)))
+Fórmula en Sat Lineal: ¬((¬r ∧ ¬(¬s ∧ ¬t)) ∧ ¬(¬(¬t ∧ ¬¬s) ∧ ¬(q ∧ ¬¬r)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 106
+Inicio de programa
+
+Fórmula original: (((¬q ∨ p) → (q ∨ ¬q)) → ((¬r ∨ ¬r) ∨ (p → ¬r)))
+Fórmula en Sat Lineal: ¬(¬(¬(¬¬q ∧ ¬p) ∧ ¬¬(¬q ∧ ¬¬q)) ∧ ¬¬(¬¬(¬¬r ∧ ¬¬r) ∧ ¬¬(p ∧ ¬¬r)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 107
+Inicio de programa
+
+Fórmula original: ((t ∧ ¬t) → t)
+Fórmula en Sat Lineal: ¬((t ∧ ¬t) ∧ ¬t)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 108
+Inicio de programa
+
+Fórmula original: (t ∧ (s ∨ ¬p))
+Fórmula en Sat Lineal: (t ∧ ¬(¬s ∧ ¬¬p))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 109
+Inicio de programa
+
+Fórmula original: ((¬t ∨ ¬q) ∧ (s → ¬s))
+Fórmula en Sat Lineal: (¬(¬¬t ∧ ¬¬q) ∧ ¬(s ∧ ¬¬s))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 110
+Inicio de programa
+
+Fórmula original: (((¬r ∨ r) ∧ (q → p)) ∨ (q → (r → q)))
+Fórmula en Sat Lineal: ¬(¬(¬(¬¬r ∧ ¬r) ∧ ¬(q ∧ ¬p)) ∧ ¬¬(q ∧ ¬¬(r ∧ ¬q)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 111
+Inicio de programa
+
+Fórmula original: ((¬p ∧ (¬p ∨ ¬q)) ∧ ¬s)
+Fórmula en Sat Lineal: ((¬p ∧ ¬(¬¬p ∧ ¬¬q)) ∧ ¬s)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 112
+Inicio de programa
+
+Fórmula original: (¬r ∧ (t ∨ p))
+Fórmula en Sat Lineal: (¬r ∧ ¬(¬t ∧ ¬p))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 113
+Inicio de programa
+
+Fórmula original: ¬r
+Fórmula en Sat Lineal: ¬r
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 114
+Inicio de programa
+
+Fórmula original: ¬r
+Fórmula en Sat Lineal: ¬r
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 115
+Inicio de programa
+
+Fórmula original: s
+Fórmula en Sat Lineal: s
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 116
+Inicio de programa
+
+Fórmula original: p
+Fórmula en Sat Lineal: p
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 117
+Inicio de programa
+
+Fórmula original: ((p ∧ ¬p) → (t ∨ s))
+Fórmula en Sat Lineal: ¬((p ∧ ¬p) ∧ ¬¬(¬t ∧ ¬s))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 118
+Inicio de programa
+
+Fórmula original: (((p ∧ p) ∨ (¬q ∨ p)) ∧ ((t ∧ t) → (q → r)))
+Fórmula en Sat Lineal: (¬(¬(p ∧ p) ∧ ¬¬(¬¬q ∧ ¬p)) ∧ ¬((t ∧ t) ∧ ¬¬(q ∧ ¬r)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 119
+Inicio de programa
+
+Fórmula original: (((t ∨ ¬t) → ¬p) ∨ ((s ∨ t) ∨ (t ∧ s)))
+Fórmula en Sat Lineal: ¬(¬¬(¬(¬t ∧ ¬¬t) ∧ ¬¬p) ∧ ¬¬(¬¬(¬s ∧ ¬t) ∧ ¬(t ∧ s)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 120
+Inicio de programa
+
+Fórmula original: (¬s ∨ t)
+Fórmula en Sat Lineal: ¬(¬¬s ∧ ¬t)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 121
+Inicio de programa
+
+Fórmula original: (t ∧ s)
+Fórmula en Sat Lineal: (t ∧ s)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 122
+Inicio de programa
+
+Fórmula original: ((s → (p ∧ t)) ∧ ((¬p ∨ ¬t) ∧ (q → q)))
+Fórmula en Sat Lineal: (¬(s ∧ ¬(p ∧ t)) ∧ (¬(¬¬p ∧ ¬¬t) ∧ ¬(q ∧ ¬q)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 123
+Inicio de programa
+
+Fórmula original: q
+Fórmula en Sat Lineal: q
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 124
+Inicio de programa
+
+Fórmula original: (((¬r → ¬q) ∨ (q ∧ t)) ∨ ¬s)
+Fórmula en Sat Lineal: ¬(¬¬(¬¬(¬r ∧ ¬¬q) ∧ ¬(q ∧ t)) ∧ ¬¬s)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 125
+Inicio de programa
+
+Fórmula original: (((¬r → ¬p) ∨ (p ∧ p)) → ¬p)
+Fórmula en Sat Lineal: ¬(¬(¬¬(¬r ∧ ¬¬p) ∧ ¬(p ∧ p)) ∧ ¬¬p)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 126
+Inicio de programa
+
+Fórmula original: (((¬q ∧ t) → (¬r → ¬p)) ∧ (¬s ∧ (¬q → q)))
+Fórmula en Sat Lineal: (¬((¬q ∧ t) ∧ ¬¬(¬r ∧ ¬¬p)) ∧ (¬s ∧ ¬(¬q ∧ ¬q)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 127
+Inicio de programa
+
+Fórmula original: (((r → s) → (¬s ∧ ¬r)) ∧ ¬r)
+Fórmula en Sat Lineal: (¬(¬(r ∧ ¬s) ∧ ¬(¬s ∧ ¬r)) ∧ ¬r)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 128
+Inicio de programa
+
+Fórmula original: s
+Fórmula en Sat Lineal: s
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 129
+Inicio de programa
+
+Fórmula original: ((¬s ∧ ¬r) ∧ (q → ¬p))
+Fórmula en Sat Lineal: ((¬s ∧ ¬r) ∧ ¬(q ∧ ¬¬p))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 130
+Inicio de programa
+
+Fórmula original: ((¬p ∨ p) ∨ (¬t → t))
+Fórmula en Sat Lineal: ¬(¬¬(¬¬p ∧ ¬p) ∧ ¬¬(¬t ∧ ¬t))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 131
+Inicio de programa
+
+Fórmula original: (((¬q → ¬t) ∧ (¬p → ¬t)) → (p ∨ (¬s → t)))
+Fórmula en Sat Lineal: ¬((¬(¬q ∧ ¬¬t) ∧ ¬(¬p ∧ ¬¬t)) ∧ ¬¬(¬p ∧ ¬¬(¬s ∧ ¬t)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 132
+Inicio de programa
+
+Fórmula original: r
+Fórmula en Sat Lineal: r
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 133
+Inicio de programa
+
+Fórmula original: (¬r ∧ (p ∧ s))
+Fórmula en Sat Lineal: (¬r ∧ (p ∧ s))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 134
+Inicio de programa
+
+Fórmula original: ((r ∧ ¬t) → (¬r ∨ p))
+Fórmula en Sat Lineal: ¬((r ∧ ¬t) ∧ ¬¬(¬¬r ∧ ¬p))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 135
+Inicio de programa
+
+Fórmula original: (¬p ∨ ((p → p) ∧ (¬p ∧ t)))
+Fórmula en Sat Lineal: ¬(¬¬p ∧ ¬(¬(p ∧ ¬p) ∧ (¬p ∧ t)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 136
+Inicio de programa
+
+Fórmula original: (((¬q ∨ q) ∧ (¬t ∧ ¬p)) ∧ ((t ∨ ¬t) ∨ t))
+Fórmula en Sat Lineal: ((¬(¬¬q ∧ ¬q) ∧ (¬t ∧ ¬p)) ∧ ¬(¬¬(¬t ∧ ¬¬t) ∧ ¬t))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 137
+Inicio de programa
+
+Fórmula original: (((¬q ∧ ¬t) → (¬s ∨ p)) ∧ ((r → ¬t) ∨ (p → t)))
+Fórmula en Sat Lineal: (¬((¬q ∧ ¬t) ∧ ¬¬(¬¬s ∧ ¬p)) ∧ ¬(¬¬(r ∧ ¬¬t) ∧ ¬¬(p ∧ ¬t)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 138
+Inicio de programa
+
+Fórmula original: (¬s ∧ (p → s))
+Fórmula en Sat Lineal: (¬s ∧ ¬(p ∧ ¬s))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 139
+Inicio de programa
+
+Fórmula original: ((¬q → ¬r) ∧ (¬s ∧ ¬r))
+Fórmula en Sat Lineal: (¬(¬q ∧ ¬¬r) ∧ (¬s ∧ ¬r))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 140
+Inicio de programa
+
+Fórmula original: p
+Fórmula en Sat Lineal: p
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 141
+Inicio de programa
+
+Fórmula original: (q → ¬q)
+Fórmula en Sat Lineal: ¬(q ∧ ¬¬q)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 142
+Inicio de programa
+
+Fórmula original: ((t ∧ (¬t ∨ r)) → ((q ∨ s) ∧ (¬s ∧ ¬q)))
+Fórmula en Sat Lineal: ¬((t ∧ ¬(¬¬t ∧ ¬r)) ∧ ¬(¬(¬q ∧ ¬s) ∧ (¬s ∧ ¬q)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 143
+Inicio de programa
+
+Fórmula original: ((¬s → ¬t) ∨ (¬t ∨ s))
+Fórmula en Sat Lineal: ¬(¬¬(¬s ∧ ¬¬t) ∧ ¬¬(¬¬t ∧ ¬s))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 144
+Inicio de programa
+
+Fórmula original: ((p ∧ ¬r) ∧ (s ∧ ¬q))
+Fórmula en Sat Lineal: ((p ∧ ¬r) ∧ (s ∧ ¬q))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 145
+Inicio de programa
+
+Fórmula original: (¬t ∧ ((t ∧ s) → (¬s → ¬r)))
+Fórmula en Sat Lineal: (¬t ∧ ¬((t ∧ s) ∧ ¬¬(¬s ∧ ¬¬r)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 146
+Inicio de programa
+
+Fórmula original: (((¬p ∨ s) → ¬t) ∨ ((¬q → ¬q) → (t ∧ ¬q)))
+Fórmula en Sat Lineal: ¬(¬¬(¬(¬¬p ∧ ¬s) ∧ ¬¬t) ∧ ¬¬(¬(¬q ∧ ¬¬q) ∧ ¬(t ∧ ¬q)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 147
+Inicio de programa
+
+Fórmula original: ((r → s) ∧ (r ∨ ¬r))
+Fórmula en Sat Lineal: (¬(r ∧ ¬s) ∧ ¬(¬r ∧ ¬¬r))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 148
+Inicio de programa
+
+Fórmula original: ((¬q → p) ∧ q)
+Fórmula en Sat Lineal: (¬(¬q ∧ ¬p) ∧ q)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 149
+Inicio de programa
+
+Fórmula original: ((q → ¬r) ∧ (q ∧ ¬s))
+Fórmula en Sat Lineal: (¬(q ∧ ¬¬r) ∧ (q ∧ ¬s))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 150
+Inicio de programa
+
+Fórmula original: ((t → p) ∧ (s ∨ ¬q))
+Fórmula en Sat Lineal: (¬(t ∧ ¬p) ∧ ¬(¬s ∧ ¬¬q))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 151
+Inicio de programa
+
+Fórmula original: (((¬t → t) → (p ∧ ¬r)) ∨ (¬s ∧ (s ∨ r)))
+Fórmula en Sat Lineal: ¬(¬¬(¬(¬t ∧ ¬t) ∧ ¬(p ∧ ¬r)) ∧ ¬(¬s ∧ ¬(¬s ∧ ¬r)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 152
+Inicio de programa
+
+Fórmula original: p
+Fórmula en Sat Lineal: p
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 153
+Inicio de programa
+
+Fórmula original: (¬t → ((q → ¬r) → (¬q ∧ ¬r)))
+Fórmula en Sat Lineal: ¬(¬t ∧ ¬¬(¬(q ∧ ¬¬r) ∧ ¬(¬q ∧ ¬r)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 154
+Inicio de programa
+
+Fórmula original: ((q ∨ ¬q) → (¬s ∨ ¬t))
+Fórmula en Sat Lineal: ¬(¬(¬q ∧ ¬¬q) ∧ ¬¬(¬¬s ∧ ¬¬t))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 155
+Inicio de programa
+
+Fórmula original: (((p ∨ ¬t) ∨ ¬r) ∨ ((r → t) → t))
+Fórmula en Sat Lineal: ¬(¬¬(¬¬(¬p ∧ ¬¬t) ∧ ¬¬r) ∧ ¬¬(¬(r ∧ ¬t) ∧ ¬t))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 156
+Inicio de programa
+
+Fórmula original: ¬p
+Fórmula en Sat Lineal: ¬p
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 157
+Inicio de programa
+
+Fórmula original: ((¬t ∨ ¬t) → ¬r)
+Fórmula en Sat Lineal: ¬(¬(¬¬t ∧ ¬¬t) ∧ ¬¬r)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 158
+Inicio de programa
+
+Fórmula original: s
+Fórmula en Sat Lineal: s
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 159
+Inicio de programa
+
+Fórmula original: (((¬t → r) → t) → ((t ∨ ¬t) ∧ (¬q ∧ p)))
+Fórmula en Sat Lineal: ¬(¬(¬(¬t ∧ ¬r) ∧ ¬t) ∧ ¬(¬(¬t ∧ ¬¬t) ∧ (¬q ∧ p)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 160
+Inicio de programa
+
+Fórmula original: (((p → ¬p) → (s ∨ r)) ∨ ((¬q ∨ ¬s) ∨ (q ∧ ¬p)))
+Fórmula en Sat Lineal: ¬(¬¬(¬(p ∧ ¬¬p) ∧ ¬¬(¬s ∧ ¬r)) ∧ ¬¬(¬¬(¬¬q ∧ ¬¬s) ∧ ¬(q ∧ ¬p)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 161
+Inicio de programa
+
+Fórmula original: (((¬r → q) ∧ p) ∧ ((p ∧ ¬s) ∧ (r ∨ ¬q)))
+Fórmula en Sat Lineal: ((¬(¬r ∧ ¬q) ∧ p) ∧ ((p ∧ ¬s) ∧ ¬(¬r ∧ ¬¬q)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 162
+Inicio de programa
+
+Fórmula original: ((¬p ∧ p) ∨ (p ∨ t))
+Fórmula en Sat Lineal: ¬(¬(¬p ∧ p) ∧ ¬¬(¬p ∧ ¬t))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 163
+Inicio de programa
+
+Fórmula original: ((r ∨ t) ∨ (t → ¬p))
+Fórmula en Sat Lineal: ¬(¬¬(¬r ∧ ¬t) ∧ ¬¬(t ∧ ¬¬p))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 164
+Inicio de programa
+
+Fórmula original: (((¬p ∨ t) ∧ (¬r → t)) ∧ s)
+Fórmula en Sat Lineal: ((¬(¬¬p ∧ ¬t) ∧ ¬(¬r ∧ ¬t)) ∧ s)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 165
+Inicio de programa
+
+Fórmula original: s
+Fórmula en Sat Lineal: s
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 166
+Inicio de programa
+
+Fórmula original: ((s ∧ ¬q) ∨ s)
+Fórmula en Sat Lineal: ¬(¬(s ∧ ¬q) ∧ ¬s)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 167
+Inicio de programa
+
+Fórmula original: ((¬s → p) → ¬p)
+Fórmula en Sat Lineal: ¬(¬(¬s ∧ ¬p) ∧ ¬¬p)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 168
+Inicio de programa
+
+Fórmula original: (((¬t ∨ ¬q) ∨ (¬t ∧ ¬t)) → ((¬t ∧ ¬s) ∨ (q ∨ ¬r)))
+Fórmula en Sat Lineal: ¬(¬(¬¬(¬¬t ∧ ¬¬q) ∧ ¬(¬t ∧ ¬t)) ∧ ¬¬(¬(¬t ∧ ¬s) ∧ ¬¬(¬q ∧ ¬¬r)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 169
+Inicio de programa
+
+Fórmula original: q
+Fórmula en Sat Lineal: q
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 170
+Inicio de programa
+
+Fórmula original: ((t ∧ ¬p) ∧ (t ∨ ¬p))
+Fórmula en Sat Lineal: ((t ∧ ¬p) ∧ ¬(¬t ∧ ¬¬p))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 171
+Inicio de programa
+
+Fórmula original: ((¬p ∧ (¬t → ¬p)) → (¬q → (q ∧ ¬q)))
+Fórmula en Sat Lineal: ¬((¬p ∧ ¬(¬t ∧ ¬¬p)) ∧ ¬¬(¬q ∧ ¬(q ∧ ¬q)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 172
+Inicio de programa
+
+Fórmula original: ((¬t → ¬t) → ¬r)
+Fórmula en Sat Lineal: ¬(¬(¬t ∧ ¬¬t) ∧ ¬¬r)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 173
+Inicio de programa
+
+Fórmula original: r
+Fórmula en Sat Lineal: r
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 174
+Inicio de programa
+
+Fórmula original: (((p → s) ∧ (¬t ∧ ¬t)) ∨ (q ∧ ¬q))
+Fórmula en Sat Lineal: ¬(¬(¬(p ∧ ¬s) ∧ (¬t ∧ ¬t)) ∧ ¬(q ∧ ¬q))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 175
+Inicio de programa
+
+Fórmula original: p
+Fórmula en Sat Lineal: p
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 176
+Inicio de programa
+
+Fórmula original: (((¬p → ¬s) → (s → s)) → ((t ∧ ¬p) → (s ∨ ¬t)))
+Fórmula en Sat Lineal: ¬(¬(¬(¬p ∧ ¬¬s) ∧ ¬¬(s ∧ ¬s)) ∧ ¬¬((t ∧ ¬p) ∧ ¬¬(¬s ∧ ¬¬t)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 177
+Inicio de programa
+
+Fórmula original: ((t ∧ ¬s) → r)
+Fórmula en Sat Lineal: ¬((t ∧ ¬s) ∧ ¬r)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 178
+Inicio de programa
+
+Fórmula original: (¬r ∨ (p ∨ q))
+Fórmula en Sat Lineal: ¬(¬¬r ∧ ¬¬(¬p ∧ ¬q))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 179
+Inicio de programa
+
+Fórmula original: ¬s
+Fórmula en Sat Lineal: ¬s
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 180
+Inicio de programa
+
+Fórmula original: ¬r
+Fórmula en Sat Lineal: ¬r
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 181
+Inicio de programa
+
+Fórmula original: ((¬t → (¬q ∧ ¬r)) ∨ ((s → ¬p) ∧ ¬p))
+Fórmula en Sat Lineal: ¬(¬¬(¬t ∧ ¬(¬q ∧ ¬r)) ∧ ¬(¬(s ∧ ¬¬p) ∧ ¬p))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 182
+Inicio de programa
+
+Fórmula original: s
+Fórmula en Sat Lineal: s
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 183
+Inicio de programa
+
+Fórmula original: (((s ∨ r) ∧ (¬r ∧ ¬p)) ∨ ¬s)
+Fórmula en Sat Lineal: ¬(¬(¬(¬s ∧ ¬r) ∧ (¬r ∧ ¬p)) ∧ ¬¬s)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 184
+Inicio de programa
+
+Fórmula original: (((¬q ∧ ¬s) → (s → ¬s)) → ¬p)
+Fórmula en Sat Lineal: ¬(¬((¬q ∧ ¬s) ∧ ¬¬(s ∧ ¬¬s)) ∧ ¬¬p)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 185
+Inicio de programa
+
+Fórmula original: (((r → s) → (¬t ∧ ¬s)) ∧ ((q ∨ ¬q) ∨ ¬r))
+Fórmula en Sat Lineal: (¬(¬(r ∧ ¬s) ∧ ¬(¬t ∧ ¬s)) ∧ ¬(¬¬(¬q ∧ ¬¬q) ∧ ¬¬r))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 186
+Inicio de programa
+
+Fórmula original: (r ∨ ((¬t → t) ∧ (¬r → r)))
+Fórmula en Sat Lineal: ¬(¬r ∧ ¬(¬(¬t ∧ ¬t) ∧ ¬(¬r ∧ ¬r)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 187
+Inicio de programa
+
+Fórmula original: (¬p ∧ (¬p → ¬q))
+Fórmula en Sat Lineal: (¬p ∧ ¬(¬p ∧ ¬¬q))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 188
+Inicio de programa
+
+Fórmula original: (((¬r ∨ q) → (t ∧ r)) → (q → (¬r ∧ r)))
+Fórmula en Sat Lineal: ¬(¬(¬(¬¬r ∧ ¬q) ∧ ¬(t ∧ r)) ∧ ¬¬(q ∧ ¬(¬r ∧ r)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 189
+Inicio de programa
+
+Fórmula original: (((¬p ∨ ¬q) → (¬p → p)) ∨ ¬r)
+Fórmula en Sat Lineal: ¬(¬¬(¬(¬¬p ∧ ¬¬q) ∧ ¬¬(¬p ∧ ¬p)) ∧ ¬¬r)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 190
+Inicio de programa
+
+Fórmula original: (((r ∧ ¬p) → (s → ¬q)) ∧ ¬t)
+Fórmula en Sat Lineal: (¬((r ∧ ¬p) ∧ ¬¬(s ∧ ¬¬q)) ∧ ¬t)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 191
+Inicio de programa
+
+Fórmula original: (((p → ¬q) ∨ (s ∨ ¬r)) → (¬t → (r ∨ r)))
+Fórmula en Sat Lineal: ¬(¬(¬¬(p ∧ ¬¬q) ∧ ¬¬(¬s ∧ ¬¬r)) ∧ ¬¬(¬t ∧ ¬¬(¬r ∧ ¬r)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 192
+Inicio de programa
+
+Fórmula original: ((¬t → p) ∧ (¬r ∧ r))
+Fórmula en Sat Lineal: (¬(¬t ∧ ¬p) ∧ (¬r ∧ r))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 193
+Inicio de programa
+
+Fórmula original: (t ∨ ¬s)
+Fórmula en Sat Lineal: ¬(¬t ∧ ¬¬s)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 194
+Inicio de programa
+
+Fórmula original: (((¬p ∧ ¬r) → (¬q → ¬s)) → ((s ∨ s) → (¬r ∨ ¬q)))
+Fórmula en Sat Lineal: ¬(¬((¬p ∧ ¬r) ∧ ¬¬(¬q ∧ ¬¬s)) ∧ ¬¬(¬(¬s ∧ ¬s) ∧ ¬¬(¬¬r ∧ ¬¬q)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 195
+Inicio de programa
+
+Fórmula original: (((¬t → ¬t) ∨ r) ∨ s)
+Fórmula en Sat Lineal: ¬(¬¬(¬¬(¬t ∧ ¬¬t) ∧ ¬r) ∧ ¬s)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 196
+Inicio de programa
+
+Fórmula original: ¬t
+Fórmula en Sat Lineal: ¬t
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 197
+Inicio de programa
+
+Fórmula original: r
+Fórmula en Sat Lineal: r
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 198
+Inicio de programa
+
+Fórmula original: ((¬p ∧ r) ∧ (¬r → t))
+Fórmula en Sat Lineal: ((¬p ∧ r) ∧ ¬(¬r ∧ ¬t))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 199
+Inicio de programa
+
+Fórmula original: ((¬s ∨ ¬p) ∧ (q ∨ ¬s))
+Fórmula en Sat Lineal: (¬(¬¬s ∧ ¬¬p) ∧ ¬(¬q ∧ ¬¬s))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 200
+Inicio de programa
+
+Fórmula original: (((¬t → ¬r) ∨ (t ∨ ¬t)) ∧ (¬q ∧ ¬p))
+Fórmula en Sat Lineal: (¬(¬¬(¬t ∧ ¬¬r) ∧ ¬¬(¬t ∧ ¬¬t)) ∧ (¬q ∧ ¬p))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 201
+Inicio de programa
+
+Fórmula original: (r → (t ∧ p))
+Fórmula en Sat Lineal: ¬(r ∧ ¬(t ∧ p))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 202
+Inicio de programa
+
+Fórmula original: ((q → s) → ¬t)
+Fórmula en Sat Lineal: ¬(¬(q ∧ ¬s) ∧ ¬¬t)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 203
+Inicio de programa
+
+Fórmula original: ¬s
+Fórmula en Sat Lineal: ¬s
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 204
+Inicio de programa
+
+Fórmula original: ((¬q → s) ∨ ¬q)
+Fórmula en Sat Lineal: ¬(¬¬(¬q ∧ ¬s) ∧ ¬¬q)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 205
+Inicio de programa
+
+Fórmula original: (s ∧ q)
+Fórmula en Sat Lineal: (s ∧ q)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 206
+Inicio de programa
+
+Fórmula original: ¬r
+Fórmula en Sat Lineal: ¬r
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 207
+Inicio de programa
+
+Fórmula original: (((¬s ∧ ¬r) ∨ (¬r ∧ r)) ∨ ¬p)
+Fórmula en Sat Lineal: ¬(¬¬(¬(¬s ∧ ¬r) ∧ ¬(¬r ∧ r)) ∧ ¬¬p)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 208
+Inicio de programa
+
+Fórmula original: ((r ∧ q) ∧ (p ∨ p))
+Fórmula en Sat Lineal: ((r ∧ q) ∧ ¬(¬p ∧ ¬p))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 209
+Inicio de programa
+
+Fórmula original: (¬q ∨ (r → (¬q → q)))
+Fórmula en Sat Lineal: ¬(¬¬q ∧ ¬¬(r ∧ ¬¬(¬q ∧ ¬q)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 210
+Inicio de programa
+
+Fórmula original: ((¬s ∧ ¬r) ∧ r)
+Fórmula en Sat Lineal: ((¬s ∧ ¬r) ∧ r)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 211
+Inicio de programa
+
+Fórmula original: ((¬q ∨ ¬q) → (¬r ∧ ¬t))
+Fórmula en Sat Lineal: ¬(¬(¬¬q ∧ ¬¬q) ∧ ¬(¬r ∧ ¬t))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 212
+Inicio de programa
+
+Fórmula original: ((r → t) → (t ∨ q))
+Fórmula en Sat Lineal: ¬(¬(r ∧ ¬t) ∧ ¬¬(¬t ∧ ¬q))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 213
+Inicio de programa
+
+Fórmula original: ((¬s ∧ ¬p) ∨ (¬t → ¬q))
+Fórmula en Sat Lineal: ¬(¬(¬s ∧ ¬p) ∧ ¬¬(¬t ∧ ¬¬q))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 214
+Inicio de programa
+
+Fórmula original: ¬p
+Fórmula en Sat Lineal: ¬p
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 215
+Inicio de programa
+
+Fórmula original: ((¬q → ¬p) → t)
+Fórmula en Sat Lineal: ¬(¬(¬q ∧ ¬¬p) ∧ ¬t)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 216
+Inicio de programa
+
+Fórmula original: (q → ((¬t ∨ t) → (r ∨ r)))
+Fórmula en Sat Lineal: ¬(q ∧ ¬¬(¬(¬¬t ∧ ¬t) ∧ ¬¬(¬r ∧ ¬r)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 217
+Inicio de programa
+
+Fórmula original: ((s → t) → (t → ¬p))
+Fórmula en Sat Lineal: ¬(¬(s ∧ ¬t) ∧ ¬¬(t ∧ ¬¬p))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 218
+Inicio de programa
+
+Fórmula original: ((q ∨ ¬s) → (t ∧ s))
+Fórmula en Sat Lineal: ¬(¬(¬q ∧ ¬¬s) ∧ ¬(t ∧ s))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 219
+Inicio de programa
+
+Fórmula original: ((¬s → r) ∧ r)
+Fórmula en Sat Lineal: (¬(¬s ∧ ¬r) ∧ r)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 220
+Inicio de programa
+
+Fórmula original: ((¬t ∧ ¬r) ∨ (p → ¬t))
+Fórmula en Sat Lineal: ¬(¬(¬t ∧ ¬r) ∧ ¬¬(p ∧ ¬¬t))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 221
+Inicio de programa
+
+Fórmula original: r
+Fórmula en Sat Lineal: r
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 222
+Inicio de programa
+
+Fórmula original: ((p → ¬p) → p)
+Fórmula en Sat Lineal: ¬(¬(p ∧ ¬¬p) ∧ ¬p)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 223
+Inicio de programa
+
+Fórmula original: (((¬s ∧ p) ∧ (s ∧ r)) → ((¬t → ¬t) → ¬r))
+Fórmula en Sat Lineal: ¬(((¬s ∧ p) ∧ (s ∧ r)) ∧ ¬¬(¬(¬t ∧ ¬¬t) ∧ ¬¬r))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 224
+Inicio de programa
+
+Fórmula original: (¬q ∨ (r → (q → q)))
+Fórmula en Sat Lineal: ¬(¬¬q ∧ ¬¬(r ∧ ¬¬(q ∧ ¬q)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 225
+Inicio de programa
+
+Fórmula original: (((p ∨ q) ∨ ¬q) → ((s ∨ p) ∨ (¬p ∧ ¬s)))
+Fórmula en Sat Lineal: ¬(¬(¬¬(¬p ∧ ¬q) ∧ ¬¬q) ∧ ¬¬(¬¬(¬s ∧ ¬p) ∧ ¬(¬p ∧ ¬s)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 226
+Inicio de programa
+
+Fórmula original: (((¬s → r) ∧ (s → ¬r)) ∨ ¬r)
+Fórmula en Sat Lineal: ¬(¬(¬(¬s ∧ ¬r) ∧ ¬(s ∧ ¬¬r)) ∧ ¬¬r)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 227
+Inicio de programa
+
+Fórmula original: (((q → r) ∨ (¬s ∨ t)) ∧ ((¬t ∧ p) ∨ (¬s ∧ ¬s)))
+Fórmula en Sat Lineal: (¬(¬¬(q ∧ ¬r) ∧ ¬¬(¬¬s ∧ ¬t)) ∧ ¬(¬(¬t ∧ p) ∧ ¬(¬s ∧ ¬s)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 228
+Inicio de programa
+
+Fórmula original: (((¬r → r) ∧ (¬r ∨ q)) → (p ∨ (s ∧ p)))
+Fórmula en Sat Lineal: ¬((¬(¬r ∧ ¬r) ∧ ¬(¬¬r ∧ ¬q)) ∧ ¬¬(¬p ∧ ¬(s ∧ p)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 229
+Inicio de programa
+
+Fórmula original: s
+Fórmula en Sat Lineal: s
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 230
+Inicio de programa
+
+Fórmula original: (((r ∧ ¬s) → (¬q ∧ r)) → ((¬t ∨ ¬p) ∨ (¬q ∨ p)))
+Fórmula en Sat Lineal: ¬(¬((r ∧ ¬s) ∧ ¬(¬q ∧ r)) ∧ ¬¬(¬¬(¬¬t ∧ ¬¬p) ∧ ¬¬(¬¬q ∧ ¬p)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 231
+Inicio de programa
+
+Fórmula original: ¬t
+Fórmula en Sat Lineal: ¬t
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 232
+Inicio de programa
+
+Fórmula original: (((s ∧ p) ∨ (t ∨ s)) → ((s → ¬t) ∧ ¬s))
+Fórmula en Sat Lineal: ¬(¬(¬(s ∧ p) ∧ ¬¬(¬t ∧ ¬s)) ∧ ¬(¬(s ∧ ¬¬t) ∧ ¬s))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 233
+Inicio de programa
+
+Fórmula original: (((¬q ∧ ¬p) → (¬t ∨ ¬t)) ∨ p)
+Fórmula en Sat Lineal: ¬(¬¬((¬q ∧ ¬p) ∧ ¬¬(¬¬t ∧ ¬¬t)) ∧ ¬p)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 234
+Inicio de programa
+
+Fórmula original: (r ∨ (¬p → p))
+Fórmula en Sat Lineal: ¬(¬r ∧ ¬¬(¬p ∧ ¬p))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 235
+Inicio de programa
+
+Fórmula original: ((¬r ∧ r) ∨ (q → p))
+Fórmula en Sat Lineal: ¬(¬(¬r ∧ r) ∧ ¬¬(q ∧ ¬p))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 236
+Inicio de programa
+
+Fórmula original: (¬r ∧ (s → p))
+Fórmula en Sat Lineal: (¬r ∧ ¬(s ∧ ¬p))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 237
+Inicio de programa
+
+Fórmula original: s
+Fórmula en Sat Lineal: s
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 238
+Inicio de programa
+
+Fórmula original: ((¬r → q) ∨ ¬s)
+Fórmula en Sat Lineal: ¬(¬¬(¬r ∧ ¬q) ∧ ¬¬s)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 239
+Inicio de programa
+
+Fórmula original: ((¬s → q) ∧ (t ∧ ¬r))
+Fórmula en Sat Lineal: (¬(¬s ∧ ¬q) ∧ (t ∧ ¬r))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 240
+Inicio de programa
+
+Fórmula original: p
+Fórmula en Sat Lineal: p
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 241
+Inicio de programa
+
+Fórmula original: ((p ∧ (t ∨ ¬s)) ∧ ((r ∨ q) ∨ (p ∧ s)))
+Fórmula en Sat Lineal: ((p ∧ ¬(¬t ∧ ¬¬s)) ∧ ¬(¬¬(¬r ∧ ¬q) ∧ ¬(p ∧ s)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 242
+Inicio de programa
+
+Fórmula original: ((p ∧ t) → (¬t → ¬r))
+Fórmula en Sat Lineal: ¬((p ∧ t) ∧ ¬¬(¬t ∧ ¬¬r))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 243
+Inicio de programa
+
+Fórmula original: (((r ∨ r) ∧ t) ∨ ((q → ¬s) ∧ s))
+Fórmula en Sat Lineal: ¬(¬(¬(¬r ∧ ¬r) ∧ t) ∧ ¬(¬(q ∧ ¬¬s) ∧ s))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 244
+Inicio de programa
+
+Fórmula original: ((¬s ∨ ¬s) ∧ (¬q ∨ r))
+Fórmula en Sat Lineal: (¬(¬¬s ∧ ¬¬s) ∧ ¬(¬¬q ∧ ¬r))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 245
+Inicio de programa
+
+Fórmula original: (q ∧ ((t ∧ t) → (t ∨ p)))
+Fórmula en Sat Lineal: (q ∧ ¬((t ∧ t) ∧ ¬¬(¬t ∧ ¬p)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 246
+Inicio de programa
+
+Fórmula original: (((¬r ∨ q) → r) ∨ ¬r)
+Fórmula en Sat Lineal: ¬(¬¬(¬(¬¬r ∧ ¬q) ∧ ¬r) ∧ ¬¬r)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 247
+Inicio de programa
+
+Fórmula original: ((q → ¬q) ∧ (¬q → ¬s))
+Fórmula en Sat Lineal: (¬(q ∧ ¬¬q) ∧ ¬(¬q ∧ ¬¬s))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 248
+Inicio de programa
+
+Fórmula original: ((¬s → (¬r ∨ ¬r)) ∧ (¬s ∨ ¬q))
+Fórmula en Sat Lineal: (¬(¬s ∧ ¬¬(¬¬r ∧ ¬¬r)) ∧ ¬(¬¬s ∧ ¬¬q))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 249
+Inicio de programa
+
+Fórmula original: ¬s
+Fórmula en Sat Lineal: ¬s
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 250
+Inicio de programa
+
+Fórmula original: (((t ∨ p) ∨ (¬q → t)) ∧ ((¬s ∧ ¬t) → q))
+Fórmula en Sat Lineal: (¬(¬¬(¬t ∧ ¬p) ∧ ¬¬(¬q ∧ ¬t)) ∧ ¬((¬s ∧ ¬t) ∧ ¬q))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 251
+Inicio de programa
+
+Fórmula original: ¬q
+Fórmula en Sat Lineal: ¬q
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 252
+Inicio de programa
+
+Fórmula original: ¬q
+Fórmula en Sat Lineal: ¬q
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 253
+Inicio de programa
+
+Fórmula original: ((¬t ∧ s) → p)
+Fórmula en Sat Lineal: ¬((¬t ∧ s) ∧ ¬p)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 254
+Inicio de programa
+
+Fórmula original: ((r ∧ s) ∧ (¬p → ¬p))
+Fórmula en Sat Lineal: ((r ∧ s) ∧ ¬(¬p ∧ ¬¬p))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 255
+Inicio de programa
+
+Fórmula original: (((¬t → r) ∨ r) ∨ ((s ∨ p) ∧ s))
+Fórmula en Sat Lineal: ¬(¬¬(¬¬(¬t ∧ ¬r) ∧ ¬r) ∧ ¬(¬(¬s ∧ ¬p) ∧ s))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 256
+Inicio de programa
+
+Fórmula original: (((r ∨ ¬q) ∨ (p → p)) ∧ ((¬r ∨ ¬s) → (¬s ∨ s)))
+Fórmula en Sat Lineal: (¬(¬¬(¬r ∧ ¬¬q) ∧ ¬¬(p ∧ ¬p)) ∧ ¬(¬(¬¬r ∧ ¬¬s) ∧ ¬¬(¬¬s ∧ ¬s)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 257
+Inicio de programa
+
+Fórmula original: ¬q
+Fórmula en Sat Lineal: ¬q
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 258
+Inicio de programa
+
+Fórmula original: ((¬p → ¬t) → (¬t ∧ ¬s))
+Fórmula en Sat Lineal: ¬(¬(¬p ∧ ¬¬t) ∧ ¬(¬t ∧ ¬s))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 259
+Inicio de programa
+
+Fórmula original: (¬s ∧ ((¬s ∨ t) ∧ (¬p → ¬s)))
+Fórmula en Sat Lineal: (¬s ∧ (¬(¬¬s ∧ ¬t) ∧ ¬(¬p ∧ ¬¬s)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 260
+Inicio de programa
+
+Fórmula original: ((¬q ∨ r) → (¬t → t))
+Fórmula en Sat Lineal: ¬(¬(¬¬q ∧ ¬r) ∧ ¬¬(¬t ∧ ¬t))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 261
+Inicio de programa
+
+Fórmula original: ((t → ¬s) ∨ (q → r))
+Fórmula en Sat Lineal: ¬(¬¬(t ∧ ¬¬s) ∧ ¬¬(q ∧ ¬r))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 262
+Inicio de programa
+
+Fórmula original: (((¬r → q) → (¬t ∧ ¬p)) ∨ ¬q)
+Fórmula en Sat Lineal: ¬(¬¬(¬(¬r ∧ ¬q) ∧ ¬(¬t ∧ ¬p)) ∧ ¬¬q)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 263
+Inicio de programa
+
+Fórmula original: ((q → ¬s) → (¬q ∨ (p ∧ t)))
+Fórmula en Sat Lineal: ¬(¬(q ∧ ¬¬s) ∧ ¬¬(¬¬q ∧ ¬(p ∧ t)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 264
+Inicio de programa
+
+Fórmula original: (((s ∧ q) ∧ (r ∧ q)) ∧ (s ∧ ¬p))
+Fórmula en Sat Lineal: (((s ∧ q) ∧ (r ∧ q)) ∧ (s ∧ ¬p))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 265
+Inicio de programa
+
+Fórmula original: ¬t
+Fórmula en Sat Lineal: ¬t
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 266
+Inicio de programa
+
+Fórmula original: (t → ((s → ¬t) ∨ (¬t ∧ ¬p)))
+Fórmula en Sat Lineal: ¬(t ∧ ¬¬(¬¬(s ∧ ¬¬t) ∧ ¬(¬t ∧ ¬p)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 267
+Inicio de programa
+
+Fórmula original: (((¬t ∨ q) ∧ (¬p ∨ s)) → ((¬q → r) ∧ (¬r ∨ s)))
+Fórmula en Sat Lineal: ¬((¬(¬¬t ∧ ¬q) ∧ ¬(¬¬p ∧ ¬s)) ∧ ¬(¬(¬q ∧ ¬r) ∧ ¬(¬¬r ∧ ¬s)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 268
+Inicio de programa
+
+Fórmula original: ((r ∧ p) → ¬r)
+Fórmula en Sat Lineal: ¬((r ∧ p) ∧ ¬¬r)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 269
+Inicio de programa
+
+Fórmula original: ¬r
+Fórmula en Sat Lineal: ¬r
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 270
+Inicio de programa
+
+Fórmula original: (¬p → ((¬p ∨ s) ∨ t))
+Fórmula en Sat Lineal: ¬(¬p ∧ ¬¬(¬¬(¬¬p ∧ ¬s) ∧ ¬t))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 271
+Inicio de programa
+
+Fórmula original: (r → (¬q ∨ t))
+Fórmula en Sat Lineal: ¬(r ∧ ¬¬(¬¬q ∧ ¬t))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 272
+Inicio de programa
+
+Fórmula original: (((¬q ∧ ¬s) ∨ r) ∧ ((¬r → p) ∨ (q ∨ ¬r)))
+Fórmula en Sat Lineal: (¬(¬(¬q ∧ ¬s) ∧ ¬r) ∧ ¬(¬¬(¬r ∧ ¬p) ∧ ¬¬(¬q ∧ ¬¬r)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 273
+Inicio de programa
+
+Fórmula original: t
+Fórmula en Sat Lineal: t
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 274
+Inicio de programa
+
+Fórmula original: ((p ∨ ¬p) ∧ (¬q ∧ ¬t))
+Fórmula en Sat Lineal: (¬(¬p ∧ ¬¬p) ∧ (¬q ∧ ¬t))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 275
+Inicio de programa
+
+Fórmula original: ¬p
+Fórmula en Sat Lineal: ¬p
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 276
+Inicio de programa
+
+Fórmula original: ((q ∧ (s ∨ ¬q)) → (t → (¬r ∨ s)))
+Fórmula en Sat Lineal: ¬((q ∧ ¬(¬s ∧ ¬¬q)) ∧ ¬¬(t ∧ ¬¬(¬¬r ∧ ¬s)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 277
+Inicio de programa
+
+Fórmula original: (¬p ∧ (¬r ∧ ¬p))
+Fórmula en Sat Lineal: (¬p ∧ (¬r ∧ ¬p))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 278
+Inicio de programa
+
+Fórmula original: (¬p ∧ (r ∨ ¬p))
+Fórmula en Sat Lineal: (¬p ∧ ¬(¬r ∧ ¬¬p))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 279
+Inicio de programa
+
+Fórmula original: ((p ∨ q) ∧ (s ∨ q))
+Fórmula en Sat Lineal: (¬(¬p ∧ ¬q) ∧ ¬(¬s ∧ ¬q))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 280
+Inicio de programa
+
+Fórmula original: (((q → ¬q) ∧ (q ∨ r)) → ((r ∧ ¬p) → (¬q → s)))
+Fórmula en Sat Lineal: ¬((¬(q ∧ ¬¬q) ∧ ¬(¬q ∧ ¬r)) ∧ ¬¬((r ∧ ¬p) ∧ ¬¬(¬q ∧ ¬s)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 281
+Inicio de programa
+
+Fórmula original: (((¬p → ¬s) ∧ (¬s → t)) ∨ p)
+Fórmula en Sat Lineal: ¬(¬(¬(¬p ∧ ¬¬s) ∧ ¬(¬s ∧ ¬t)) ∧ ¬p)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 282
+Inicio de programa
+
+Fórmula original: p
+Fórmula en Sat Lineal: p
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 283
+Inicio de programa
+
+Fórmula original: (((q → ¬s) ∨ (t ∧ ¬r)) ∧ ((¬s → s) → (t → s)))
+Fórmula en Sat Lineal: (¬(¬¬(q ∧ ¬¬s) ∧ ¬(t ∧ ¬r)) ∧ ¬(¬(¬s ∧ ¬s) ∧ ¬¬(t ∧ ¬s)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 284
+Inicio de programa
+
+Fórmula original: t
+Fórmula en Sat Lineal: t
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 285
+Inicio de programa
+
+Fórmula original: (((¬p → ¬r) ∧ (¬t ∨ ¬p)) → ((p ∨ ¬q) ∧ (¬r → t)))
+Fórmula en Sat Lineal: ¬((¬(¬p ∧ ¬¬r) ∧ ¬(¬¬t ∧ ¬¬p)) ∧ ¬(¬(¬p ∧ ¬¬q) ∧ ¬(¬r ∧ ¬t)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 286
+Inicio de programa
+
+Fórmula original: (((t → ¬q) ∨ (¬q ∧ ¬r)) ∨ ((p ∧ s) ∧ (¬t ∧ ¬r)))
+Fórmula en Sat Lineal: ¬(¬¬(¬¬(t ∧ ¬¬q) ∧ ¬(¬q ∧ ¬r)) ∧ ¬((p ∧ s) ∧ (¬t ∧ ¬r)))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 287
+Inicio de programa
+
+Fórmula original: ¬q
+Fórmula en Sat Lineal: ¬q
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 288
+Inicio de programa
+
+Fórmula original: ((p → q) → (p ∨ s))
+Fórmula en Sat Lineal: ¬(¬(p ∧ ¬q) ∧ ¬¬(¬p ∧ ¬s))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 289
+Inicio de programa
+
+Fórmula original: (¬q → ¬p)
+Fórmula en Sat Lineal: ¬(¬q ∧ ¬¬p)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 290
+Inicio de programa
+
+Fórmula original: (((q → q) → (r ∨ ¬q)) → ¬r)
+Fórmula en Sat Lineal: ¬(¬(¬(q ∧ ¬q) ∧ ¬¬(¬r ∧ ¬¬q)) ∧ ¬¬r)
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 291
+Inicio de programa
+
+Fórmula original: ((¬p ∧ s) → (r → ¬s))
+Fórmula en Sat Lineal: ¬((¬p ∧ s) ∧ ¬¬(r ∧ ¬¬s))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 292
+Inicio de programa
+
+Fórmula original: (¬t ∨ t)
+Fórmula en Sat Lineal: ¬(¬¬t ∧ ¬t)
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 293
+Inicio de programa
+
+Fórmula original: ¬q
+Fórmula en Sat Lineal: ¬q
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 294
+Inicio de programa
+
+Fórmula original: ((¬t ∨ p) ∧ (q ∧ t))
+Fórmula en Sat Lineal: (¬(¬¬t ∧ ¬p) ∧ (q ∧ t))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 295
+Inicio de programa
+
+Fórmula original: (s → (t ∨ (r ∧ ¬q)))
+Fórmula en Sat Lineal: ¬(s ∧ ¬¬(¬t ∧ ¬(r ∧ ¬q)))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 296
+Inicio de programa
+
+Fórmula original: ((p → q) ∨ (¬q ∧ ¬q))
+Fórmula en Sat Lineal: ¬(¬¬(p ∧ ¬q) ∧ ¬(¬q ∧ ¬q))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 297
+Inicio de programa
+
+Fórmula original: t
+Fórmula en Sat Lineal: t
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 298
+Inicio de programa
+
+Fórmula original: ((¬s → q) ∧ (s ∧ p))
+Fórmula en Sat Lineal: (¬(¬s ∧ ¬q) ∧ (s ∧ p))
+SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 299
+Inicio de programa
+
+Fórmula original: ((¬t → s) ∧ (¬t ∧ ¬t))
+Fórmula en Sat Lineal: (¬(¬t ∧ ¬s) ∧ (¬t ∧ ¬t))
+NO-SATISFACIBLE
+
+==========================================
+===> Ejecutando prueba 300
+Inicio de programa
+
+Fórmula original: (((r → q) ∨ ¬t) ∨ ((s ∨ ¬t) ∧ p))
+Fórmula en Sat Lineal: ¬(¬¬(¬¬(r ∧ ¬q) ∧ ¬¬t) ∧ ¬(¬(¬s ∧ ¬¬t) ∧ p))
+SATISFACIBLE
+
+==========================================

@@ -1,0 +1,1 @@
+$((t \rightarrow \neg q) \rightarrow (r \rightarrow \neg r))$

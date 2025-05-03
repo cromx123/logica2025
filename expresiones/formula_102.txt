@@ -1,0 +1,1 @@
+$(s \wedge (q \vee (p \rightarrow \neg r)))$

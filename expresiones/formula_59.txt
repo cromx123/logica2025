@@ -1,0 +1,1 @@
+$(\neg p \wedge (p \vee (\neg s \rightarrow \neg r)))$

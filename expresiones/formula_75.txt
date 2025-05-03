@@ -1,0 +1,1 @@
+$(t \rightarrow ((\neg r \rightarrow \neg p) \rightarrow r))$

@@ -1,0 +1,1 @@
+$(\neg r \rightarrow (\neg r \vee s))$

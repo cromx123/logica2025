@@ -1,0 +1,1 @@
+$(((\neg r \rightarrow \neg r) \rightarrow \neg r) \wedge ((q \rightarrow \neg p) \vee (\neg s \rightarrow t)))$

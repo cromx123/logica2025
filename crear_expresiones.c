@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-const char *vars[] = {"p", "q", "r", "s", "t"};
+const char *vars[] = {"p", "q", "r", "s", "t", "aa", "x1", "x2"};
 const char *ops[] = {" \\wedge ", " \\vee ", " \\rightarrow "};
 
 void Usage(char *mess) {
@@ -17,9 +17,9 @@ void generar_formula(FILE *f, int profundidad) {
     if (profundidad == 0 || tipo == 0) {
         // Variable o negación de variable
         if (rand() % 2 == 0) {
-            fprintf(f, "%s", vars[rand() % 5]);
+            fprintf(f, "%s", vars[rand() % 8]);
         } else {
-            fprintf(f, "\\neg %s", vars[rand() % 5]);
+            fprintf(f, "\\neg %s", vars[rand() % 8]);
         }
     } else {
         fprintf(f, "(");
@@ -47,7 +47,7 @@ int main(int argc, char **argv) {
             }
 
             fprintf(f, "$");
-            generar_formula(f, 2 + rand() % 2);  // Profundidad entre 2 y 3
+            generar_formula(f, 2 + rand() % 4);  // Profundidad entre 2 y 3
             fprintf(f, "$\n");
 
             fclose(f);

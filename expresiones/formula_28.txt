@@ -1,0 +1,1 @@
+$((r \wedge \neg t) \rightarrow (r \vee s))$

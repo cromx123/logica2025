@@ -1,0 +1,1 @@
+$((s \rightarrow t) \rightarrow (t \rightarrow \neg p))$

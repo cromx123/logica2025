@@ -1,0 +1,1 @@
+$(((\neg s \rightarrow r) \wedge (s \rightarrow \neg r)) \vee \neg r)$

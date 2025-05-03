@@ -1,0 +1,1 @@
+$((\neg s \vee s) \vee (\neg s \wedge \neg t))$

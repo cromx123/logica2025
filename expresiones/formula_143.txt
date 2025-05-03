@@ -1,0 +1,1 @@
+$((\neg s \rightarrow \neg t) \vee (\neg t \vee s))$

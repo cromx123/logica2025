@@ -1,0 +1,1 @@
+$((s \wedge s) \wedge (\neg t \wedge r))$

@@ -1,0 +1,1 @@
+$((\neg q \wedge q) \vee (t \vee \neg r))$

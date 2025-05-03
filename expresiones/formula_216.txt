@@ -1,0 +1,1 @@
+$(q \rightarrow ((\neg t \vee t) \rightarrow (r \vee r)))$

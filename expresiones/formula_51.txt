@@ -1,0 +1,1 @@
+$(((q \vee \neg t) \wedge (q \wedge p)) \wedge ((q \vee q) \rightarrow (\neg t \vee r)))$

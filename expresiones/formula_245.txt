@@ -1,0 +1,1 @@
+$(q \wedge ((t \wedge t) \rightarrow (t \vee p)))$

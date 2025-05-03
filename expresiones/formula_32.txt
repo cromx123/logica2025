@@ -1,0 +1,1 @@
+$(((r \rightarrow t) \vee t) \vee ((t \rightarrow q) \vee t))$

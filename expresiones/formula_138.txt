@@ -1,0 +1,1 @@
+$(\neg s \wedge (p \rightarrow s))$

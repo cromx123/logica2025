@@ -1,0 +1,1 @@
+$((r \rightarrow (\neg s \wedge r)) \rightarrow ((p \vee s) \wedge t))$

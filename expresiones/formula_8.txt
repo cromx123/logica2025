@@ -1,1 +1,1 @@
-$\neg s$
+$((r \vee s) \wedge (r \vee t))$
