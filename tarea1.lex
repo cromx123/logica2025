@@ -112,7 +112,7 @@ Nodo* conjuncion(Nodo *a, Nodo *b) {
     return nuevo;
 }
 
-Nodo* empujar_negaciones(Nodo *nodo) {
+/* Nodo* empujar_negaciones(Nodo *nodo) {
     if (!nodo) return NULL;
 
     switch (nodo->tipo) {
@@ -189,8 +189,9 @@ Nodo* convertir_cnf(Nodo *nodo) {
 
     return copiar_nodo(nodo); // VAR o NEG(VAR)
 }
+ */
 
-// Traducción
+ // Traducción
 Nodo* traducir(Nodo *nodo) {
     if (!nodo) return NULL;
 
@@ -205,14 +206,14 @@ Nodo* traducir(Nodo *nodo) {
             return conjuncion(traducir(nodo->izq), traducir(nodo->der));
 
         case OR: {
-            // T(φ1 ∨ φ2) = ¬(¬T(φ1) ∧ ¬T(φ2))
+            // T(1 ∨ 2) = ¬(¬T(1) ∧ ¬T(2))
             Nodo *izq_t = traducir(nodo->izq);
             Nodo *der_t = traducir(nodo->der);
             return negacion(conjuncion(negacion(izq_t), negacion(der_t)));
         }
 
         case IMPLIES: {
-            // T(φ1 → φ2) = ¬(T(φ1) ∧ ¬T(φ2))
+            // T(1 → 2) = ¬(T(1) ∧ ¬T(2))
             Nodo *izq_t = traducir(nodo->izq);
             Nodo *der_t = traducir(nodo->der);
             return negacion(conjuncion(izq_t, negacion(der_t)));
@@ -222,6 +223,78 @@ Nodo* traducir(Nodo *nodo) {
             return NULL;
     }
 }
+
+int eval(Nodo *n, char **vars, int *vals, int n_vars) {
+    if (!n) return 0;
+
+    switch (n->tipo) {
+        case VAR:
+            for (int i = 0; i < n_vars; ++i) {
+                if (strcmp(vars[i], n->nombre) == 0)
+                    return vals[i];
+            }
+            return 0;
+
+        case NEG:
+            return !eval(n->izq, vars, vals, n_vars);
+
+        case AND:
+            return eval(n->izq, vars, vals, n_vars) && eval(n->der, vars, vals, n_vars);
+
+        case OR:
+            return eval(n->izq, vars, vals, n_vars) || eval(n->der, vars, vals, n_vars);
+
+        case IMPLIES: {
+            int a = eval(n->izq, vars, vals, n_vars);
+            int b = eval(n->der, vars, vals, n_vars);
+            return !a || b;
+        }
+
+        case TOP: return 1;
+        case BOT: return 0;
+    }
+    return 0;
+}
+
+void recolectar_vars(Nodo *n, char **vars, int *n_vars) {
+    if (!n) return;
+    if (n->tipo == VAR) {
+        for (int i = 0; i < *n_vars; ++i) {
+            if (strcmp(vars[i], n->nombre) == 0) return; // ya está
+        }
+        vars[*n_vars] = n->nombre;
+        (*n_vars)++;
+    } else {
+        recolectar_vars(n->izq, vars, n_vars);
+        recolectar_vars(n->der, vars, n_vars);
+    }
+}
+
+int es_satisfacible(Nodo *n) {
+    char *vars[10];
+    int vals[10]; // toma valores 1 o 0 si es verdadero o falso
+    int n_vars = 0;
+
+    recolectar_vars(n, vars, &n_vars);
+
+    int total = 1 << n_vars; // 2^n_vars combinaciones
+
+    for (int i = 0; i < total; ++i) {
+        for (int j = 0; j < n_vars; ++j)
+            vals[j] = (i >> j) & 1;
+
+        if (eval(n, vars, vals, n_vars)) {
+            printf("SAT con: ");
+            for (int j = 0; j < n_vars; ++j)
+                printf("%s=%d ", vars[j], vals[j]);
+            printf("\n");
+            return 1;
+        }
+    }
+
+    return 0;
+}
+
 
 
 void imprimir_formula_original() {
@@ -288,12 +361,19 @@ int main(int argc, char **argv) {
     printf("Fórmula en Sat Lineal: ");
     imprimir_nodo(traducida);
     printf("\n");
-    
-    Nodo *sin_neg = empujar_negaciones(traducida); // ¬ distribuidas
-    Nodo *cnf = convertir_cnf(sin_neg); // forma final CNF
 
-    printf("Fórmula en CNF: ");
-    imprimir_nodo(cnf);
-    printf("\n");
+    
+    // Nodo *sin_neg = empujar_negaciones(traducida); // ¬ distribuidas
+    // Nodo *cnf = convertir_cnf(sin_neg); // forma final CNF
+    // printf("Fórmula en CNF: ");
+    // imprimir_nodo(cnf);
+    // printf("\n");
+
+    if (es_satisfacible(traducida) == 1) {
+        printf("SATISFACIBLE\n");
+    } else {
+        printf("NO-SATISFACIBLE\n");
+    }    
+
     return 0;
 }

@@ -1,1 +1,1 @@
-$(p \vee q) \rightarrow (r \wedge s)$
+$((p \vee q) \wedge (\neg p \vee r)) \rightarrow (q \vee r)$
