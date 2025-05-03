@@ -1,0 +1,1 @@
+$((\neg q \vee (\neg p \wedge p)) \rightarrow \neg q)$

@@ -1,0 +1,1 @@
+$((\neg r \rightarrow q) \rightarrow (q \vee p))$

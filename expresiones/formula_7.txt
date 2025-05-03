@@ -1,0 +1,1 @@
+$((\neg t \rightarrow \neg q) \wedge (t \vee \neg r))$

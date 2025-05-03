@@ -1,1 +1,1 @@
-$((p \rightarrow q) \wedge (q \rightarrow r)) \rightarrow (p \rightarrow r)$
+$(p \vee q) \rightarrow (r \wedge s)$

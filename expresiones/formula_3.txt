@@ -1,0 +1,1 @@
+$(p \rightarrow ((s \rightarrow \neg p) \vee (\neg r \rightarrow q)))$

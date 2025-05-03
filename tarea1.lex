@@ -257,9 +257,10 @@ int eval(Nodo *n, char **vars, int *vals, int n_vars) {
 }
 
 void recolectar_vars(Nodo *n, char **vars, int *n_vars) {
+    int i;
     if (!n) return;
     if (n->tipo == VAR) {
-        for (int i = 0; i < *n_vars; ++i) {
+        for (i = 0; i < *n_vars; ++i) {
             if (strcmp(vars[i], n->nombre) == 0) return; // ya está
         }
         vars[*n_vars] = n->nombre;
@@ -274,25 +275,19 @@ int es_satisfacible(Nodo *n) {
     char *vars[10];
     int vals[10]; // toma valores 1 o 0 si es verdadero o falso
     int n_vars = 0;
-
+    int result, total, i, j;
     recolectar_vars(n, vars, &n_vars);
 
-    int total = 1 << n_vars; // 2^n_vars combinaciones
+    total = 1 << n_vars; // 2^n_vars combinaciones
 
-    for (int i = 0; i < total; ++i) {
-        for (int j = 0; j < n_vars; ++j)
+    for (i = 0; i < total; ++i) {
+        for (j = 0; j < n_vars; ++j)
             vals[j] = (i >> j) & 1;
 
-        if (eval(n, vars, vals, n_vars)) {
-            printf("SAT con: ");
-            for (int j = 0; j < n_vars; ++j)
-                printf("%s=%d ", vars[j], vals[j]);
-            printf("\n");
-            return 1;
-        }
+        result = eval(n, vars, vals, n_vars);
     }
 
-    return 0;
+    return result;
 }
 
 

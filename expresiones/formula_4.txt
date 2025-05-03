@@ -1,0 +1,1 @@
+$((p \wedge s) \rightarrow \neg r)$
