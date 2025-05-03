@@ -351,8 +351,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 14
-#define YY_END_OF_BUFFER 15
+#define YY_NUM_RULES 15
+#define YY_END_OF_BUFFER 16
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -362,8 +362,8 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[43] =
     {   0,
-        0,    0,   15,   13,   11,   12,   11,   13,    7,    8,
-       13,    9,   10,    0,    0,    0,    0,    0,    0,    9,
+        0,    0,   16,   14,   12,   13,   12,   11,    7,    8,
+       14,    9,   10,    0,    0,    0,    0,    0,    0,    9,
         0,    0,    0,    0,    0,    0,    6,    1,    0,    5,
         3,    0,    0,    0,    0,    2,    0,    0,    0,    0,
         4,    0
@@ -474,36 +474,256 @@ char *yytext;
  *
  **************************************************************************************/
 
- #include <stdio.h>
- #include <stdlib.h>
- #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-struct Atomos {
-    char *id;
-    unsigned int marcado; /* 0 o 1 */
-};
+#define MAX_TOKENS 100
+char *tokens[MAX_TOKENS];
+int num_tokens = 0;
 
-struct Clausula {
-    struct Atomos **antecedente;
-    struct Atomos *consecuencia;
-};
-
-struct Formulas {
-    struct Clausula **clausulas;
-    int num_clausulas;
-};
-
-struct Formulas **Resultado;
-struct Formulas formula;
-
-int traduccion(){
-    printf("Soy la traduccion\n");
+void agregar_token(const char *tok) {
+    tokens[num_tokens++] = strdup(tok);
 }
-int alg_satisfacible(){
-    return 1;
+
+// === TIPOS DE NODOS ===
+typedef enum {
+    VAR, NEG, AND, OR, IMPLIES, TOP, BOT
+} TipoNodo;
+
+// === NODO DEL ARBOL ===
+typedef struct Nodo {
+    TipoNodo tipo;
+    char *nombre;          
+    struct Nodo *izq;
+    struct Nodo *der;
+} Nodo;
+
+int pos = 0;
+
+// === FUNCIONES AUXILIARES ===
+
+
+Nodo *crear_nodo(TipoNodo tipo, Nodo *izq, Nodo *der, const char *nombre) {
+    Nodo *n = malloc(sizeof(Nodo));
+    n->tipo = tipo;
+    n->izq = izq;
+    n->der = der;
+    if (nombre)
+        n->nombre = strdup(nombre);
+    else
+        n->nombre = NULL;
+    return n;
 }
-#line 506 "lex.yy.c"
-#line 507 "lex.yy.c"
+
+
+// Parseo recursivo básico
+Nodo *parse_formula();
+
+Nodo *parse_atom() {
+    char *tok = tokens[pos++];
+    if (strcmp(tok, "(") == 0) {
+        Nodo *n = parse_formula();
+        pos++; // saltar ')'
+        return n;
+    } else if (strcmp(tok, "NEG") == 0) {
+        Nodo *n = parse_atom();
+        return crear_nodo(NEG, n, NULL, NULL);
+    } else {
+        return crear_nodo(VAR, NULL, NULL, tok);
+    }
+}
+
+Nodo *parse_formula() {
+    Nodo *izq = parse_atom();
+    if (pos >= num_tokens) return izq;
+
+    char *tok = tokens[pos];
+    if (strcmp(tok, "AND") == 0 || strcmp(tok, "OR") == 0 || strcmp(tok, "IMPLIES") == 0) {
+        pos++;
+        Nodo *der = parse_formula();
+        if (strcmp(tok, "AND") == 0) return crear_nodo(AND, izq, der, NULL);
+        if (strcmp(tok, "OR") == 0) return crear_nodo(OR, izq, der, NULL);
+        if (strcmp(tok, "IMPLIES") == 0) return crear_nodo(IMPLIES, izq, der, NULL);
+    }
+    return izq;
+}
+
+
+Nodo* copiar_nodo(Nodo *nodo) {
+    Nodo *nuevo = (Nodo*)malloc(sizeof(Nodo));
+    nuevo->tipo = nodo->tipo;
+    nuevo->nombre = nodo->nombre ? strdup(nodo->nombre) : NULL;
+    nuevo->izq = nodo->izq ? copiar_nodo(nodo->izq) : NULL;
+    nuevo->der = nodo->der ? copiar_nodo(nodo->der) : NULL;
+    return nuevo;
+}
+
+Nodo* copiar_nodo(Nodo *nodo);
+
+Nodo* negacion(Nodo *hijo) {
+    Nodo *nuevo = (Nodo*)malloc(sizeof(Nodo));
+    nuevo->tipo = NEG;
+    nuevo->nombre = NULL;
+    nuevo->izq = hijo;
+    nuevo->der = NULL;
+    return nuevo;
+}
+
+Nodo* conjuncion(Nodo *a, Nodo *b) {
+    Nodo *nuevo = (Nodo*)malloc(sizeof(Nodo));
+    nuevo->tipo = AND;
+    nuevo->nombre = NULL;
+    nuevo->izq = a;
+    nuevo->der = b;
+    return nuevo;
+}
+
+Nodo* empujar_negaciones(Nodo *nodo) {
+    if (!nodo) return NULL;
+
+    switch (nodo->tipo) {
+        case VAR:
+            return copiar_nodo(nodo);
+
+        case AND:
+        case OR:
+            return crear_nodo(nodo->tipo,
+                              empujar_negaciones(nodo->izq),
+                              empujar_negaciones(nodo->der),
+                              NULL);
+
+        case NEG: {
+            Nodo *sub = nodo->izq;
+            if (sub->tipo == VAR) {
+                return copiar_nodo(nodo);  // ¬p
+            } else if (sub->tipo == NEG) {
+                // ¬(¬φ) → φ
+                return empujar_negaciones(sub->izq);
+            } else if (sub->tipo == AND) {
+                // ¬(φ ∧ ψ) → ¬φ ∨ ¬ψ
+                return crear_nodo(OR,
+                        empujar_negaciones(negacion(sub->izq)),
+                        empujar_negaciones(negacion(sub->der)),
+                        NULL);
+            } else if (sub->tipo == OR) {
+                // ¬(φ ∨ ψ) → ¬φ ∧ ¬ψ
+                return crear_nodo(AND,
+                        empujar_negaciones(negacion(sub->izq)),
+                        empujar_negaciones(negacion(sub->der)),
+                        NULL);
+            }
+            break;
+        }
+        default:
+            return NULL;
+    }
+    return NULL;
+}
+
+Nodo* distribuir_o(Nodo *a, Nodo *b) {
+    // Distribuir: (a ∨ (b1 ∧ b2)) => (a ∨ b1) ∧ (a ∨ b2)
+    if (a->tipo == AND) {
+        return crear_nodo(AND,
+            distribuir_o(a->izq, b),
+            distribuir_o(a->der, b),
+            NULL);
+    }
+    if (b->tipo == AND) {
+        return crear_nodo(AND,
+            distribuir_o(a, b->izq),
+            distribuir_o(a, b->der),
+            NULL);
+    }
+    return crear_nodo(OR, a, b, NULL);
+}
+
+Nodo* convertir_cnf(Nodo *nodo) {
+    if (!nodo) return NULL;
+
+    if (nodo->tipo == AND) {
+        return crear_nodo(AND,
+            convertir_cnf(nodo->izq),
+            convertir_cnf(nodo->der),
+            NULL);
+    }
+
+    if (nodo->tipo == OR) {
+        Nodo *izq = convertir_cnf(nodo->izq);
+        Nodo *der = convertir_cnf(nodo->der);
+        return distribuir_o(izq, der);
+    }
+
+    return copiar_nodo(nodo); // VAR o NEG(VAR)
+}
+
+// Traducción
+Nodo* traducir(Nodo *nodo) {
+    if (!nodo) return NULL;
+
+    switch (nodo->tipo) {
+        case VAR:
+            return copiar_nodo(nodo);
+
+        case NEG:
+            return negacion(traducir(nodo->izq));
+
+        case AND:
+            return conjuncion(traducir(nodo->izq), traducir(nodo->der));
+
+        case OR: {
+            // T(φ1 ∨ φ2) = ¬(¬T(φ1) ∧ ¬T(φ2))
+            Nodo *izq_t = traducir(nodo->izq);
+            Nodo *der_t = traducir(nodo->der);
+            return negacion(conjuncion(negacion(izq_t), negacion(der_t)));
+        }
+
+        case IMPLIES: {
+            // T(φ1 → φ2) = ¬(T(φ1) ∧ ¬T(φ2))
+            Nodo *izq_t = traducir(nodo->izq);
+            Nodo *der_t = traducir(nodo->der);
+            return negacion(conjuncion(izq_t, negacion(der_t)));
+        }
+
+        default:
+            return NULL;
+    }
+}
+
+
+void imprimir_formula_original() {
+    printf("Tokens leídos:\n");
+    for (int i = 0; i < num_tokens; ++i) {
+        printf("%s ", tokens[i]);
+    }
+    printf("\n");
+}
+
+void imprimir_nodo(Nodo *n) {
+    if (!n) return;
+    switch (n->tipo) {
+        case VAR: printf("%s", n->nombre); break;
+        case TOP: printf("\u22A4"); break;
+        case BOT: printf("\u22A5"); break;
+        case NEG:
+            printf("¬");
+            imprimir_nodo(n->izq);
+            break;
+        case AND:
+            printf("("); imprimir_nodo(n->izq); printf(" ∧ "); imprimir_nodo(n->der); printf(")");
+            break;
+        case OR:
+            printf("("); imprimir_nodo(n->izq); printf(" ∨ "); imprimir_nodo(n->der); printf(")");
+            break;
+        case IMPLIES:
+            printf("("); imprimir_nodo(n->izq); printf(" → "); imprimir_nodo(n->der); printf(")");
+            break;
+    }
+}
+
+
+#line 726 "lex.yy.c"
+#line 727 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -720,9 +940,9 @@ YY_DECL
 		}
 
 	{
-#line 40 "tarea1.lex"
+#line 260 "tarea1.lex"
 
-#line 726 "lex.yy.c"
+#line 946 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -781,76 +1001,81 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 41 "tarea1.lex"
-{ printf("NEG "); }
+#line 261 "tarea1.lex"
+{ agregar_token("NEG"); }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 42 "tarea1.lex"
-{ printf("AND "); }
+#line 262 "tarea1.lex"
+{ agregar_token("AND"); }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 43 "tarea1.lex"
-{ printf("OR ");}
+#line 263 "tarea1.lex"
+{ agregar_token("OR"); }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 44 "tarea1.lex"
-{ printf("IMPLIES "); }
+#line 264 "tarea1.lex"
+{ agregar_token("IMPLIES"); }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 45 "tarea1.lex"
-{ printf("T ");}
+#line 265 "tarea1.lex"
+{ agregar_token("TOP"); }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 46 "tarea1.lex"
-{ printf("⊥ ");}
+#line 266 "tarea1.lex"
+{ agregar_token("BOT"); }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 47 "tarea1.lex"
-{ printf("( "); }
+#line 267 "tarea1.lex"
+{ agregar_token("("); }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 48 "tarea1.lex"
-{ printf(") "); }
+#line 268 "tarea1.lex"
+{ agregar_token(")"); }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 49 "tarea1.lex"
-{ printf("%s ", yytext); }
+#line 269 "tarea1.lex"
+{ agregar_token(yytext);}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 50 "tarea1.lex"
-{ /* ignora los delimitadores $$ */ }
+#line 270 "tarea1.lex"
+{ /* ignora $$ */ }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 51 "tarea1.lex"
-{ /* ignora espacios */ }
+#line 271 "tarea1.lex"
+{ /**/}
 	YY_BREAK
 case 12:
-/* rule 12 can match eol */
 YY_RULE_SETUP
-#line 52 "tarea1.lex"
-{ printf("\n");} 
+#line 272 "tarea1.lex"
+{ /* ignora espacios */ }
 	YY_BREAK
 case 13:
+/* rule 13 can match eol */
 YY_RULE_SETUP
-#line 53 "tarea1.lex"
-{ printf("UNKNOWN: %s\n", yytext); }
+#line 273 "tarea1.lex"
+{ printf("\n");} 
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 54 "tarea1.lex"
+#line 274 "tarea1.lex"
+{ printf("UNKNOWN: %s\n", yytext); }
+	YY_BREAK
+case 15:
+YY_RULE_SETUP
+#line 275 "tarea1.lex"
 ECHO;
 	YY_BREAK
-#line 854 "lex.yy.c"
+#line 1079 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1855,23 +2080,29 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 54 "tarea1.lex"
+#line 275 "tarea1.lex"
 
 
 
 
 int main(int argc, char **argv) {
-
     printf("Inicio de programa\n");
     yylex();
+    Nodo *arbol = parse_formula();
+    printf("Fórmula original: ");
+    imprimir_nodo(arbol);
     printf("\n");
-    if (alg_satisfacible()==1){
-        printf("SATISFACIBLE\n");
-    }if(alg_satisfacible()==0){
-        printf("NO-SATISFACIBLE\n");
-    }else{
-        printf("NO-SOLUTION\n");
-    }
+
+    Nodo *traducida = traducir(arbol);  // transforma OR e IMPLIES
+    printf("Fórmula en Sat Lineal: ");
+    imprimir_nodo(traducida);
+    printf("\n");
     
+    Nodo *sin_neg = empujar_negaciones(traducida); // ¬ distribuidas
+    Nodo *cnf = convertir_cnf(sin_neg); // forma final CNF
+
+    printf("Fórmula en CNF: ");
+    imprimir_nodo(cnf);
+    printf("\n");
     return 0;
 }
