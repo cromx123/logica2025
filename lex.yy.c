@@ -608,9 +608,9 @@ struct Nodo* copiar_nodo(struct Nodo *nodo) {
     }
 
     if (nodo->der != NULL){
-        nodo->der = copiar_nodo(nodo->der);
+        nuevo->der = copiar_nodo(nodo->der);
     }else{
-        nodo->der = NULL;
+        nuevo->der = NULL;
     }
     return nuevo;
 }
@@ -635,7 +635,7 @@ struct Nodo* conjuncion(struct Nodo *a, struct Nodo *b) {
     return nuevo;
 }
 
-/* struct Nodo* empujar_negaciones(struct Nodo *nodo) {
+struct Nodo* empujar_negaciones(struct Nodo *nodo) {
     if (!nodo) return NULL;
 
     switch (nodo->tipo) {
@@ -708,7 +708,6 @@ struct Nodo* convertir_cnf(struct Nodo *nodo) {
 
     return copiar_nodo(nodo);
 }
- */
 
  // Traducción
 struct Nodo* traducir(struct Nodo *nodo) {
@@ -874,9 +873,15 @@ void free_tokens(){
     }
     free(tokens);
 }
-
-#line 879 "lex.yy.c"
-#line 880 "lex.yy.c"
+void liberar_arbol(struct Nodo *n) {
+    if (!n) return;
+    liberar_arbol(n->izq);
+    liberar_arbol(n->der);
+    if (n->nombre) free(n->nombre);
+    free(n);
+}
+#line 884 "lex.yy.c"
+#line 885 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -1093,9 +1098,9 @@ YY_DECL
 		}
 
 	{
-#line 413 "tarea1.lex"
+#line 418 "tarea1.lex"
 
-#line 1099 "lex.yy.c"
+#line 1104 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -1154,81 +1159,81 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 414 "tarea1.lex"
+#line 419 "tarea1.lex"
 { agregar_token("NEG"); }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 415 "tarea1.lex"
+#line 420 "tarea1.lex"
 { agregar_token("AND"); }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 416 "tarea1.lex"
+#line 421 "tarea1.lex"
 { agregar_token("OR"); }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 417 "tarea1.lex"
+#line 422 "tarea1.lex"
 { agregar_token("IMPLIES"); }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 418 "tarea1.lex"
+#line 423 "tarea1.lex"
 { agregar_token("TOP"); }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 419 "tarea1.lex"
+#line 424 "tarea1.lex"
 { agregar_token("BOT"); }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 420 "tarea1.lex"
+#line 425 "tarea1.lex"
 { agregar_token("("); }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 421 "tarea1.lex"
+#line 426 "tarea1.lex"
 { agregar_token(")"); }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 422 "tarea1.lex"
+#line 427 "tarea1.lex"
 { agregar_token(yytext);}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 423 "tarea1.lex"
+#line 428 "tarea1.lex"
 { /* ignora $$ */ }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 424 "tarea1.lex"
+#line 429 "tarea1.lex"
 { /**/}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 425 "tarea1.lex"
+#line 430 "tarea1.lex"
 { /* ignora espacios */ }
 	YY_BREAK
 case 13:
 /* rule 13 can match eol */
 YY_RULE_SETUP
-#line 426 "tarea1.lex"
+#line 431 "tarea1.lex"
 { printf("\n");} 
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 427 "tarea1.lex"
+#line 432 "tarea1.lex"
 { printf("UNKNOWN: %s\n", yytext); }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 428 "tarea1.lex"
+#line 433 "tarea1.lex"
 ECHO;
 	YY_BREAK
-#line 1232 "lex.yy.c"
+#line 1237 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2233,7 +2238,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 428 "tarea1.lex"
+#line 433 "tarea1.lex"
 
 
 
@@ -2252,18 +2257,22 @@ int main(int argc, char **argv) {
     printf("\n");
 
     
-    // struct Nodo *sin_neg = empujar_negaciones(traducida);
-    // struct Nodo *cnf = convertir_cnf(sin_neg);
-    // printf("Fórmula en CNF: ");
-    // imprimir_nodo(cnf);
-    // printf("\n");
+    struct Nodo *sin_neg = empujar_negaciones(traducida);
+    struct Nodo *cnf = convertir_cnf(sin_neg);
+    printf("Fórmula en CNF: ");
+    imprimir_nodo(cnf);
+    printf("\n");
 
-    if (es_satisfacible(traducida) == 1) {
+    if (es_satisfacible(cnf) == 1) {
         printf("SATISFACIBLE\n");
     } else {
         printf("NO-SATISFACIBLE\n");
     }    
     // Libera memoria asignada para los tokens
     free_tokens();
+    liberar_arbol(arbol);
+    liberar_arbol(traducida);
+    liberar_arbol(sin_neg);
+    liberar_arbol(cnf);
     return 0;
 }

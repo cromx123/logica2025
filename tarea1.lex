@@ -141,9 +141,9 @@ struct Nodo* copiar_nodo(struct Nodo *nodo) {
     }
 
     if (nodo->der != NULL){
-        nodo->der = copiar_nodo(nodo->der);
+        nuevo->der = copiar_nodo(nodo->der);
     }else{
-        nodo->der = NULL;
+        nuevo->der = NULL;
     }
     return nuevo;
 }
@@ -168,7 +168,7 @@ struct Nodo* conjuncion(struct Nodo *a, struct Nodo *b) {
     return nuevo;
 }
 
-/* struct Nodo* empujar_negaciones(struct Nodo *nodo) {
+struct Nodo* empujar_negaciones(struct Nodo *nodo) {
     if (!nodo) return NULL;
 
     switch (nodo->tipo) {
@@ -241,7 +241,6 @@ struct Nodo* convertir_cnf(struct Nodo *nodo) {
 
     return copiar_nodo(nodo);
 }
- */
 
  // Traducción
 struct Nodo* traducir(struct Nodo *nodo) {
@@ -407,7 +406,13 @@ void free_tokens(){
     }
     free(tokens);
 }
-
+void liberar_arbol(struct Nodo *n) {
+    if (!n) return;
+    liberar_arbol(n->izq);
+    liberar_arbol(n->der);
+    if (n->nombre) free(n->nombre);
+    free(n);
+}
 %}
 
 %%a
@@ -443,18 +448,22 @@ int main(int argc, char **argv) {
     printf("\n");
 
     
-    // struct Nodo *sin_neg = empujar_negaciones(traducida);
-    // struct Nodo *cnf = convertir_cnf(sin_neg);
-    // printf("Fórmula en CNF: ");
-    // imprimir_nodo(cnf);
-    // printf("\n");
+    struct Nodo *sin_neg = empujar_negaciones(traducida);
+    struct Nodo *cnf = convertir_cnf(sin_neg);
+    printf("Fórmula en CNF: ");
+    imprimir_nodo(cnf);
+    printf("\n");
 
-    if (es_satisfacible(traducida) == 1) {
+    if (es_satisfacible(cnf) == 1) {
         printf("SATISFACIBLE\n");
     } else {
         printf("NO-SATISFACIBLE\n");
     }    
     // Libera memoria asignada para los tokens
     free_tokens();
+    liberar_arbol(arbol);
+    liberar_arbol(traducida);
+    liberar_arbol(sin_neg);
+    liberar_arbol(cnf);
     return 0;
 }
