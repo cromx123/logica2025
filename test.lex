@@ -68,6 +68,32 @@ int pos = 0;
 
 // === FUNCIONES AUXILIARES ===
 
+char* clave_nodo(int tipo, struct Nodo* izq, struct Nodo* der, char* nombre) {
+    char* clave = malloc(256);
+    snprintf(clave, 256, "%c_%p_%p_%s", tipo, izq, der, nombre ? nombre : ""); 
+    return clave;
+}
+
+struct NodoMemo {
+    char* clave;
+    struct Nodo *nodo;
+};
+
+struct NodoMemo memo[1000];
+int memo_size = 0;
+
+struct Nodo* buscar_en_memo(char* clave) {
+    for (int i = 0; i < memo_size; i++) {
+        if (strcmp(memo[i].clave, clave) == 0) return memo[i].nodo;
+    }
+    return NULL;
+}
+
+void guardar_en_memo(char* clave, struct Nodo* nodo) {
+    memo[memo_size].clave = clave;
+    memo[memo_size].nodo = nodo;
+    memo_size++;
+}
 
 struct Nodo *crear_nodo(TipoNodo tipo, struct Nodo *izq, struct Nodo *der, const char *nombre) {
     struct Nodo *n = malloc(sizeof(struct Nodo));
@@ -84,6 +110,20 @@ struct Nodo *crear_nodo(TipoNodo tipo, struct Nodo *izq, struct Nodo *der, const
     return n;
 }
 
+struct Nodo* crear_nodo_dag(char tipo, struct Nodo* izq, struct Nodo* der, char* nombre) {
+    char* clave = clave_nodo(tipo, izq, der, nombre);
+    struct Nodo* existente = buscar_en_memo(clave);
+    if (existente != NULL) {
+        free(clave); // evitamos fugas de memoria
+        return existente;
+    }
+
+    struct Nodo* nuevo = crear_nodo(tipo, izq, der, nombre);
+    guardar_en_memo(clave, nuevo);
+    return nuevo;
+}
+
+
 
 // Parseo recursivo básico
 struct Nodo *parse_formula();
@@ -97,9 +137,9 @@ struct Nodo *parse_atom() {
         return n;
     } else if (strcmp(tok, "NEG") == 0) {
         struct Nodo *n = parse_atom();
-        return crear_nodo(NEG, n, NULL, NULL);
+        return crear_nodo_dag(NEG, n, NULL, NULL);
     } else {
-        return crear_nodo(VAR, NULL, NULL, tok);
+        return crear_nodo_dag(VAR, NULL, NULL, tok);
     }
 }
 
@@ -113,9 +153,9 @@ struct Nodo *parse_formula() {
     if (strcmp(tok, "AND") == 0 || strcmp(tok, "OR") == 0 || strcmp(tok, "IMPLIES") == 0) {
         pos = pos + 1;
         struct Nodo *der = parse_formula();
-        if (strcmp(tok, "AND") == 0) return crear_nodo(AND, izq, der, NULL);
-        if (strcmp(tok, "OR") == 0) return crear_nodo(OR, izq, der, NULL);
-        if (strcmp(tok, "IMPLIES") == 0) return crear_nodo(IMPLIES, izq, der, NULL);
+        if (strcmp(tok, "AND") == 0) return crear_nodo_dag(AND, izq, der, NULL);
+        if (strcmp(tok, "OR") == 0) return crear_nodo_dag(OR, izq, der, NULL);
+        if (strcmp(tok, "IMPLIES") == 0) return crear_nodo_dag(IMPLIES, izq, der, NULL);
     }
     return izq;
 }
@@ -123,49 +163,18 @@ struct Nodo *parse_formula() {
 struct Nodo* copiar_nodo(struct Nodo *nodo);
 
 struct Nodo* copiar_nodo(struct Nodo *nodo) {
-    struct Nodo *nuevo = malloc(sizeof(struct Nodo));
-    nuevo->tipo = nodo->tipo;
-
-    if (nodo->nombre) {
-        nuevo->nombre = malloc(strlen(nodo->nombre) + 1);
-        if (nuevo->nombre)
-            strcpy(nuevo->nombre, nodo->nombre);
-    } else {
-        nuevo->nombre = NULL;
-    }
-
-    if (nodo->izq != NULL) {
-        nuevo->izq = copiar_nodo(nodo->izq);
-    } else {
-        nuevo->izq = NULL;
-    }
-
-    if (nodo->der != NULL){
-        
-    }else{
-        nuevo->der = NULL;
-    }
-    return nuevo;
+    if (!nodo) return NULL;
+    return crear_nodo_dag(nodo->tipo, nodo->izq, nodo->der, nodo->nombre);
 }
 
 
 
 struct Nodo* negacion(struct Nodo *hijo) {
-    struct Nodo *nuevo = (struct Nodo*)malloc(sizeof(struct Nodo));
-    nuevo->tipo = NEG;
-    nuevo->nombre = NULL;
-    nuevo->izq = hijo;
-    nuevo->der = NULL;
-    return nuevo;
+    return crear_nodo_dag(NEG, hijo, NULL, NULL);
 }
 
 struct Nodo* conjuncion(struct Nodo *a, struct Nodo *b) {
-    struct Nodo *nuevo = (struct Nodo*)malloc(sizeof(struct Nodo));
-    nuevo->tipo = AND;
-    nuevo->nombre = NULL;
-    nuevo->izq = a;
-    nuevo->der = b;
-    return nuevo;
+    return crear_nodo_dag(AND, a, b, NULL);
 }
 
 struct Nodo* empujar_negaciones(struct Nodo *nodo) {
@@ -177,7 +186,7 @@ struct Nodo* empujar_negaciones(struct Nodo *nodo) {
 
         case AND:
         case OR:
-            return crear_nodo(nodo->tipo,
+            return crear_nodo_dag(nodo->tipo,
                               empujar_negaciones(nodo->izq),
                               empujar_negaciones(nodo->der),
                               NULL);
@@ -189,12 +198,12 @@ struct Nodo* empujar_negaciones(struct Nodo *nodo) {
             } else if (sub->tipo == NEG) {
                 return empujar_negaciones(sub->izq);
             } else if (sub->tipo == AND) {
-                return crear_nodo(OR,
+                return crear_nodo_dag(OR,
                         empujar_negaciones(negacion(sub->izq)),
                         empujar_negaciones(negacion(sub->der)),
                         NULL);
             } else if (sub->tipo == OR) {
-                return crear_nodo(AND,
+                return crear_nodo_dag(AND,
                         empujar_negaciones(negacion(sub->izq)),
                         empujar_negaciones(negacion(sub->der)),
                         NULL);
@@ -209,25 +218,25 @@ struct Nodo* empujar_negaciones(struct Nodo *nodo) {
 
 struct Nodo* distribuir_o(struct Nodo *a, struct Nodo *b) {
     if (a->tipo == AND) {
-        return crear_nodo(AND,
+        return crear_nodo_dag(AND,
             distribuir_o(a->izq, b),
             distribuir_o(a->der, b),
             NULL);
     }
     if (b->tipo == AND) {
-        return crear_nodo(AND,
+        return crear_nodo_dag(AND,
             distribuir_o(a, b->izq),
             distribuir_o(a, b->der),
             NULL);
     }
-    return crear_nodo(OR, a, b, NULL);
+    return crear_nodo_dag(OR, a, b, NULL);
 }
 
 struct Nodo* convertir_cnf(struct Nodo *nodo) {
     if (!nodo) return NULL;
 
     if (nodo->tipo == AND) {
-        return crear_nodo(AND,
+        return crear_nodo_dag(AND,
             convertir_cnf(nodo->izq),
             convertir_cnf(nodo->der),
             NULL);
@@ -413,9 +422,20 @@ void liberar_arbol(struct Nodo *n) {
     if (!n) return;
     liberar_arbol(n->izq);
     liberar_arbol(n->der);
+    printf("Liberando nodo: %p, nombre: %s\n", (void*)n, n->nombre ? n->nombre : "(null)");
     if (n->nombre) free(n->nombre);
     free(n);
 }
+void liberar_memo() {
+    for (int i = 0; i < memo_size; i++) {
+        if (memo[i].nodo->nombre)
+            free(memo[i].nodo->nombre);
+        free(memo[i].nodo);
+        free(memo[i].clave);
+    }
+    memo_size = 0;
+}
+
 %}
 
 %%a
@@ -438,6 +458,7 @@ void liberar_arbol(struct Nodo *n) {
 
 
 int main(int argc, char **argv) {
+    printf("Soy un Test\n");
     printf("Inicio de programa\n");
     yylex();
     struct Nodo *arbol = parse_formula();
@@ -463,10 +484,8 @@ int main(int argc, char **argv) {
         printf("NO-SATISFACIBLE\n");
     }    
     // Libera memoria asignada para los tokens
-    free_tokens();
-    liberar_arbol(arbol);
-    liberar_arbol(traducida);
-    liberar_arbol(sin_neg);
-    liberar_arbol(cnf);
+    // free_tokens();
+    // liberar_arbol(cnf);
+    liberar_memo();
     return 0;
 }

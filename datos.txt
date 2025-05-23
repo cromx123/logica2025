@@ -10,3 +10,5 @@ $$((p \vee q) \rightarrow r) \wedge (\neg r \rightarrow \bot)$$
 $$(p \rightarrow q) \rightarrow (r \rightarrow s)$$
 $$(p \wedge (q \rightarrow r)) \rightarrow (s \vee t)$$
 $$(\top \rightarrow p) \wedge (\neg p \rightarrow \bot)$$
+$$(p \wedge q) \wedge (\neg p \vee \neg q)$$
+$$p \wedge \neg p$$

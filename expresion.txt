@@ -1,1 +1,1 @@
-$(p1 \wedge p2 \rightarrow \bot) \wedge (p2 \rightarrow p1) \wedge (\top \rightarrow p2)$
+$(p \wedge q) \wedge (\neg p \vee \neg q)
