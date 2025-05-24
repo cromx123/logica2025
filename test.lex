@@ -12,15 +12,13 @@
 #include <string.h>
 
 char **tokens = NULL;
-int num_tokens = 0;
-int capacidad_tokens = 0;
-int pos = 0;
+int num_tokens = 0, capacidad_tokens = 0, pos = 0, memo_size = 0;
 /*
 *
 *
 */
 void agregar_token(const char *tok) {
-    int i, nueva_capacidad;
+    int i, nueva_capacidad, len;
     char **nuevo_espacio;
     if (num_tokens >= capacidad_tokens) {
         if(capacidad_tokens == 0) {
@@ -38,7 +36,7 @@ void agregar_token(const char *tok) {
         tokens = nuevo_espacio;
         capacidad_tokens = nueva_capacidad;
     }
-    int len = strlen(tok);
+    len = strlen(tok);
     tokens[num_tokens] = calloc(len + 1, sizeof(char));
 
     for (i = 0; i < len; i = i + 1) {
@@ -71,7 +69,7 @@ struct NodoMemo {
 };
 
 struct NodoMemo memo[1000];
-int memo_size = 0;
+
 
 int son_iguales(const char *a, const char *b) {
     while (*a && *b) {
