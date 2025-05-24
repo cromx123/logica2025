@@ -492,11 +492,7 @@ void agregar_token(const char *tok) {
             nueva_capacidad = capacidad_tokens * 2;
         }
 
-        nuevo_espacio = malloc(nueva_capacidad * sizeof(char *));
-        if (nuevo_espacio == NULL) {
-            fprintf(stderr, "Error al asignar memoria para tokens\n");
-            exit(EXIT_FAILURE);
-        }
+        char **nuevo_espacio = calloc(nueva_capacidad, sizeof(char *));
 
         // Copiar los punteros existentes
         for (i = 0; i < num_tokens; i = i + 1) {
@@ -507,14 +503,12 @@ void agregar_token(const char *tok) {
         tokens = nuevo_espacio;
         capacidad_tokens = nueva_capacidad;
     }
+    int len = strlen(tok);
+    tokens[num_tokens] = calloc(len + 1, sizeof(char));
 
-    tokens[num_tokens] = malloc(strlen(tok) + 1);
-    if (tokens[num_tokens] == NULL) {
-        fprintf(stderr, "Error al asignar memoria para token\n");
-        exit(EXIT_FAILURE);
+    for (i = 0; i < len; i++) {
+        tokens[num_tokens][i] = tok[i];
     }
-
-    strcpy(tokens[num_tokens], tok);
     num_tokens = num_tokens + 1;
 }
 
@@ -550,7 +544,7 @@ struct NodoMemo memo[1000];
 int memo_size = 0;
 
 struct Nodo* buscar_en_memo(char* clave) {
-    for (int i = 0; i < memo_size; i++) {
+    for (int i = 0; i < memo_size; i = i + 1) {
         if (strcmp(memo[i].clave, clave) == 0) return memo[i].nodo;
     }
     return NULL;
@@ -559,7 +553,7 @@ struct Nodo* buscar_en_memo(char* clave) {
 void guardar_en_memo(char* clave, struct Nodo* nodo) {
     memo[memo_size].clave = clave;
     memo[memo_size].nodo = nodo;
-    memo_size++;
+    memo_size = memo_size + 1;
 }
 
 struct Nodo *crear_nodo(TipoNodo tipo, struct Nodo *izq, struct Nodo *der, const char *nombre) {
@@ -894,7 +888,7 @@ void liberar_arbol(struct Nodo *n) {
     free(n);
 }
 void liberar_memo() {
-    for (int i = 0; i < memo_size; i++) {
+    for (int i = 0; i < memo_size; i = i + 1) {
         if (memo[i].nodo->nombre)
             free(memo[i].nodo->nombre);
         free(memo[i].nodo);
@@ -903,8 +897,8 @@ void liberar_memo() {
     memo_size = 0;
 }
 
-#line 907 "lex.yy.c"
-#line 908 "lex.yy.c"
+#line 901 "lex.yy.c"
+#line 902 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -1121,9 +1115,9 @@ YY_DECL
 		}
 
 	{
-#line 441 "test.lex"
+#line 435 "test.lex"
 
-#line 1127 "lex.yy.c"
+#line 1121 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -1182,81 +1176,81 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 442 "test.lex"
+#line 436 "test.lex"
 { agregar_token("NEG"); }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 443 "test.lex"
+#line 437 "test.lex"
 { agregar_token("AND"); }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 444 "test.lex"
+#line 438 "test.lex"
 { agregar_token("OR"); }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 445 "test.lex"
+#line 439 "test.lex"
 { agregar_token("IMPLIES"); }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 446 "test.lex"
+#line 440 "test.lex"
 { agregar_token("TOP"); }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 447 "test.lex"
+#line 441 "test.lex"
 { agregar_token("BOT"); }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 448 "test.lex"
+#line 442 "test.lex"
 { agregar_token("("); }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 449 "test.lex"
+#line 443 "test.lex"
 { agregar_token(")"); }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 450 "test.lex"
+#line 444 "test.lex"
 { agregar_token(yytext);}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 451 "test.lex"
+#line 445 "test.lex"
 { /* ignora $$ */ }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 452 "test.lex"
+#line 446 "test.lex"
 { /**/}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 453 "test.lex"
+#line 447 "test.lex"
 { /* ignora espacios */ }
 	YY_BREAK
 case 13:
 /* rule 13 can match eol */
 YY_RULE_SETUP
-#line 454 "test.lex"
+#line 448 "test.lex"
 { printf("\n");} 
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 455 "test.lex"
+#line 449 "test.lex"
 { printf("UNKNOWN: %s\n", yytext); }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 456 "test.lex"
+#line 450 "test.lex"
 ECHO;
 	YY_BREAK
-#line 1260 "lex.yy.c"
+#line 1254 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2261,7 +2255,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 456 "test.lex"
+#line 450 "test.lex"
 
 
 

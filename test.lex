@@ -25,11 +25,7 @@ void agregar_token(const char *tok) {
             nueva_capacidad = capacidad_tokens * 2;
         }
 
-        nuevo_espacio = malloc(nueva_capacidad * sizeof(char *));
-        if (nuevo_espacio == NULL) {
-            fprintf(stderr, "Error al asignar memoria para tokens\n");
-            exit(EXIT_FAILURE);
-        }
+        char **nuevo_espacio = calloc(nueva_capacidad, sizeof(char *));
 
         // Copiar los punteros existentes
         for (i = 0; i < num_tokens; i = i + 1) {
@@ -40,14 +36,12 @@ void agregar_token(const char *tok) {
         tokens = nuevo_espacio;
         capacidad_tokens = nueva_capacidad;
     }
+    int len = strlen(tok);
+    tokens[num_tokens] = calloc(len + 1, sizeof(char));
 
-    tokens[num_tokens] = malloc(strlen(tok) + 1);
-    if (tokens[num_tokens] == NULL) {
-        fprintf(stderr, "Error al asignar memoria para token\n");
-        exit(EXIT_FAILURE);
+    for (i = 0; i < len; i++) {
+        tokens[num_tokens][i] = tok[i];
     }
-
-    strcpy(tokens[num_tokens], tok);
     num_tokens = num_tokens + 1;
 }
 
@@ -83,7 +77,7 @@ struct NodoMemo memo[1000];
 int memo_size = 0;
 
 struct Nodo* buscar_en_memo(char* clave) {
-    for (int i = 0; i < memo_size; i++) {
+    for (int i = 0; i < memo_size; i = i + 1) {
         if (strcmp(memo[i].clave, clave) == 0) return memo[i].nodo;
     }
     return NULL;
@@ -92,7 +86,7 @@ struct Nodo* buscar_en_memo(char* clave) {
 void guardar_en_memo(char* clave, struct Nodo* nodo) {
     memo[memo_size].clave = clave;
     memo[memo_size].nodo = nodo;
-    memo_size++;
+    memo_size = memo_size + 1;
 }
 
 struct Nodo *crear_nodo(TipoNodo tipo, struct Nodo *izq, struct Nodo *der, const char *nombre) {
@@ -427,7 +421,7 @@ void liberar_arbol(struct Nodo *n) {
     free(n);
 }
 void liberar_memo() {
-    for (int i = 0; i < memo_size; i++) {
+    for (int i = 0; i < memo_size; i = i + 1) {
         if (memo[i].nodo->nombre)
             free(memo[i].nodo->nombre);
         free(memo[i].nodo);
