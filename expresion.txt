@@ -1,1 +1,1 @@
-$(p \wedge q) \wedge (\neg p \vee \neg q)$
+$ ((a \rightarrow b) \wedge(b \rightarrow c) \wedge(d \rightarrow e) \wedge(e \rightarrow f) \wedge(f \rightarrow g) \wedge(h \rightarrow i) \wedge(i \rightarrow j) \wedge(j \rightarrow k) \wedge(l \rightarrow m) \wedge(m \rightarrow n) \wedge(n \rightarrow o) \wedge(o \rightarrow p) \wedge(p \rightarrow q) \wedge(r \rightarrow s) \wedge(s \rightarrow t) \wedge(t \rightarrow u) \wedge(u \rightarrow v)) $

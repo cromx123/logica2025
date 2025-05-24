@@ -346,6 +346,7 @@ int es_satisfacible(struct Nodo *n) {
         for (j = 0; j < n_vars; j = j + 1){
             vals[j] = (i >> j) & 1;
         }
+
         result = eval(n, vars, vals, n_vars);
         if (result == 1) {
             return 1; // satisfacible
