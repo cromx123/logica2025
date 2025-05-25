@@ -143,25 +143,44 @@ struct Nodo *parse_formula();
 
 struct Nodo *parse_atom() {
     char *tok = tokens[pos];
+    if (pos >= num_tokens) {
+        return NULL;
+    } 
+
     pos = pos + 1;  
+
     if (tok[0] == '(' && tok[1] == '\0') {
         struct Nodo *n = parse_formula();
+        if (pos >= num_tokens || strcmp(tokens[pos], ")") != 0) {
+            return NULL;
+        }
         pos = pos + 1;
         return n;
     } 
     else if (tok[0] == 'N' && tok[1] == 'E' && tok[2] == 'G' && tok[3] == '\0') {
         struct Nodo *n = parse_atom();
+        if (n == NULL)  {
+            return NULL;
+        } 
         return crear_nodo_dag(NEG, n, NULL, NULL);
     } 
     else {
         return crear_nodo_dag(VAR, NULL, NULL, tok);
     }
+    return NULL;
 }
 
 struct Nodo *parse_formula() {
     int es_and, es_or, es_implies;
     char *tok;
+
+    if (pos >= num_tokens) {
+        return NULL;
+    }
     struct Nodo *izq = parse_atom();
+    if (izq == NULL) {
+        return NULL;
+    }
     if (pos >= num_tokens) {
         return izq;
     }
@@ -174,6 +193,9 @@ struct Nodo *parse_formula() {
     if (es_and || es_or || es_implies) {
         pos = pos + 1;
         struct Nodo *der = parse_formula();
+        if (der == NULL) {
+            return NULL;
+        }
         if (es_and) {
             return crear_nodo_dag(AND, izq, der, NULL);
         }
@@ -375,7 +397,7 @@ int es_satisfacible(struct Nodo *n) {
     vars = calloc(n_vars, sizeof(char *));
     vals = calloc(n_vars, sizeof(int));
 
-    for (i = 0; i < n_vars; i++) {
+    for (i = 0; i < n_vars; i = i + 1) {
         vars[i] = vars_tmp[i];
     }
 
@@ -481,7 +503,15 @@ int main(int argc, char **argv) {
     printf("Soy un Test\n");
     printf("Inicio de programa\n");
     yylex();
+
     struct Nodo *arbol = parse_formula();
+
+    if (!arbol || pos < num_tokens) {
+        printf("NO-SOLUTION\n");
+        free_memory();
+        return 1;
+    }
+
     printf("Fórmula original: ");
     imprimir_nodo(arbol);
     printf("\n");
