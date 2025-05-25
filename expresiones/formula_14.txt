@@ -1,1 +1,1 @@
-$((\neg t \wedge p) \rightarrow s)$
+$A \rightarrow (B \vee (C \wedge (D \rightarrow E)))$

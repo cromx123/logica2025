@@ -1,1 +1,1 @@
-$(\neg t \rightarrow ((t \wedge \neg s) \wedge (\neg q \rightarrow s)))$
+$((A \rightarrow B) \wedge (C \rightarrow D)) \vee (E \rightarrow F)$

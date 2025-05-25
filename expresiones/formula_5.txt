@@ -1,1 +1,1 @@
-$(q \rightarrow (\neg s \rightarrow q))$
+$\neg A \vee B$

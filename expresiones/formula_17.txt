@@ -1,1 +1,1 @@
-$((\neg t \vee q) \rightarrow ((\neg t \wedge \neg s) \vee (\neg q \vee \neg p)))$
+$(\neg A \vee B \vee \neg E \vee F) \wedge (\neg C \vee D \vee \neg E \vee F)$

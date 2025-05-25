@@ -1,1 +1,1 @@
-$((\neg t \vee (r \vee t)) \rightarrow r)$
+ $A \wedge \neg B$

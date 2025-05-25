@@ -1,1 +1,1 @@
-$(((s \wedge q) \wedge (p \vee r)) \wedge ((\neg s \wedge r) \vee (\neg s \rightarrow \neg r)))$
+$A$

@@ -464,8 +464,8 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "test.lex"
-#line 2 "test.lex"
+#line 1 "tarea1.lex"
+#line 2 "tarea1.lex"
 /***************************************************************************************
  * 
  * tarea1.c: Algoritmo de Satisfactibilidad 
@@ -524,9 +524,93 @@ struct Nodo {
 };
 
 
+char* ulong_a_hex(unsigned long valor) {
+    char* hex = NULL, *result = NULL;
+    const char* hex_digits;
+    int i, start, len;
+    hex = calloc(17, 1);
+    if (!hex) {
+        return NULL;
+    }
+
+    hex_digits = "0123456789abcdef";
+    i = 15;
+    hex[16] = '\0';
+
+    if (valor == 0) {
+        hex[15] = '0';
+        i = 14;
+    } 
+    else {
+        while (valor > 0 && i >= 0) {
+            hex[i] = hex_digits[valor % 16];
+            i = i - 1;
+            valor = valor / 16;
+        }
+    }
+
+    start = i + 1;
+    len = 16 - start;
+    result = calloc(len + 1, 1);
+    if (!result) { free(hex); return NULL; }
+
+    memcpy(result, hex + start, len);
+    result[len] = '\0';
+    free(hex);
+    return result;
+}
+
 char* clave_nodo(int tipo, struct Nodo* izq, struct Nodo* der, char* nombre) {
-    char *clave = calloc(256, sizeof(char));
-    snprintf(clave, 256, "%c_%p_%p_%s", tipo, izq, der, nombre ? nombre : ""); 
+    const char* nombre_str;
+    char* izq_str = NULL, *der_str = NULL, tipo_char;
+    tipo_char = (char)tipo;
+    izq_str = ulong_a_hex((unsigned long)izq);
+    der_str = ulong_a_hex((unsigned long)der);
+    if (!izq_str || !der_str) {
+        return NULL;
+    }
+    if (nombre != NULL) {
+        nombre_str = nombre;
+    } 
+    else {
+        nombre_str = "";
+    }
+
+    size_t total_len = 1 + 1 + strlen(izq_str) + 1 + strlen(der_str) + 1 + strlen(nombre_str) + 1;
+
+    char* clave = calloc(total_len, 1);
+    if (!clave) {
+        free(izq_str);
+        free(der_str);
+        return NULL;
+    }
+
+    size_t offset = 0;
+    clave[offset] = tipo_char;
+    offset = offset + 1;
+    clave[offset] = '_';
+    offset = offset + 1;
+
+    size_t len = strlen(izq_str);
+    memcpy(clave + offset, izq_str, len);
+    offset = offset + len;
+    clave[offset] = '_';
+    offset = offset + 1;
+
+    len = strlen(der_str);
+    memcpy(clave + offset, der_str, len);
+    offset = offset + len;
+    clave[offset] = '_';
+    offset = offset + 1;
+
+    len = strlen(nombre_str);
+    memcpy(clave + offset, nombre_str, len);
+    offset = offset + len;
+
+    clave[offset] = '\0';
+
+    free(izq_str);
+    free(der_str);
     return clave;
 }
 
@@ -945,8 +1029,8 @@ void free_memory() {
     memo_size = 0;
 }
 
-#line 949 "lex.yy.c"
-#line 950 "lex.yy.c"
+#line 1033 "lex.yy.c"
+#line 1034 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -1163,9 +1247,9 @@ YY_DECL
 		}
 
 	{
-#line 483 "test.lex"
+#line 567 "tarea1.lex"
 
-#line 1169 "lex.yy.c"
+#line 1253 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -1224,81 +1308,81 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 484 "test.lex"
+#line 568 "tarea1.lex"
 { agregar_token("NEG"); }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 485 "test.lex"
+#line 569 "tarea1.lex"
 { agregar_token("AND"); }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 486 "test.lex"
+#line 570 "tarea1.lex"
 { agregar_token("OR"); }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 487 "test.lex"
+#line 571 "tarea1.lex"
 { agregar_token("IMPLIES"); }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 488 "test.lex"
+#line 572 "tarea1.lex"
 { agregar_token("TOP"); }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 489 "test.lex"
+#line 573 "tarea1.lex"
 { agregar_token("BOT"); }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 490 "test.lex"
+#line 574 "tarea1.lex"
 { agregar_token("("); }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 491 "test.lex"
+#line 575 "tarea1.lex"
 { agregar_token(")"); }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 492 "test.lex"
+#line 576 "tarea1.lex"
 { agregar_token(yytext);}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 493 "test.lex"
+#line 577 "tarea1.lex"
 { /* ignora $$ */ }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 494 "test.lex"
+#line 578 "tarea1.lex"
 { /**/}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 495 "test.lex"
+#line 579 "tarea1.lex"
 { /* ignora espacios */ }
 	YY_BREAK
 case 13:
 /* rule 13 can match eol */
 YY_RULE_SETUP
-#line 496 "test.lex"
+#line 580 "tarea1.lex"
 { printf("\n");} 
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 497 "test.lex"
+#line 581 "tarea1.lex"
 { printf("UNKNOWN: %s\n", yytext); }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 498 "test.lex"
+#line 582 "tarea1.lex"
 ECHO;
 	YY_BREAK
-#line 1302 "lex.yy.c"
+#line 1386 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2303,7 +2387,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 498 "test.lex"
+#line 582 "tarea1.lex"
 
 
 

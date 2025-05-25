@@ -1,1 +1,1 @@
-$(\neg t \vee (s \wedge \neg s))$
+$(A \vee (B \wedge (C \vee (D \wedge (E \vee (F \wedge (G \vee H)))))))$

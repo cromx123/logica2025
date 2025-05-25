@@ -1,1 +1,1 @@
-$\neg s$
+$(\neg A \vee B \vee C) \wedge (\neg A \vee B \vee \neg D \vee E)$

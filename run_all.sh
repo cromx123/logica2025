@@ -1,7 +1,7 @@
 #!/bin/bash
 
-flex test.lex
-gcc -o test.exe lex.yy.c -ll
+flex tarea1.lex
+gcc -o tarea1.exe lex.yy.c -ll
 
 n=25
 

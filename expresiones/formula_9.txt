@@ -1,1 +1,1 @@
-$s$
+$(A \vee C) \wedge (B \vee C)$

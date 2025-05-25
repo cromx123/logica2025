@@ -1,1 +1,1 @@
-$(((\neg p \rightarrow q) \wedge (t \vee \neg s)) \wedge (r \wedge (r \rightarrow \neg p)))$
+$\neg (A \rightarrow B)$

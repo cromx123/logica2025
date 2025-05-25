@@ -58,8 +58,8 @@ struct Nodo {
 
 
 char* clave_nodo(int tipo, struct Nodo* izq, struct Nodo* der, char* nombre) {
-    char *clave = calloc(256, sizeof(char));
-    snprintf(clave, 256, "%c_%p_%p_%s", tipo, izq, der, nombre ? nombre : ""); 
+    char *clave = calloc(512, sizeof(char));
+    snprintf(clave, 512, "%c_%p_%p_%s", tipo, izq, der, nombre ? nombre : ""); 
     return clave;
 }
 

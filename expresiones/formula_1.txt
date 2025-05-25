@@ -1,1 +1,2 @@
-$(\neg t \vee (t \wedge r))$
+$\neg \neg a$
+

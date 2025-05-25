@@ -1,1 +1,1 @@
-$((s \wedge s) \wedge (\neg t \wedge r))$
+$(A \vee B) \wedge (A \vee C) \wedge (A \vee D) \wedge \ldots$

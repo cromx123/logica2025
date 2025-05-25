@@ -1,1 +1,1 @@
-$((\neg r \vee \neg t) \wedge ((r \wedge \neg t) \wedge (\neg t \wedge q)))$
+$P1 \wedge q2 \vee R3$
