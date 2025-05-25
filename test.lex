@@ -489,7 +489,7 @@ void free_memory() {
 "\\bot"        { agregar_token("BOT"); }
 "("            { agregar_token("("); }
 ")"            { agregar_token(")"); }
-[a-z][0-9]*    { agregar_token(yytext);}
+[a-zA-Z][a-zA-Z0-9]*    { agregar_token(yytext);}
 "\$\$"         { /* ignora $$ */ }
 "$"            { /**/}
 [ \t\r]        { /* ignora espacios */ }

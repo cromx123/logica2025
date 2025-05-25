@@ -1,9 +1,9 @@
 #!/bin/bash
 
-flex tarea1.lex
-gcc -o tarea1.exe lex.yy.c -ll
+flex test.lex
+gcc -o test.exe lex.yy.c -ll
 
-n=300
+n=25
 
 for ((i = 1; i <= n; i = i + 1)); do
     echo "===> Ejecutando prueba $i"

@@ -322,9 +322,6 @@ void yyfree ( void *  );
 #define YY_AT_BOL() (YY_CURRENT_BUFFER_LVALUE->yy_at_bol)
 
 /* Begin user sect3 */
-
-#define yywrap() (/*CONSTCOND*/1)
-#define YY_SKIP_YYWRAP
 typedef flex_uint8_t YY_CHAR;
 
 FILE *yyin = NULL, *yyout = NULL;
@@ -354,8 +351,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 13
-#define YY_END_OF_BUFFER 14
+#define YY_NUM_RULES 15
+#define YY_END_OF_BUFFER 16
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -363,12 +360,13 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[41] =
+static const flex_int16_t yy_accept[43] =
     {   0,
-        0,    0,   14,   12,   11,   11,    1,    8,    9,   10,
-       12,   10,    0,    0,    0,    0,    0,    0,    0,    0,
-        0,    0,    0,    0,    7,    2,    0,    6,    4,    0,
-        0,    0,    0,    3,    0,    0,    0,    0,    5,    0
+        0,    0,   16,   14,   12,   13,   12,   11,    7,    8,
+        9,   14,   10,    9,    0,    0,    0,    0,    0,    0,
+        0,    0,    0,    0,    0,    0,    6,    1,    0,    5,
+        3,    0,    0,    0,    0,    2,    0,    0,    0,    0,
+        4,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -376,17 +374,17 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1,    1,    1,    1,    2,    3,
         1,    1,    2,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    2,    1,    1,    1,    4,    1,    1,    1,    5,
-        6,    1,    1,    1,    1,    1,    1,    7,    7,    7,
-        7,    7,    7,    7,    7,    7,    7,    1,    1,    1,
-        1,    1,    1,    1,    8,    8,    8,    8,    8,    8,
-        8,    8,    8,    8,    8,    8,    8,    8,    8,    8,
-        8,    8,    8,    8,    8,    8,    8,    8,    8,    8,
-        1,    9,    1,    1,    7,    1,   10,   11,    8,   12,
+        1,    4,    1,    1,    1,    5,    1,    1,    1,    6,
+        7,    1,    1,    1,    1,    1,    1,    8,    8,    8,
+        8,    8,    8,    8,    8,    8,    8,    1,    1,    1,
+        1,    1,    1,    1,    9,    9,    9,    9,    9,    9,
+        9,    9,    9,    9,    9,    9,    9,    9,    9,    9,
+        9,    9,    9,    9,    9,    9,    9,    9,    9,    9,
+        1,   10,    1,    1,    1,    1,   11,   12,    9,   13,
 
-       13,    8,   14,   15,   16,    8,    8,    8,    8,   17,
-       18,   19,    8,   20,    8,   21,    8,   22,   23,    8,
-        8,    8,    1,    1,    1,    1,    1,    1,    1,    1,
+       14,    9,   15,   16,   17,    9,    9,    9,    9,   18,
+       19,   20,    9,   21,    9,   22,    9,   23,   24,    9,
+        9,    9,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -403,53 +401,53 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static const YY_CHAR yy_meta[24] =
+static const YY_CHAR yy_meta[25] =
     {   0,
-        1,    1,    1,    1,    1,    1,    2,    2,    1,    2,
+        1,    1,    1,    1,    1,    1,    1,    2,    2,    1,
         2,    2,    2,    2,    2,    2,    2,    2,    2,    2,
-        2,    2,    2
+        2,    2,    2,    2
     } ;
 
-static const flex_int16_t yy_base[43] =
+static const flex_int16_t yy_base[45] =
     {   0,
-        0,    9,   51,   52,   52,   52,   52,   52,   52,    0,
-        8,    0,   32,   36,   32,   29,   33,   32,   23,   29,
-       28,   22,   27,   27,   52,   52,   23,   52,   52,   23,
-       15,   22,   24,   52,    7,    6,    6,    0,   52,   52,
-       31,    6
+        0,   10,   53,   54,   54,   54,   54,   47,   54,   54,
+        0,    9,   54,    0,   32,   36,   32,   29,   33,   32,
+       23,   29,   28,   22,   27,   27,   54,   54,   23,   54,
+       54,   23,   15,   22,   18,   54,    7,    5,    6,    0,
+       54,   54,   33,    7
     } ;
 
-static const flex_int16_t yy_def[43] =
+static const flex_int16_t yy_def[45] =
     {   0,
-       41,   41,   40,   40,   40,   40,   40,   40,   40,   42,
-       40,   42,   40,   40,   40,   40,   40,   40,   40,   40,
-       40,   40,   40,   40,   40,   40,   40,   40,   40,   40,
-       40,   40,   40,   40,   40,   40,   40,   40,   40,    0,
-       40,   40
+       43,   43,   42,   42,   42,   42,   42,   42,   42,   42,
+       44,   42,   42,   44,   42,   42,   42,   42,   42,   42,
+       42,   42,   42,   42,   42,   42,   42,   42,   42,   42,
+       42,   42,   42,   42,   42,   42,   42,   42,   42,   42,
+       42,    0,   42,   42
     } ;
 
-static const flex_int16_t yy_nxt[76] =
+static const flex_int16_t yy_nxt[79] =
     {   0,
-        4,    5,    6,    7,    8,    9,    4,   12,   11,    4,
-        5,    6,    7,    8,    9,    4,   40,   11,   13,   40,
-       40,   40,   39,   38,   14,   37,   36,   15,   16,   17,
-       18,   10,   10,   35,   34,   33,   32,   31,   30,   29,
-       28,   27,   26,   25,   24,   23,   22,   21,   20,   19,
-       40,    3,   40,   40,   40,   40,   40,   40,   40,   40,
-       40,   40,   40,   40,   40,   40,   40,   40,   40,   40,
-       40,   40,   40,   40,   40
+        4,    5,    6,    7,    8,    9,   10,    4,   14,   12,
+        4,    5,    6,    7,    8,    9,   10,    4,   42,   12,
+       15,   42,   42,   41,   40,   39,   16,   38,   37,   17,
+       18,   19,   20,   11,   11,   36,   35,   34,   33,   32,
+       31,   30,   29,   28,   27,   26,   25,   24,   23,   22,
+       21,   13,   42,    3,   42,   42,   42,   42,   42,   42,
+       42,   42,   42,   42,   42,   42,   42,   42,   42,   42,
+       42,   42,   42,   42,   42,   42,   42,   42
     } ;
 
-static const flex_int16_t yy_chk[76] =
+static const flex_int16_t yy_chk[79] =
     {   0,
-        1,    1,    1,    1,    1,    1,    1,   42,    1,    2,
-        2,    2,    2,    2,    2,    2,    0,    2,   11,    0,
-        0,    0,   38,   37,   11,   36,   35,   11,   11,   11,
-       11,   41,   41,   33,   32,   31,   30,   27,   24,   23,
-       22,   21,   20,   19,   18,   17,   16,   15,   14,   13,
-        3,   40,   40,   40,   40,   40,   40,   40,   40,   40,
-       40,   40,   40,   40,   40,   40,   40,   40,   40,   40,
-       40,   40,   40,   40,   40
+        1,    1,    1,    1,    1,    1,    1,    1,   44,    1,
+        2,    2,    2,    2,    2,    2,    2,    2,    0,    2,
+       12,    0,    0,   40,   39,   38,   12,   37,   35,   12,
+       12,   12,   12,   43,   43,   34,   33,   32,   29,   26,
+       25,   24,   23,   22,   21,   20,   19,   18,   17,   16,
+       15,    8,    3,   42,   42,   42,   42,   42,   42,   42,
+       42,   42,   42,   42,   42,   42,   42,   42,   42,   42,
+       42,   42,   42,   42,   42,   42,   42,   42
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -466,651 +464,489 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "test2.lex"
+#line 1 "test.lex"
+#line 2 "test.lex"
 /***************************************************************************************
  * 
- * tarea1.lex: Implementacion Algoritmo SAT lineal
- *
- * Programmer: Juan Moreno Herrera. Karla Ramos
- *
- * Santiago de Chile, 26\05\2025
+ * tarea1.c: Algoritmo de Satisfactibilidad 
+ * Programmer: Benjamin Caceres, Cristobal Gallardo
+ * Santiago de Chile, 26/05/2025
  *
  **************************************************************************************/
-#line 11 "test2.lex"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-enum { T_END=0, T_DOLLAR, T_LPAR, T_RPAR, T_NEG, T_AND, T_OR, T_IMPL, T_VAR, T_TOP, T_BOT };//Definición de tokens 
-
-typedef enum { NODE_VAR, NODE_TOP, NODE_BOT, NODE_NEG, NODE_AND, NODE_OR, NODE_IMPL } NodeType;
-
-typedef struct {
-    int type;     // Tipo de token
-    char *lexeme; // Solo para variables
-} Token;
-
-typedef struct Node {
-    NodeType type;
-    char *varname;
-    struct Node *left, *right;
-} Node;
-
-typedef struct {
-    char **antecedente; int n_ante;
-    char *consecuente;
-    int negado;
-} Clausula;
-
-
-
-int precedence(int type);
-int isRightAssociative(int type);
-void recolectar(struct Node *m,char ***lits_ptr, int *n_lits_ptr, int *cap_lits_ptr,int **negs_ptr, int *n_negs_ptr, int *cap_negs_ptr);//prototipo de recolectar
-Token **tokens = NULL;// Array dinamico de tokens 
-int ntokens = 0, cap_tokens = 0;
-Clausula **clausulas = NULL;// Array dinamico de clausulas
-int n_claus = 0, cap_claus = 0;
-
-
-// Shunting Yard: infijo a postfijo
-Token **infixToPostfix(Token **in, int nin, int *npostfix) {
-    int cap_stack = 8, top = -1;
-    Token **stack = calloc(cap_stack, sizeof(Token*));
-    int cap_out;
-    if (nin) cap_out = nin * 2; else cap_out = 8;
-    int outn = 0;
-    Token **out = calloc(cap_out, sizeof(Token*));
-    int i, j;
-
-    for (i = 0; i < nin; i = i + 1) {
-        int t = in[i]->type;
-        if (t == T_VAR || t == T_TOP || t == T_BOT) {
-            if (outn == cap_out) {
-                int newcap = cap_out * 2;
-                Token **nuevo = calloc(newcap, sizeof(Token*));
-                for (j = 0; j < outn; j = j + 1) nuevo[j] = out[j];
-                free(out); out = nuevo; cap_out = newcap;
-            }
-            out[outn] = in[i];
-            outn = outn + 1;
-        } else if (t == T_NEG || t == T_AND || t == T_OR || t == T_IMPL) {
-            while (top >= 0) {
-                int ot = stack[top]->type;
-                int p1 = precedence(t), p2 = precedence(ot);
-                if ((isRightAssociative(t) && p1 < p2) ||
-                    (!isRightAssociative(t) && p1 <= p2)) {
-                    if (outn == cap_out) {
-                        int newcap = cap_out * 2;
-                        Token **nuevo = calloc(newcap, sizeof(Token*));
-                        for (j = 0; j < outn; j = j + 1) nuevo[j] = out[j];
-                        free(out); out = nuevo; cap_out = newcap;
-                    }
-                    out[outn] = stack[top];
-                    outn = outn + 1;
-                    top = top - 1;
-                } else break;
-            }
-            if ((top + 1) == cap_stack) {
-                int newcap = cap_stack * 2;
-                Token **nuevo = calloc(newcap, sizeof(Token*));
-                for (j = 0; j <= top; j = j + 1) nuevo[j] = stack[j];
-                free(stack); stack = nuevo; cap_stack = newcap;
-            }
-            top = top + 1;
-            stack[top] = in[i];
-        } else if (t == T_LPAR) {
-            if ((top + 1) == cap_stack) {
-                int newcap = cap_stack * 2;
-                Token **nuevo = calloc(newcap, sizeof(Token*));
-                for (j = 0; j <= top; j = j + 1) nuevo[j] = stack[j];
-                free(stack); stack = nuevo; cap_stack = newcap;
-            }
-            top = top + 1;
-            stack[top] = in[i];
-        } else if (t == T_RPAR) {
-            while (top >= 0 && stack[top]->type != T_LPAR) {
-                if (outn == cap_out) {
-                    int newcap = cap_out * 2;
-                    Token **nuevo = calloc(newcap, sizeof(Token*));
-                    for (j = 0; j < outn; j = j + 1) nuevo[j] = out[j];
-                    free(out); out = nuevo; cap_out = newcap;
-                }
-                out[outn] = stack[top];
-                outn = outn + 1;
-                top = top - 1;
-            }
-            if (top >= 0 && stack[top]->type == T_LPAR) top = top - 1;
-            else { printf("NO-SOLUTION\n"); exit(0); }
+char **tokens = NULL;
+int num_tokens = 0, capacidad_tokens = 0, pos = 0, memo_size = 0;
+/*
+*
+*
+*/
+void agregar_token(const char *tok) {
+    int i, nueva_capacidad, len;
+    char **nuevo_espacio;
+    if (num_tokens >= capacidad_tokens) {
+        if(capacidad_tokens == 0) {
+            nueva_capacidad = 10;
         }
+        else {
+            nueva_capacidad = capacidad_tokens * 2;
+        }
+        char **nuevo_espacio = calloc(nueva_capacidad, sizeof(char *));
+
+        for (i = 0; i < num_tokens; i = i + 1) {
+            nuevo_espacio[i] = tokens[i];
+        }
+        free(tokens);
+        tokens = nuevo_espacio;
+        capacidad_tokens = nueva_capacidad;
     }
-    while (top >= 0) {
-        if (stack[top]->type == T_LPAR || stack[top]->type == T_RPAR) {
-            printf("NO-SOLUTION\n"); exit(0);
-        }
-        if (outn == cap_out) {
-            int newcap = cap_out * 2;
-            Token **nuevo = calloc(newcap, sizeof(Token*));
-            for (j = 0; j < outn; j = j + 1) nuevo[j] = out[j];
-            free(out); out = nuevo; cap_out = newcap;
-        }
-        out[outn] = stack[top];
-        outn = outn + 1;
-        top = top - 1;
+    len = strlen(tok);
+    tokens[num_tokens] = calloc(len + 1, sizeof(char));
+
+    for (i = 0; i < len; i = i + 1) {
+        tokens[num_tokens][i] = tok[i];
     }
-    free(stack);
-    *npostfix = outn;
-    return out;
+    num_tokens = num_tokens + 1;
 }
 
-//AST desde postfijo 
-Node* makeNode(NodeType t, Node *l, Node *r, const char *v) {
-    Node* n = calloc(1, sizeof(Node));
-    n->type = t;
-    if (v) {
-        n->varname = calloc(strlen(v)+1, 1);
-        strcpy(n->varname, v);
+typedef enum {
+    VAR, NEG, AND, OR, IMPLIES, TOP, BOT
+} TipoNodo; 
+
+struct Nodo {
+    TipoNodo tipo;
+    char *nombre;          
+    struct Nodo *izq;
+    struct Nodo *der;
+};
+
+
+char* clave_nodo(int tipo, struct Nodo* izq, struct Nodo* der, char* nombre) {
+    char *clave = calloc(256, sizeof(char));
+    snprintf(clave, 256, "%c_%p_%p_%s", tipo, izq, der, nombre ? nombre : ""); 
+    return clave;
+}
+
+struct NodoMemo {
+    char* clave;
+    struct Nodo *nodo;
+};
+
+struct NodoMemo memo[1000];
+
+
+int son_iguales(const char *a, const char *b) {
+    while (*a && *b) {
+        if (*a != *b){
+            return 0;
+        }
+        a = a + 1;
+        b = b + 1;
     }
-    n->left = l;
-    n->right = r;
+    return *a == *b;
+}
+
+struct Nodo* buscar_en_memo(char* clave) {
+    int i;
+    for (i = 0; i < memo_size; i = i + 1) {
+        if (son_iguales(memo[i].clave, clave)) {
+            return memo[i].nodo;
+        }
+    }
+    return NULL;
+}
+
+void guardar_en_memo(char* clave, struct Nodo* nodo) {
+    memo[memo_size].clave = clave;
+    memo[memo_size].nodo = nodo;
+    memo_size = memo_size + 1;
+}
+
+struct Nodo *crear_nodo(TipoNodo tipo, struct Nodo *izq, struct Nodo *der, const char *nombre) {
+    int i, len;
+    struct Nodo *n = calloc(1, sizeof(struct Nodo));
+    n->tipo = tipo;
+    n->izq = izq;
+    n->der = der;
+    if (nombre) {
+        len = 0;
+        while (nombre[len] != '\0') {
+            len = len + 1;
+        }
+
+        n->nombre = calloc(len + 1, sizeof(char));
+        if (n->nombre) {
+            for (i = 0; i <= len; i = i + 1) {
+                n->nombre[i] = nombre[i]; 
+            }
+        }
+    }
+    else {
+        n->nombre = NULL;
+    }
     return n;
 }
 
-Node* buildASTfromPostfix(Token **postfix, int npostfix) {
-    int cap_stack = 8, top = -1;
-    Node **stack = calloc(cap_stack, sizeof(Node*));
-    int i, j;
-    for (i = 0; i < npostfix; i = i + 1) {
-        int t = postfix[i]->type;
-        if ((top + 1) == cap_stack) {
-            int newcap = cap_stack * 2;
-            Node **nuevo = calloc(newcap, sizeof(Node*));
-            for (j = 0; j <= top; j = j + 1) nuevo[j] = stack[j];
-            free(stack); stack = nuevo; cap_stack = newcap;
+struct Nodo* crear_nodo_dag(char tipo, struct Nodo* izq, struct Nodo* der, char* nombre) {
+    char* clave = clave_nodo(tipo, izq, der, nombre);
+    struct Nodo* existente = buscar_en_memo(clave);
+    if (existente != NULL) {
+        free(clave);
+        return existente;
+    }
+
+    struct Nodo* nuevo = crear_nodo(tipo, izq, der, nombre);
+    guardar_en_memo(clave, nuevo);
+    return nuevo;
+}
+
+
+
+// Parseo recursivo básico
+struct Nodo *parse_formula();
+
+struct Nodo *parse_atom() {
+    char *tok = tokens[pos];
+    if (pos >= num_tokens) {
+        return NULL;
+    } 
+
+    pos = pos + 1;  
+
+    if (tok[0] == '(' && tok[1] == '\0') {
+        struct Nodo *n = parse_formula();
+        if (pos >= num_tokens || strcmp(tokens[pos], ")") != 0) {
+            return NULL;
         }
-        if (t == T_VAR) {
-            stack[top + 1] = makeNode(NODE_VAR, NULL, NULL, postfix[i]->lexeme);
-            top = top + 1;
-        } else if (t == T_TOP) {
-            stack[top + 1] = makeNode(NODE_TOP, NULL, NULL, NULL);
-            top = top + 1;
-        } else if (t == T_BOT) {
-            stack[top + 1] = makeNode(NODE_BOT, NULL, NULL, NULL);
-            top = top + 1;
-        } else if (t == T_NEG) {
-            if (top < 0) { printf("NO-SOLUTION\n"); exit(0); }
-            Node *l = stack[top];
-            top = top - 1;
-            stack[top + 1] = makeNode(NODE_NEG, l, NULL, NULL);
-            top = top + 1;
-        } else if (t == T_AND || t == T_OR || t == T_IMPL) {
-            if (top < 1) { printf("NO-SOLUTION\n"); exit(0); }
-            Node *r = stack[top];
-            top = top - 1;
-            Node *l = stack[top];
-            top = top - 1;
-            NodeType nt;
-            if (t == T_AND) nt = NODE_AND;
-            else if (t == T_OR) nt = NODE_OR;
-            else nt = NODE_IMPL;
-            stack[top + 1] = makeNode(nt, l, r, NULL);
-            top = top + 1;
-        } else {
-            printf("NO-SOLUTION\n"); exit(0);
+        pos = pos + 1;
+        return n;
+    } 
+    else if (tok[0] == 'N' && tok[1] == 'E' && tok[2] == 'G' && tok[3] == '\0') {
+        struct Nodo *n = parse_atom();
+        if (n == NULL)  {
+            return NULL;
+        } 
+        return crear_nodo_dag(NEG, n, NULL, NULL);
+    } 
+    else {
+        return crear_nodo_dag(VAR, NULL, NULL, tok);
+    }
+    return NULL;
+}
+
+struct Nodo *parse_formula() {
+    int es_and, es_or, es_implies;
+    char *tok;
+
+    if (pos >= num_tokens) {
+        return NULL;
+    }
+    struct Nodo *izq = parse_atom();
+    if (izq == NULL) {
+        return NULL;
+    }
+    if (pos >= num_tokens) {
+        return izq;
+    }
+
+    tok = tokens[pos];
+    es_and = tok[0] == 'A' && tok[1] == 'N' && tok[2] == 'D' && tok[3] == '\0';
+    es_or = tok[0] == 'O' && tok[1] == 'R' && tok[2] == '\0';
+    es_implies = tok[0] == 'I' && tok[1] == 'M' && tok[2] == 'P' && tok[3] == 'L' && tok[4] == 'I' && tok[5] == 'E' && tok[6] == 'S' && tok[7] == '\0';
+
+    if (es_and || es_or || es_implies) {
+        pos = pos + 1;
+        struct Nodo *der = parse_formula();
+        if (der == NULL) {
+            return NULL;
+        }
+        if (es_and) {
+            return crear_nodo_dag(AND, izq, der, NULL);
+        }
+        if (es_or) {
+            return crear_nodo_dag(OR, izq, der, NULL);
+        }
+
+        if (es_implies) {
+            return crear_nodo_dag(IMPLIES, izq, der, NULL);
         }
     }
-    if (top != 0) { printf("NO-SOLUTION\n"); exit(0); }
-    Node *ast = stack[top];
-    free(stack);
-    return ast;
+
+    return izq;
 }
 
+struct Nodo* copiar_nodo(struct Nodo *nodo);
 
-Node* elimImpl(Node *n) {
-    if (!n) return NULL;
-    if (n->type == NODE_IMPL) {
-        Node *not_left = makeNode(NODE_NEG, elimImpl(n->left), NULL, NULL);
-        Node *right = elimImpl(n->right);
-        Node *or_node = makeNode(NODE_OR, not_left, right, NULL);
-        return or_node;
-    } else if (n->type == NODE_AND || n->type == NODE_OR) {
-        n->left = elimImpl(n->left);
-        n->right = elimImpl(n->right);
-        return n;
-    } else if (n->type == NODE_NEG) {
-        n->left = elimImpl(n->left);
-        return n;
-    } else {
-        return n;
+struct Nodo* copiar_nodo(struct Nodo *nodo) {
+    if (!nodo) {
+        return NULL;
     }
+    return crear_nodo_dag(nodo->tipo, nodo->izq, nodo->der, nodo->nombre);
 }
 
-// NNF 
-Node* nnf(Node *n) {
-    if (!n) return NULL;
-    if (n->type == NODE_NEG) {
-        Node *h = n->left;
-        if (!h) return n;
-        if (h->type == NODE_NEG) {
-            Node *nn = nnf(h->left);
-            free(n);
-            return nn;
-        } else if (h->type == NODE_AND) {
-            Node *nl = makeNode(NODE_NEG, h->left, NULL, NULL);
-            Node *nr = makeNode(NODE_NEG, h->right, NULL, NULL);
-            Node *o = makeNode(NODE_OR, nnf(nl), nnf(nr), NULL);
-            free(n);
-            return o;
-        } else if (h->type == NODE_OR) {
-            Node *nl = makeNode(NODE_NEG, h->left, NULL, NULL);
-            Node *nr = makeNode(NODE_NEG, h->right, NULL, NULL);
-            Node *a = makeNode(NODE_AND, nnf(nl), nnf(nr), NULL);
-            free(n);
-            return a;
-        } else {
-            n->left = nnf(h);
-            return n;
+
+
+struct Nodo* negacion(struct Nodo *hijo) {
+    return crear_nodo_dag(NEG, hijo, NULL, NULL);
+}
+
+struct Nodo* conjuncion(struct Nodo *a, struct Nodo *b) {
+    return crear_nodo_dag(AND, a, b, NULL);
+}
+
+struct Nodo* empujar_negaciones(struct Nodo *nodo) {
+    if (!nodo) {
+        return NULL;
+    }
+
+    switch (nodo->tipo) {
+        case VAR:
+            return copiar_nodo(nodo);
+
+        case AND:
+        case OR:
+            return crear_nodo_dag(nodo->tipo, empujar_negaciones(nodo->izq), empujar_negaciones(nodo->der), NULL);
+        case NEG: {
+            struct Nodo *sub = nodo->izq;
+            if (sub->tipo == VAR) {
+                return copiar_nodo(nodo);  
+            } 
+            else if (sub->tipo == NEG) {
+                return empujar_negaciones(sub->izq);
+            } 
+            else if (sub->tipo == AND) {
+                return crear_nodo_dag(OR, empujar_negaciones(negacion(sub->izq)), empujar_negaciones(negacion(sub->der)), NULL);
+            } 
+            else if (sub->tipo == OR) {
+                return crear_nodo_dag(AND, empujar_negaciones(negacion(sub->izq)), empujar_negaciones(negacion(sub->der)), NULL);
+            }
+            break;
         }
-    } else if (n->type == NODE_AND || n->type == NODE_OR) {
-        n->left = nnf(n->left);
-        n->right = nnf(n->right);
-        return n;
-    } else {
-        return n;
+        default:
+            return NULL;
     }
+    return NULL;
 }
 
-// CNF 
-Node* cnf(Node *n) {
-    if (!n) return NULL;
-    if (n->type == NODE_OR) {
-        Node *A = cnf(n->left);
-        Node *B = cnf(n->right);
-        if (A->type == NODE_AND) {
-            Node *o1 = makeNode(NODE_OR, A->left, B, NULL);
-            Node *o2 = makeNode(NODE_OR, A->right, B, NULL);
-            Node *a = makeNode(NODE_AND, cnf(o1), cnf(o2), NULL);
-            free(n);
-            return a;
-        } else if (B->type == NODE_AND) {
-            Node *o1 = makeNode(NODE_OR, A, B->left, NULL);
-            Node *o2 = makeNode(NODE_OR, A, B->right, NULL);
-            Node *a = makeNode(NODE_AND, cnf(o1), cnf(o2), NULL);
-            free(n);
-            return a;
-        } else {
-            n->left = A;
-            n->right = B;
-            return n;
+struct Nodo* distribuir_o(struct Nodo *a, struct Nodo *b) {
+    if (a->tipo == AND) {
+        return crear_nodo_dag(AND, distribuir_o(a->izq, b), distribuir_o(a->der, b), NULL);
+    }
+    if (b->tipo == AND) {
+        return crear_nodo_dag(AND, distribuir_o(a, b->izq), distribuir_o(a, b->der), NULL);
+    }
+    return crear_nodo_dag(OR, a, b, NULL);
+}
+
+struct Nodo* convertir_cnf(struct Nodo *nodo) {
+    if (!nodo) {
+        return NULL;
+    }
+    if (nodo->tipo == AND) {
+        return crear_nodo_dag(AND, convertir_cnf(nodo->izq), convertir_cnf(nodo->der), NULL);
+    }
+
+    if (nodo->tipo == OR) {
+        struct Nodo *izq = convertir_cnf(nodo->izq);
+        struct Nodo *der = convertir_cnf(nodo->der);
+        return distribuir_o(izq, der);
+    }
+
+    return copiar_nodo(nodo);
+}
+
+ // Traducción
+struct Nodo* traducir(struct Nodo *nodo) {
+    if (!nodo) {
+        return NULL;
+    }
+
+    switch (nodo->tipo) {
+        case VAR:
+            return copiar_nodo(nodo);
+
+        case NEG:
+            return negacion(traducir(nodo->izq));
+
+        case AND:
+            return conjuncion(traducir(nodo->izq), traducir(nodo->der));
+
+        case OR: {
+            // T(1 ∨ 2) = ¬(¬T(1) ∧ ¬T(2))
+            struct Nodo *izq_t = traducir(nodo->izq);
+            struct Nodo *der_t = traducir(nodo->der);
+            return negacion(conjuncion(negacion(izq_t), negacion(der_t)));
         }
-    } else if (n->type == NODE_AND) {
-        n->left = cnf(n->left);
-        n->right = cnf(n->right);
-        return n;
-    } else if (n->type == NODE_NEG) {
-        n->left = cnf(n->left);
-        return n;
-    } else {
-        return n;
-    }
-}
 
-/*
- * Usage
- */
-
-void Usage(char *progname) {
-    printf("\nUso: %s < expresion.txt\n", progname);
-    exit(1);
-}
-
-/*
- * add token
- */
-
-void add_token(int type, const char *lexeme) {
-    if (ntokens == cap_tokens) {
-        int newcap;
-        int i;
-        if (cap_tokens) {
-            newcap = cap_tokens * 2;
-        } else {
-            newcap = 8;
+        case IMPLIES: {
+            // T(1 → 2) = ¬(T(1) ∧ ¬T(2))
+            struct Nodo *izq_t = traducir(nodo->izq);
+            struct Nodo *der_t = traducir(nodo->der);
+            return negacion(conjuncion(izq_t, negacion(der_t)));
         }
-        Token **nuevo = calloc(newcap, sizeof(Token*));
-        for (i = 0; i < ntokens; i = i + 1) nuevo[i] = tokens[i];
-        free(tokens); tokens = nuevo; cap_tokens = newcap;
-    }
-    Token *t = calloc(1, sizeof(Token));
-    t->type = type;
-    if (lexeme) {
-        t->lexeme = calloc(strlen(lexeme)+1, 1);
-        strcpy(t->lexeme, lexeme);
-    }
-    tokens[ntokens] = t;
-    ntokens = ntokens + 1;
-}
 
-/*
- * precedence
- */
-
-int precedence(int type) {
-    switch (type) {
-        case T_NEG: return 4;
-        case T_AND: return 3;
-        case T_OR:  return 2;
-        case T_IMPL:return 1;
-        default:    return 0;
+        default:
+            return NULL;
     }
 }
 
-/*
- * is Right Associative
- */
+// Evaluación
+int eval(struct Nodo *n, char **vars, int *vals, int n_vars) {
+    int i, a, b;
+    if (!n) {
+        return 0;
+    }
 
-int isRightAssociative(int type) {
-    return (type == T_NEG || type == T_IMPL);
+    switch (n->tipo) {
+        case VAR:
+            for (i = 0; i < n_vars; i = i + 1) {
+                if (son_iguales(vars[i], n->nombre)) {
+                    return vals[i];
+                }
+            }
+            return 0;
+
+        case NEG:
+            return !eval(n->izq, vars, vals, n_vars);
+
+        case AND:
+            return eval(n->izq, vars, vals, n_vars) && eval(n->der, vars, vals, n_vars);
+
+        case OR:
+            return eval(n->izq, vars, vals, n_vars) || eval(n->der, vars, vals, n_vars);
+
+        case IMPLIES: {
+            a = eval(n->izq, vars, vals, n_vars);
+            b = eval(n->der, vars, vals, n_vars);
+            return !a || b;
+        }
+
+        case TOP: 
+            return 1;
+        case BOT: 
+            return 0;
+    }
+    return 0;
 }
 
-/*
- * free AST
- */
-
-void freeAST(Node *n) {
-    if (!n) return;
-    freeAST(n->left);
-    freeAST(n->right);
-    if (n->varname) free(n->varname);
-    free(n);
-}
-
-/*
- * free Tokens
- */
-
-void freeTokens() {
+void recolectar_vars(struct Nodo *n, char **vars, int *n_vars) {
     int i;
-    for (i = 0; i < ntokens; i = i + 1) {
-        if (tokens[i]->lexeme) free(tokens[i]->lexeme);
-        free(tokens[i]);
+    if (!n) {
+        return;
     }
-    free(tokens);
-}
-
-/*
- * free Clausulas
- */
-
-void freeClausulas() {
-    int i, j;
-    for (i = 0; i < n_claus; i = i + 1) {
-        Clausula *c = clausulas[i];
-        if (c->antecedente) {
-            for (j = 0; j < c->n_ante; j = j + 1)
-                free(c->antecedente[j]);
-            free(c->antecedente);
+    if (n->tipo == VAR) {
+        for (i = 0; i < *n_vars; i = i + 1) {
+            if (son_iguales(vars[i], n->nombre)) {
+                return;
+            }
         }
-        if (c->consecuente) free(c->consecuente);
-        free(c);
-    }
-    free(clausulas);
-}
-
-/*
- * agregar Clausula
- */
-
-void agregarClausula(char **ante, int n_ante, const char *cons, int negado) {
-    int i;
-    if (n_claus == cap_claus) {
-        int newCap;
-        if (cap_claus) {
-            newCap = cap_claus * 2;
-        } else {
-            newCap = 8;
-        }
-        Clausula **nuevo = calloc(newCap, sizeof(Clausula*));
-        for (i = 0; i < n_claus; i = i + 1) nuevo[i] = clausulas[i];
-        free(clausulas); clausulas = nuevo; cap_claus = newCap;
-    }
-    Clausula *c = calloc(1, sizeof(Clausula));
-    if (n_ante > 0) {
-        c->antecedente = calloc(n_ante, sizeof(char*));
-        for (i = 0; i < n_ante; i = i + 1) {
-            c->antecedente[i] = calloc(strlen(ante[i])+1, 1);
-            strcpy(c->antecedente[i], ante[i]);
-        }
+        vars[*n_vars] = n->nombre;
+        *n_vars = *n_vars + 1;
     } else {
-        c->antecedente = NULL;
-    }
-    c->n_ante = n_ante;
-    c->consecuente = calloc(strlen(cons)+1, 1);
-    strcpy(c->consecuente, cons);
-    c->negado = negado;
-    clausulas[n_claus] = c;
-    n_claus = n_claus + 1;
-}
-
-/*
- * recolectar
- */
- 
-void recolectar(Node *m,
-                char ***lits_ptr, int *n_lits_ptr, int *cap_lits_ptr,
-                int **negs_ptr, int *n_negs_ptr, int *cap_negs_ptr) {
-    if (!m) return;
-    if (m->type == NODE_OR) {
-        recolectar(m->left, lits_ptr, n_lits_ptr, cap_lits_ptr,
-                   negs_ptr, n_negs_ptr, cap_negs_ptr);
-        recolectar(m->right, lits_ptr, n_lits_ptr, cap_lits_ptr,
-                   negs_ptr, n_negs_ptr, cap_negs_ptr);
-    } else if (m->type == NODE_VAR) {
-        if (*n_lits_ptr == *cap_lits_ptr) {
-            int newcap = (*cap_lits_ptr) ? (*cap_lits_ptr)*2 : 4;
-            char **nuevo = calloc(newcap, sizeof(char*));
-            int k;
-            for (k = 0; k < *n_lits_ptr; k = k + 1) nuevo[k] = (*lits_ptr)[k];
-            free(*lits_ptr); *lits_ptr = nuevo; *cap_lits_ptr = newcap;
-        }
-        (*lits_ptr)[*n_lits_ptr] = calloc(strlen(m->varname)+1, 1);
-        strcpy((*lits_ptr)[*n_lits_ptr], m->varname);
-        *n_lits_ptr = *n_lits_ptr + 1;
-        if (*n_negs_ptr == *cap_negs_ptr) {
-            int newcap = (*cap_negs_ptr) ? (*cap_negs_ptr)*2 : 4;
-            int *nuevo = calloc(newcap, sizeof(int));
-            int k;
-            for (k = 0; k < *n_negs_ptr; k = k + 1) nuevo[k] = (*negs_ptr)[k];
-            free(*negs_ptr); *negs_ptr = nuevo; *cap_negs_ptr = newcap;
-        }
-        (*negs_ptr)[*n_negs_ptr] = 0;
-        *n_negs_ptr = *n_negs_ptr + 1;
-    } else if (m->type == NODE_NEG && m->left && m->left->type == NODE_VAR) {
-        if (*n_lits_ptr == *cap_lits_ptr) {
-            int newcap = (*cap_lits_ptr) ? (*cap_lits_ptr)*2 : 4;
-            char **nuevo = calloc(newcap, sizeof(char*));
-            int k;
-            for (k = 0; k < *n_lits_ptr; k = k + 1) nuevo[k] = (*lits_ptr)[k];
-            free(*lits_ptr); *lits_ptr = nuevo; *cap_lits_ptr = newcap;
-        }
-        (*lits_ptr)[*n_lits_ptr] = calloc(strlen(m->left->varname)+1, 1);
-        strcpy((*lits_ptr)[*n_lits_ptr], m->left->varname);
-        *n_lits_ptr = *n_lits_ptr + 1;
-        if (*n_negs_ptr == *cap_negs_ptr) {
-            int newcap = (*cap_negs_ptr) ? (*cap_negs_ptr)*2 : 4;
-            int *nuevo = calloc(newcap, sizeof(int));
-            int k;
-            for (k = 0; k < *n_negs_ptr; k = k + 1) nuevo[k] = (*negs_ptr)[k];
-            free(*negs_ptr); *negs_ptr = nuevo; *cap_negs_ptr = newcap;
-        }
-        (*negs_ptr)[*n_negs_ptr] = 1;
-        *n_negs_ptr = *n_negs_ptr + 1;
+        recolectar_vars(n->izq, vars, n_vars);
+        recolectar_vars(n->der, vars, n_vars);
     }
 }
 
-/*
- * ast2 lineal
- */
- 
-void ast2lineal(Node *n) {
-    if (!n) return;
-    if (n->type == NODE_AND) {
-        ast2lineal(n->left); ast2lineal(n->right);
-    } else if (n->type == NODE_OR) {
-        char **lits = NULL;
-        int n_lits = 0, cap_lits = 0;
-        int *negs = NULL;
-        int n_negs = 0, cap_negs = 0;
-        int i;
-        // Llama a recolectar con los punteros a los arreglos y sus contadores
-        recolectar(n, &lits, &n_lits, &cap_lits, &negs, &n_negs, &cap_negs);
-        if (n_lits == 1) {
-            agregarClausula(NULL, 0, lits[0], negs[0]);
-        } else if (n_lits > 1) {
-            int idx_con = -1;
-            for (i = 0; i < n_lits; i = i + 1) {
-                if (negs[i] == 0) { idx_con = i; break; }
-            }
-            if (idx_con == -1) idx_con = 0;
-            char **ante = calloc(n_lits-1, sizeof(char*));
-            int n_ante = 0;
-            for (i = 0; i < n_lits; i = i + 1) {
-                if (i != idx_con) {
-                    ante[n_ante] = lits[i];
-                    n_ante = n_ante + 1;
-                }
-            }
-            agregarClausula(ante, n_ante, lits[idx_con], negs[idx_con]);
-            free(ante);
-        }
-        for (i = 0; i < n_lits; i = i + 1) free(lits[i]);
-        free(lits);
-        free(negs);
-    } else if (n->type == NODE_VAR) {
-        agregarClausula(NULL, 0, n->varname, 0);
-    } else if (n->type == NODE_NEG && n->left && n->left->type == NODE_VAR) {
-        agregarClausula(NULL, 0, n->left->varname, 1);
-    }
-}
+int es_satisfacible(struct Nodo *n) {
+    char **vars_tmp, **vars;
+    int i, j, capacidad, n_vars, *vals, total, result;
 
-/*
- * resolver SAT lineal
- */
+    capacidad = 10;
+    n_vars = 0;
+    vars_tmp = calloc(capacidad, sizeof(char *));
 
-int resolverSAT() {
-    int cap_marc = n_claus * 2 + 8, cap_neg = n_claus * 2 + 8;
-    char **marcadas = calloc(cap_marc, sizeof(char*));
-    char **negados  = calloc(cap_neg, sizeof(char*));
-    int n_marc = 0, n_neg = 0, cambio = 1, conflicto = 0;
-    int i, j, k, t;
-    for (i = 0; i < n_claus; i = i + 1) {
-        if (clausulas[i]->n_ante == 0 && clausulas[i]->negado == 0) {
-            if (n_marc == cap_marc) {
-                int newCap = cap_marc * 2;
-                char **nuevo = calloc(newCap, sizeof(char*));
-                for (t = 0; t < n_marc; t = t + 1) nuevo[t] = marcadas[t];
-                free(marcadas); marcadas = nuevo; cap_marc = newCap;
-            }
-            marcadas[n_marc] = clausulas[i]->consecuente;
-            n_marc = n_marc + 1;
+    recolectar_vars(n, vars_tmp, &n_vars);
+
+    vars = calloc(n_vars, sizeof(char *));
+    vals = calloc(n_vars, sizeof(int));
+
+    for (i = 0; i < n_vars; i = i + 1) {
+        vars[i] = vars_tmp[i];
+    }
+
+    free(vars_tmp);
+
+    total = 1 << n_vars; // 2^n combinaciones
+
+    for (i = 0; i < total; i = i + 1) {
+        for (j = 0; j < n_vars; j = j + 1) {
+            vals[j] = (i >> j) & 1;
         }
-        if (clausulas[i]->n_ante == 0 && clausulas[i]->negado == 1) {
-            if (n_neg == cap_neg) {
-                int newCap = cap_neg * 2;
-                char **nuevo = calloc(newCap, sizeof(char*));
-                for (t = 0; t < n_neg; t = t + 1) nuevo[t] = negados[t];
-                free(negados); negados = nuevo; cap_neg = newCap;
-            }
-            negados[n_neg] = clausulas[i]->consecuente;
-            n_neg = n_neg + 1;
+        result = eval(n, vars, vals, n_vars);
+        if (result == 1) {
+            free(vars);
+            free(vals);
+            return 1;
         }
     }
-    while (cambio && !conflicto) {
-        cambio = 0;
-        for (i = 0; i < n_claus; i = i + 1) {
-            int todos = 1;
-            for (j = 0; j < clausulas[i]->n_ante; j = j + 1) {
-                int ok = 0;
-                for (k = 0; k < n_marc; k = k + 1)
-                    if (strcmp(clausulas[i]->antecedente[j], marcadas[k]) == 0) ok = 1;
-                if (!ok) { todos = 0; break; }
-            }
-            if (todos && clausulas[i]->n_ante > 0) {
-                if (clausulas[i]->negado == 0) {
-                    int ya = 0;
-                    for (k = 0; k < n_marc; k = k + 1)
-                        if (strcmp(marcadas[k], clausulas[i]->consecuente) == 0) ya = 1;
-                    if (!ya) {
-                        if (n_marc == cap_marc) {
-                            int newCap = cap_marc * 2;
-                            char **nuevo = calloc(newCap, sizeof(char*));
-                            for (t = 0; t < n_marc; t = t + 1) nuevo[t] = marcadas[t];
-                            free(marcadas); marcadas = nuevo; cap_marc = newCap;
-                        }
-                        marcadas[n_marc] = clausulas[i]->consecuente;
-                        n_marc = n_marc + 1;
-                        cambio = 1;
-                    }
-                } else {
-                    int ya = 0;
-                    for (k = 0; k < n_neg; k = k + 1)
-                        if (strcmp(negados[k], clausulas[i]->consecuente) == 0) ya = 1;
-                    if (!ya) {
-                        if (n_neg == cap_neg) {
-                            int newCap = cap_neg * 2;
-                            char **nuevo = calloc(newCap, sizeof(char*));
-                            for (t = 0; t < n_neg; t = t + 1) nuevo[t] = negados[t];
-                            free(negados); negados = nuevo; cap_neg = newCap;
-                        }
-                        negados[n_neg] = clausulas[i]->consecuente;
-                        n_neg = n_neg + 1;
-                        cambio = 1;
-                    }
-                }
-            }
-        }
-        for (i = 0; i < n_marc && !conflicto; i = i + 1)
-            for (j = 0; j < n_neg; j = j + 1)
-                if (strcmp(marcadas[i], negados[j]) == 0) {
-                    conflicto = 1;
-                }
-    }
-    if (conflicto) {
-        free(marcadas); free(negados);
-        return -1;
-    }
-    for (i = 0; i < n_claus; i = i + 1) {
-        if (clausulas[i]->n_ante > 0) {
-            int ok = 1;
-            for (j = 0; j < clausulas[i]->n_ante; j = j + 1) {
-                int found = 0;
-                for (k = 0; k < n_marc; k = k + 1)
-                    if (strcmp(clausulas[i]->antecedente[j], marcadas[k]) == 0)
-                        found = 1;
-                if (!found) ok = 0;
-            }
-            int concl = 0;
-            for (k = 0; k < n_marc; k = k + 1)
-                if (strcmp(clausulas[i]->consecuente, marcadas[k]) == 0)
-                    concl = 1;
-            for (k = 0; k < n_neg; k = k + 1)
-                if (strcmp(clausulas[i]->consecuente, negados[k]) == 0)
-                    concl = 1;
-            if (!ok && !concl) {
-                free(marcadas); free(negados);
-                return 0;
-            }
-        }
-    }
-    free(marcadas);
-    free(negados);
-    return 1;
+
+    free(vars);
+    free(vals);
+    return 0; // no satisfacible
 }
 
 
 
-#line 1113 "lex.yy.c"
-#line 1114 "lex.yy.c"
+void imprimir_formula_original() {
+    int i;
+    printf("Tokens leídos:\n");
+    for (i = 0; i < num_tokens; i = i + 1) {
+        printf("%s ", tokens[i]);
+    }
+    printf("\n");
+}
+
+void imprimir_nodo(struct Nodo *n) {
+    if (!n) {
+        return;
+    }
+    switch (n->tipo) {
+        case VAR: printf("%s", n->nombre); break;
+        case TOP: printf("\u22A4"); break;
+        case BOT: printf("\u22A5"); break;
+        case NEG:
+            printf("¬");
+            imprimir_nodo(n->izq);
+            break;
+        case AND:
+            printf("(");
+            imprimir_nodo(n->izq);
+            printf(" ∧ ");
+            imprimir_nodo(n->der);
+            printf(")");
+            break;
+        case OR:
+            printf("(");
+            imprimir_nodo(n->izq);
+            printf(" ∨ ");
+            imprimir_nodo(n->der);
+            printf(")");
+            break;
+        case IMPLIES:
+            printf("(");
+            imprimir_nodo(n->izq);
+            printf(" → ");
+            imprimir_nodo(n->der);
+            printf(")");
+            break;
+    }
+}
+void free_memory() {
+    for (int i = 0; i < memo_size; i = i + 1) {
+        if (memo[i].nodo->nombre)
+            free(memo[i].nodo->nombre);
+        free(memo[i].nodo);
+        free(memo[i].clave);
+    }
+    memo_size = 0;
+}
+
+#line 949 "lex.yy.c"
+#line 950 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -1327,9 +1163,9 @@ YY_DECL
 		}
 
 	{
-#line 647 "test2.lex"
+#line 483 "test.lex"
 
-#line 1333 "lex.yy.c"
+#line 1169 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -1356,13 +1192,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 41 )
+				if ( yy_current_state >= 43 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 52 );
+		while ( yy_base[yy_current_state] != 54 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -1388,73 +1224,81 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 648 "test2.lex"
-{ add_token(T_DOLLAR, NULL); }
+#line 484 "test.lex"
+{ agregar_token("NEG"); }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 649 "test2.lex"
-{ add_token(T_NEG, NULL); }
+#line 485 "test.lex"
+{ agregar_token("AND"); }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 650 "test2.lex"
-{ add_token(T_AND, NULL); }
+#line 486 "test.lex"
+{ agregar_token("OR"); }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 651 "test2.lex"
-{ add_token(T_OR, NULL); }
+#line 487 "test.lex"
+{ agregar_token("IMPLIES"); }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 652 "test2.lex"
-{ add_token(T_IMPL, NULL); }
+#line 488 "test.lex"
+{ agregar_token("TOP"); }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 653 "test2.lex"
-{ add_token(T_TOP, NULL); }
+#line 489 "test.lex"
+{ agregar_token("BOT"); }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 654 "test2.lex"
-{ add_token(T_BOT, NULL); }
+#line 490 "test.lex"
+{ agregar_token("("); }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 655 "test2.lex"
-{ add_token(T_LPAR, NULL); }
+#line 491 "test.lex"
+{ agregar_token(")"); }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 656 "test2.lex"
-{ add_token(T_RPAR, NULL); }
+#line 492 "test.lex"
+{ agregar_token(yytext);}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 657 "test2.lex"
-{
-    add_token(T_VAR, yytext);
-}
+#line 493 "test.lex"
+{ /* ignora $$ */ }
 	YY_BREAK
 case 11:
-/* rule 11 can match eol */
 YY_RULE_SETUP
-#line 660 "test2.lex"
-; // ignora espacios
+#line 494 "test.lex"
+{ /**/}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 661 "test2.lex"
-{ printf("NO-SOLUTION\n"); exit(0); }
+#line 495 "test.lex"
+{ /* ignora espacios */ }
 	YY_BREAK
 case 13:
+/* rule 13 can match eol */
 YY_RULE_SETUP
-#line 663 "test2.lex"
+#line 496 "test.lex"
+{ printf("\n");} 
+	YY_BREAK
+case 14:
+YY_RULE_SETUP
+#line 497 "test.lex"
+{ printf("UNKNOWN: %s\n", yytext); }
+	YY_BREAK
+case 15:
+YY_RULE_SETUP
+#line 498 "test.lex"
 ECHO;
 	YY_BREAK
-#line 1458 "lex.yy.c"
+#line 1302 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1751,7 +1595,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 41 )
+			if ( yy_current_state >= 43 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1779,11 +1623,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 41 )
+		if ( yy_current_state >= 43 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 40);
+	yy_is_jam = (yy_current_state == 42);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -2459,51 +2303,46 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 663 "test2.lex"
+#line 498 "test.lex"
 
 
 
-/*
- *
- * Main
- *
- */
 
 int main(int argc, char **argv) {
-    if (argc > 1) Usage(argv[0]);
-    int c;
-    int i;
-    c = getchar();
-    if (c == EOF) Usage(argv[0]);
-    ungetc(c, stdin); // Devuelve el caracter al stream para el lexer
-    yylex(); // Tokeniza toda la entrada y llena el array 'tokens', 'ntokens'
-    // Si el primer y último token no son T_DOLLAR, error
-    if (ntokens < 2 || tokens[0]->type != T_DOLLAR || tokens[ntokens-1]->type != T_DOLLAR) {
-        printf("NO-SOLUTION\n"); exit(0);
-    }
-    // Elimina los tokens de dólar para procesar solo la fórmula
-    int nin = ntokens - 2;
-    Token **tokens_in = calloc(nin, sizeof(Token*));
-    for (i = 0; i < nin; i = i + 1) tokens_in[i] = tokens[i+1];
-    int npostfix = 0;
-    Token **postfix = infixToPostfix(tokens_in, nin, &npostfix);
-    Node *ast = buildASTfromPostfix(postfix, npostfix);
-    ast = elimImpl(ast);
-    ast = nnf(ast);
-    ast = cnf(ast);
-    // Traducción a SAT lineal
-    ast2lineal(ast);
-    int res = resolverSAT();
-    if (res == 1)      printf("SATISFACIBLE\n");
-    else if (res == -1) printf("NO-SATISFACIBLE\n");
-    else                printf("NO-SOLUTION\n");
+    printf("Soy un Test\n");
+    printf("Inicio de programa\n");
+    yylex();
 
-    free(tokens_in);
-    free(postfix);
-    freeAST(ast);
-    freeTokens();
-    freeClausulas();
+    struct Nodo *arbol = parse_formula();
+
+    if (!arbol || pos < num_tokens) {
+        printf("NO-SOLUTION\n");
+        free_memory();
+        return 1;
+    }
+
+    printf("Fórmula original: ");
+    imprimir_nodo(arbol);
+    printf("\n");
+
+    struct Nodo *traducida = traducir(arbol);
+    printf("Fórmula en Sat Lineal: ");
+    imprimir_nodo(traducida);
+    printf("\n");
+
+    
+    struct Nodo *sin_neg = empujar_negaciones(traducida);
+    struct Nodo *cnf = convertir_cnf(sin_neg);
+    printf("Fórmula en CNF: ");
+    imprimir_nodo(cnf);
+    printf("\n");
+
+    if (es_satisfacible(cnf) == 1) {
+        printf("SATISFACIBLE\n");
+    } else {
+        printf("NO-SATISFACIBLE\n");
+    }    
+    // Libera memoria asignada 
+    free_memory();
     return 0;
 }
-
-
