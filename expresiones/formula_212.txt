@@ -1,1 +1,0 @@
-$((r \rightarrow t) \rightarrow (t \vee q))$

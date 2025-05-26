@@ -1,1 +1,0 @@
-$((r \wedge q) \wedge (p \vee p))$

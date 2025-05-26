@@ -1,1 +1,1 @@
-$(A \vee (B \wedge (C \vee (D \wedge (E \vee (F \wedge (G \vee H)))))))$
+$(\neg H_1 \wedge H_2 \vee) \wedge H_3 \vee H_4 \wedge H_5 \vee H_6$

@@ -1,2 +1,2 @@
-$\neg \neg a$
+$((a \rightarrow B) \wedge ( \neg c \vee D)) \wedge (e \rightarrow (F \vee a))$
 

@@ -1,1 +1,1 @@
-$\neg A \vee \neg B \vee \neg C \vee \neg D \vee \neg E \vee \neg F \vee G$
+$G_1 \wedge \vee G_2 \vee G_3 \wedge G_4 \vee G_5$

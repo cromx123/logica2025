@@ -1,1 +1,0 @@
-$(((s \wedge p) \vee (t \vee s)) \rightarrow ((s \rightarrow \neg t) \wedge \neg s))$

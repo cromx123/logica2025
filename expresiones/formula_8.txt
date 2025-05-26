@@ -1,1 +1,1 @@
-$(A \wedge B) \vee C$
+$(\neg A \wedge B \vee) \wedge C \vee D$

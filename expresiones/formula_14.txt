@@ -1,1 +1,1 @@
-$A \rightarrow (B \vee (C \wedge (D \rightarrow E)))$
+$(A_1 \rightarrow A_2) \wedge (A_3 \vee \neg A_4) \wedge (A_5 \wedge \neg A_6) \wedge (A_7 \vee A_8 \vee A_9)$

@@ -1,1 +1,0 @@
-$(\neg p \wedge (\neg p \rightarrow \neg q))$

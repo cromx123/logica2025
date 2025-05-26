@@ -1,1 +1,1 @@
-$(\neg A \vee B) \wedge (\neg C \vee D)$
+$(\neg B_1 \vee B_2 \vee B_3) \wedge (B_4 \rightarrow B_5) \wedge (B_6 \vee \neg B_7) \wedge (B_8 \wedge B_9 \wedge B_10)$

@@ -1,1 +1,0 @@
-$(((\neg r \rightarrow q) \rightarrow (\neg t \wedge \neg p)) \vee \neg q)$

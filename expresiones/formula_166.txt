@@ -1,1 +1,0 @@
-$((s \wedge \neg q) \vee s)$

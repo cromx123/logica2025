@@ -1,1 +1,0 @@
-$((\neg r \wedge r) \vee (q \rightarrow p))$

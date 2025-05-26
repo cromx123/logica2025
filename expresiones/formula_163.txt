@@ -1,1 +1,0 @@
-$((r \vee t) \vee (t \rightarrow \neg p))$

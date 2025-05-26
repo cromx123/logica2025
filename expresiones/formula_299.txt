@@ -1,1 +1,0 @@
-$((\neg t \rightarrow s) \wedge (\neg t \wedge \neg t))$

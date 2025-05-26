@@ -1,1 +1,0 @@
-$((\neg s \rightarrow (\neg r \vee \neg r)) \wedge (\neg s \vee \neg q))$

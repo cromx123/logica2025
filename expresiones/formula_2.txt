@@ -1,1 +1,2 @@
-$\neg A$
+$(\neg A \vee B) \wedge (C \rightarrow (D \wedge E)) \wedge (\neg F \vee (A \vee \neg C))$
+

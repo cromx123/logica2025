@@ -1,1 +1,1 @@
-$((A \rightarrow B) \wedge (C \rightarrow D)) \vee (E \rightarrow F)$
+$D_1 \wedge \neg D_1 \wedge (D_2 \vee D_3) \wedge (D_4 \rightarrow D_5)$

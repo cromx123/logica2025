@@ -1,1 +1,1 @@
-$(\neg A \vee B) \wedge (\neg A \vee C)$
+$\neg \wedge (a \vee b) \wedge (c \vee d) \wedge r \vee f$

@@ -1,1 +1,1 @@
-$P1 \wedge q2 \vee R3$
+$\neg \wedge (J_1 \vee J_2) \wedge (J_3 \vee J_4) \wedge J_5 \vee J_6 \wedge J_7$

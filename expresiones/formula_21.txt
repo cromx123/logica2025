@@ -1,1 +1,1 @@
-$(A \vee B) \wedge (A \vee C) \wedge (A \vee D) \wedge \ldots$
+$I_1 \vee (I_2 \wedge \neg) \vee (I_3 \wedge I_4) \vee I_5 \vee I_6$

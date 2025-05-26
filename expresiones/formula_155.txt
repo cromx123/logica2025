@@ -1,1 +1,0 @@
-$(((p \vee \neg t) \vee \neg r) \vee ((r \rightarrow t) \rightarrow t))$

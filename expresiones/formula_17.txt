@@ -1,1 +1,1 @@
-$(\neg A \vee B \vee \neg E \vee F) \wedge (\neg C \vee D \vee \neg E \vee F)$
+$(E_1 \wedge E_2) \wedge (\neg E_1 \vee \neg E_2) \wedge (E_3 \vee E_4) \wedge (E_5 \rightarrow (E_6 \wedge \neg E_6))$

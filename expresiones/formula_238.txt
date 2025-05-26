@@ -1,1 +1,0 @@
-$((\neg r \rightarrow q) \vee \neg s)$

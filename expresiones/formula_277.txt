@@ -1,1 +1,0 @@
-$(\neg p \wedge (\neg r \wedge \neg p))$

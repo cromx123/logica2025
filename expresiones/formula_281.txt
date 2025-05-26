@@ -1,1 +1,0 @@
-$(((\neg p \rightarrow \neg s) \wedge (\neg s \rightarrow t)) \vee p)$

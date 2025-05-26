@@ -12,7 +12,7 @@
 #include <string.h>
 
 char **tokens = NULL;
-int num_tokens = 0, capacidad_tokens = 0, pos = 0, memo_size = 0;
+int num_tokens = 0, capacidad_tokens = 0, pos = 0, memo_size = 0, memo_capacity = 0;
 /*
 *
 *
@@ -27,7 +27,7 @@ void agregar_token(const char *tok) {
         else {
             nueva_capacidad = capacidad_tokens * 2;
         }
-        char **nuevo_espacio = calloc(nueva_capacidad, sizeof(char *));
+        nuevo_espacio = calloc(nueva_capacidad, sizeof(char *));
 
         for (i = 0; i < num_tokens; i = i + 1) {
             nuevo_espacio[i] = tokens[i];
@@ -57,9 +57,100 @@ struct Nodo {
 };
 
 
+char* ulong_a_hex(unsigned long valor) {
+    char* hex = NULL, *result = NULL;
+    const char* hex_digits;
+    int i, start, len, j;
+
+    hex = calloc(17, 1);
+    if (!hex) {
+        return NULL;
+    }
+    hex_digits = "0123456789abcdef";
+    i = 15;
+    hex[16] = '\0';
+
+    if (valor == 0) {
+        hex[15] = '0';
+        i = 14;
+    } 
+    else {
+        while (valor > 0 && i >= 0) {
+            hex[i] = hex_digits[valor % 16];
+            i = i - 1;
+            valor = valor / 16;
+        }
+    }
+
+    start = i + 1;
+    len = 16 - start;
+    result = calloc(len + 1, 1);
+    if (!result) {
+        free(hex);
+        return NULL;
+    }
+
+    for (j = 0; j < len; j = j + 1) {
+        result[j] = hex[start + j];
+    }
+    result[len] = '\0';
+    free(hex);
+    return result;
+}
+
 char* clave_nodo(int tipo, struct Nodo* izq, struct Nodo* der, char* nombre) {
-    char *clave = calloc(512, sizeof(char));
-    snprintf(clave, 512, "%c_%p_%p_%s", tipo, izq, der, nombre ? nombre : ""); 
+    const char* nombre_str;
+    char* izq_str = NULL, *der_str = NULL, tipo_char, *clave = NULL;
+    size_t offset, total_len, len, i;
+
+    tipo_char = (char)tipo;
+    izq_str = ulong_a_hex((unsigned long)izq);
+    der_str = ulong_a_hex((unsigned long)der);
+    if (!izq_str || !der_str) {
+        return NULL;
+    }
+    if (nombre != NULL) {
+        nombre_str = nombre;
+    } 
+    else {
+        nombre_str = "";
+    }
+    total_len = 1 + 1 + strlen(izq_str) + 1 + strlen(der_str) + 1 + strlen(nombre_str) + 1;
+    clave = calloc(total_len, 1);
+    if (!clave) {
+        free(izq_str);
+        free(der_str);
+        return NULL;
+    }
+
+    offset = 0;
+    clave[offset] = tipo_char;
+    offset = offset + 1;
+    clave[offset] = '_';
+    offset = offset + 1;
+
+    for (i = 0; izq_str[i] != '\0'; i = i + 1) {
+        clave[offset] = izq_str[i];
+        offset = offset + 1;
+    }
+    clave[offset] = '_';
+    offset = offset + 1;
+
+    for (i = 0; der_str[i] != '\0'; i = i + 1) {
+        clave[offset] = der_str[i];
+        offset = offset + 1;
+    }
+    clave[offset] = '_';
+    offset = offset + 1;
+
+    for (i = 0; nombre_str[i] != '\0'; i = i + 1) {
+        clave[offset] = nombre_str[i];
+        offset = offset + 1;
+    }
+    clave[offset] = '\0';
+
+    free(izq_str);
+    free(der_str);
     return clave;
 }
 
@@ -68,7 +159,7 @@ struct NodoMemo {
     struct Nodo *nodo;
 };
 
-struct NodoMemo memo[1000];
+struct NodoMemo* memo = NULL;
 
 
 int son_iguales(const char *a, const char *b) {
@@ -100,7 +191,9 @@ void guardar_en_memo(char* clave, struct Nodo* nodo) {
 
 struct Nodo *crear_nodo(TipoNodo tipo, struct Nodo *izq, struct Nodo *der, const char *nombre) {
     int i, len;
-    struct Nodo *n = calloc(1, sizeof(struct Nodo));
+    struct Nodo *n = NULL;
+
+    n = calloc(1, sizeof(struct Nodo));
     n->tipo = tipo;
     n->izq = izq;
     n->der = der;
@@ -125,13 +218,15 @@ struct Nodo *crear_nodo(TipoNodo tipo, struct Nodo *izq, struct Nodo *der, const
 
 struct Nodo* crear_nodo_dag(char tipo, struct Nodo* izq, struct Nodo* der, char* nombre) {
     char* clave = clave_nodo(tipo, izq, der, nombre);
-    struct Nodo* existente = buscar_en_memo(clave);
+    struct Nodo *existente = NULL, *nuevo = NULL;
+
+    existente = buscar_en_memo(clave);
     if (existente != NULL) {
         free(clave);
         return existente;
     }
 
-    struct Nodo* nuevo = crear_nodo(tipo, izq, der, nombre);
+    nuevo = crear_nodo(tipo, izq, der, nombre);
     guardar_en_memo(clave, nuevo);
     return nuevo;
 }
@@ -142,15 +237,16 @@ struct Nodo* crear_nodo_dag(char tipo, struct Nodo* izq, struct Nodo* der, char*
 struct Nodo *parse_formula();
 
 struct Nodo *parse_atom() {
+    struct Nodo *n = NULL;
     char *tok = tokens[pos];
+
     if (pos >= num_tokens) {
         return NULL;
     } 
-
     pos = pos + 1;  
 
     if (tok[0] == '(' && tok[1] == '\0') {
-        struct Nodo *n = parse_formula();
+        n = parse_formula();
         if (pos >= num_tokens || strcmp(tokens[pos], ")") != 0) {
             return NULL;
         }
@@ -158,7 +254,7 @@ struct Nodo *parse_atom() {
         return n;
     } 
     else if (tok[0] == 'N' && tok[1] == 'E' && tok[2] == 'G' && tok[3] == '\0') {
-        struct Nodo *n = parse_atom();
+        n = parse_atom();
         if (n == NULL)  {
             return NULL;
         } 
@@ -173,11 +269,12 @@ struct Nodo *parse_atom() {
 struct Nodo *parse_formula() {
     int es_and, es_or, es_implies;
     char *tok;
+    struct Nodo *izq = NULL, *der = NULL;
 
     if (pos >= num_tokens) {
         return NULL;
     }
-    struct Nodo *izq = parse_atom();
+    izq = parse_atom();
     if (izq == NULL) {
         return NULL;
     }
@@ -192,7 +289,7 @@ struct Nodo *parse_formula() {
 
     if (es_and || es_or || es_implies) {
         pos = pos + 1;
-        struct Nodo *der = parse_formula();
+        der = parse_formula();
         if (der == NULL) {
             return NULL;
         }
@@ -211,7 +308,6 @@ struct Nodo *parse_formula() {
     return izq;
 }
 
-struct Nodo* copiar_nodo(struct Nodo *nodo);
 
 struct Nodo* copiar_nodo(struct Nodo *nodo) {
     if (!nodo) {
@@ -275,6 +371,8 @@ struct Nodo* distribuir_o(struct Nodo *a, struct Nodo *b) {
 }
 
 struct Nodo* convertir_cnf(struct Nodo *nodo) {
+    struct Nodo *izq = NULL, *der = NULL;
+    
     if (!nodo) {
         return NULL;
     }
@@ -283,8 +381,8 @@ struct Nodo* convertir_cnf(struct Nodo *nodo) {
     }
 
     if (nodo->tipo == OR) {
-        struct Nodo *izq = convertir_cnf(nodo->izq);
-        struct Nodo *der = convertir_cnf(nodo->der);
+        izq = convertir_cnf(nodo->izq);
+        der = convertir_cnf(nodo->der);
         return distribuir_o(izq, der);
     }
 
@@ -293,6 +391,7 @@ struct Nodo* convertir_cnf(struct Nodo *nodo) {
 
  // Traducción
 struct Nodo* traducir(struct Nodo *nodo) {
+    struct Nodo *izq_t = NULL, *der_t = NULL;
     if (!nodo) {
         return NULL;
     }
@@ -309,15 +408,15 @@ struct Nodo* traducir(struct Nodo *nodo) {
 
         case OR: {
             // T(1 ∨ 2) = ¬(¬T(1) ∧ ¬T(2))
-            struct Nodo *izq_t = traducir(nodo->izq);
-            struct Nodo *der_t = traducir(nodo->der);
+            izq_t = traducir(nodo->izq);
+            der_t = traducir(nodo->der);
             return negacion(conjuncion(negacion(izq_t), negacion(der_t)));
         }
 
         case IMPLIES: {
             // T(1 → 2) = ¬(T(1) ∧ ¬T(2))
-            struct Nodo *izq_t = traducir(nodo->izq);
-            struct Nodo *der_t = traducir(nodo->der);
+            izq_t = traducir(nodo->izq);
+            der_t = traducir(nodo->der);
             return negacion(conjuncion(izq_t, negacion(der_t)));
         }
 
@@ -413,7 +512,7 @@ int es_satisfacible(struct Nodo *n) {
         if (result == 1) {
             free(vars);
             free(vals);
-            return 1;
+            return 1; // satisfacible
         }
     }
 
@@ -489,7 +588,7 @@ void free_memory() {
 "\\bot"        { agregar_token("BOT"); }
 "("            { agregar_token("("); }
 ")"            { agregar_token(")"); }
-[a-zA-Z][a-zA-Z0-9]*    { agregar_token(yytext);}
+[a-zA-Z][a-zA-Z0-9_]*    { agregar_token(yytext);}
 "\$\$"         { /* ignora $$ */ }
 "$"            { /**/}
 [ \t\r]        { /* ignora espacios */ }
@@ -500,11 +599,11 @@ void free_memory() {
 
 
 int main(int argc, char **argv) {
-    printf("Soy un Test\n");
-    printf("Inicio de programa\n");
+    struct Nodo *arbol = NULL, *traducida = NULL, *sin_neg = NULL, *cnf = NULL;
+    // printf("Inicio de programa\n");
     yylex();
 
-    struct Nodo *arbol = parse_formula();
+    arbol = parse_formula();
 
     if (!arbol || pos < num_tokens) {
         printf("NO-SOLUTION\n");
@@ -512,21 +611,20 @@ int main(int argc, char **argv) {
         return 1;
     }
 
-    printf("Fórmula original: ");
-    imprimir_nodo(arbol);
-    printf("\n");
+    // printf("Fórmula original: ");
+    // imprimir_nodo(arbol);
+    // printf("\n");
 
-    struct Nodo *traducida = traducir(arbol);
-    printf("Fórmula en Sat Lineal: ");
-    imprimir_nodo(traducida);
-    printf("\n");
+    traducida = traducir(arbol);
+    // printf("Fórmula en Sat Lineal: ");
+    // imprimir_nodo(traducida);
+    // printf("\n");
 
-    
-    struct Nodo *sin_neg = empujar_negaciones(traducida);
-    struct Nodo *cnf = convertir_cnf(sin_neg);
-    printf("Fórmula en CNF: ");
-    imprimir_nodo(cnf);
-    printf("\n");
+    sin_neg = empujar_negaciones(traducida);
+    cnf = convertir_cnf(sin_neg);
+    // printf("Fórmula en CNF: ");
+    // imprimir_nodo(cnf);
+    // printf("\n");
 
     if (es_satisfacible(cnf) == 1) {
         printf("SATISFACIBLE\n");

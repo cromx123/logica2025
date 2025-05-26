@@ -1,1 +1,0 @@
-$((\neg s \rightarrow p) \rightarrow \neg p)$
