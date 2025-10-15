@@ -1,0 +1,365 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Topico     : Estilo de Informes - DMCC  
+% Autor      : Ruben Carvajal Schiaffino
+% Santiago de Chile, 13/9/2016
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+%
+\documentclass{article}
+%
+%
+%
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{comment}
+%\usepackage[margin=3cm]{geometry}
+% no
+%
+\renewcommand*\thesection{\arabic{section}}
+%
+\newcommand \minitab{\hspace*{15 pt}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+%
+\hyphenation{ins-truc-ciones}
+%
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\psfig{figure=Usach_P2.png,height=4cm,,}
+\end{center}
+\begin{center}
+{\bf Departamento de Matem\'atica y Ciencia de la Computaci\'on}
+\end{center}
+\vspace{3cm}
+\begin{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% MODIFICAR. Despues del tag \bf se coloca el titulo del trabajo
+%
+{\Large \bf Algoritmo para determinar si una expresión descrita en lógica proposicional es satisfacible}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+~ \\ 
+~ \\ 
+~ \\
+~ \\
+\begin{tabular}{c c c}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% MODIFICAR. En el primer campo colocar nombre del primer autor y en el tercer
+%            campo colocar nombre del segundo autor
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+Benjamin Cáceres & ~~~~~~~ & Cristóbal Gallardo\\
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% MODIFICAR. En el primer campo colocar email del primer autor y en el tercer
+%            campo colocar email del segundo autor
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+benjamin.caceres.c@usach.cl & & cristobal.gallardo.c@usach.cl \\
+\end{tabular}
+~ \\ 
+~ \\ 
+~ \\
+~ \\
+\begin{tabular}{c c c}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% MODIFICAR. En el primer campo colocar el nombre de la asignatura y su codigo
+%            y en el tercer campo el semestre (Oto\~no o Primavera) y el año
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+Lógica - Cod.lógica & ~~~~~~ & Semestre Otoño 2025 \\
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% MODIFICAR. En el primer campo colocar el nombre de la carrera
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+Licenciatura en Ciencia de la Computaci\'on & &  \\
+\end{tabular}
+\end{center}
+\end{titlepage}
+%
+
+%\tableofcontents
+%\listoftables
+%\newpage
+\section{Introducci\'on}
+% 
+ El presente informe describe el desarrollo de un programa en lenguaje C diseñado para el análisis y evaluación de fórmulas de lógica proposicional escritas en notación \LaTeX{}. Esto permite interpretar dichas fórmulas, construir una representación basada en un árbol de sintaxis abstracta, transformar las expresiones a una forma lógica, y evaluar su satisfacibilidad a través de la exploración exhaustiva de combinaciones de valores de verdad.\\\\
+ El programa utiliza la herramienta Flex(Lex) para el análisis léxico, paréntesis y variables. A partir de estos tokens, se construye un árbol que modela la estructura lógica de la fórmula. Posteriormente, se realiza la traducción para tener como resultado la fórmula en su Forma Normal Conjuntiva (CNF). \\\\
+ Por ultimo , una de las funcionalidades centrales del sistema es la verificación de satisfacibilidad. Para ello, se identifican las variables presentes en la fórmula y se generan todas las posibles combinaciones de valores de verdad, esto se realiza de manera recursiva.\\\\
+ A contimuación, se detalla el procedimiento y el funcionamiento general del programa, seguido por los algoritmos principales implementados. Finalmente, se presenta una conclusión que resume los resultados obtenidos y trabajos futuros. 
+
+%En este trabajo, se nos pide centrarnos en la implementación de un sistema que nos permitirá determinar si una fórmula proposicional es satisfacible, es decir, si existe al menos una asignación de valores de verdad que haga que dicha fórmula sea verdadera. Abordaremos una variante simplificada conocida como \textit{SAT lineal}, en la cual las fórmulas lógicas son estructuradas utilizando únicamente variables proposicionales, negaciones y conjunciones, junto con definiciones equivalentes para disyunciones e implicaciones.
+
+%Como solución creamos un programa en lenguaje C utilizando la herramienta LEX, la que se encarga de procesar el archivo de entrada con la expresión a evaluar (escrita en sintaxis de Latex). Este programa realiza dos operaciones fundamentales: traducir la expresión lógica y para luego determinar si dicha fórmula es o no satisfacible. 
+
+%En este informe se documenta la implementación de dicho programa, describiremos los algoritmos utilizados, discutiremos acerca los resultados obtenidos y finalmente elaborar una conclusión sobre los desafios técnicos y conceptuales enfrentados durante el desarrollo con esta problema perteneciente a la clase de complejidad NP-completo.. 
+%
+\section{Procedimiento}
+Para el desarrollo del programa, primero se tiene un archivo de texto como entrada, que contiene una fórmula lógica escrita en notación \LaTeX{} y delimitada por signos de doble dólar (\$\$). Esta fórmula se lee y procesa por un analizador léxico implementado con la herramienta \texttt{Flex}. El lexer recorre el texto identificando símbolos lógicos (como \verb|\wedge|, \verb|\vee|, etc.). Cada elemento reconocido se traduce internamente a un \texttt{TOKEN} específico (en este caso \texttt{AND}, \texttt{OR}, \texttt{IMPLIES}, etc.) que son almacenados en un arreglo de tokens.\\\\
+Una vez la entrada es tokenizada, se inicia el análisis sintáctico mediante funciones recursivas en \texttt{C}, las cuales procesan estos tokens para construir un árbol sintáctico abstracto (AST) que representa la estructura lógica de la fórmula. Así, cada nodo del árbol corresponderá a un operador lógico, constante o variable, y puede tener subnodos izquierdo y derecho dependiendo de su tipo.\\\\
+Luego, con el árbol ya generado, el programa transforma la fórmula a una versión equivalente sin implicaciones (SAT lineal), reemplazando cada implicación por su forma lógica: $\neg(\phi \wedge \neg\psi)$. Posteriormente, este nuevo árbol es recorrido por una función que empuja las negaciones hacia las hojas, aplicando leyes de De Morgan y simplificando dobles negaciones, lo que convierte la fórmula en una forma normal negativa (NNF). A partir de esta forma, el árbol es transformado a su forma normal conjuntiva (CNF) mediante distribución de disyunciones sobre conjunciones y la simplificación de expresiones que involucren constantes lógicas como $\top$ y $\bot$.\\\\
+Una vez obtenida la CNF, se identifican y almacenan todas las variables proposicionales utilizadas en la fórmula. A continuación, el programa generará todas las combinaciones posibles de valores de verdad para estas variables (nótese que puede llegar hasta un total de $2^n$, siendo $n$ el número de variables distintas) y evalúa cada una de ellas recorriendo el árbol CNF con una función recursiva que interpreta los nodos lógicos bajo cada asignación de valores. Si alguna de estas combinaciones satisface la fórmula (es decir, la evalúa como verdadera), entonces el programa concluye que la fórmula es satisfacible; si ninguna combinación logra lo anterior, se determina que la fórmula no es satisfacible. \\\\
+Finalmente, el resultado de la evaluación se muestra como una de las siguientes salidas posibles: \texttt{SATISFACIBLE}, \texttt{NO-SATISFACIBLE}, o \texttt{NO-SOLUTION}, dependiendo del resultado del análisis.\\\\
+A continuación, se presentan los algoritmos principales que conforman este procedimiento.
+
+\newpage
+\section{Algoritmo}
+~
+\newline
+\newline
+\textbf{Algorithm} Traducción a SAT
+\newline
+\newline
+
+\begin{tabular}{l l}
+\textbf{Input}:  & Árbol sintáctico \texttt{nodo} que representa una fórmula proposicional lógica. \\
+                 & $\texttt{nodo} \in \mathcal{A}$, donde $\mathcal{A}$ incluye nodos de tipo: \\
+                 & $\{$VAR, NEG, AND, OR, IMPLIES, TOP, BOT$\}$. \\
+\textbf{Output}: & Árbol equivalente $\texttt{nodo}'$ que representa la fórmula traducida a forma válida \\
+                 & para \textit{SAT lineal}, utilizando únicamente los conectores VAR, NEG y AND. \\
+\end{tabular}
+\begin{tabular}{r l}
+\\
+1  & {\bf Función} traducir\_SAT\_lineal(nodo)\\
+2  & \minitab {\bf if} nodo = nulo {\bf then}\\
+3  & \minitab \minitab {\bf retornar} nulo\\
+4  & \minitab {\bf según} tipo de nodo {\bf hacer}\\
+5  & \minitab \minitab {\bf caso} VAR: {\bf retornar} copia(nodo)\\
+6  & \minitab \minitab {\bf caso} NEG: \\
+7  & \minitab \minitab \minitab hijo\_traducido $\leftarrow$ traducir\_SAT\_lineal(nodo.hijo)\\
+8  & \minitab \minitab \minitab {\bf retornar} NEG(hijo\_traducido)\\
+9  & \minitab \minitab {\bf caso} AND: \\
+10 & \minitab \minitab \minitab izq $\leftarrow$ traducir\_SAT\_lineal(nodo.izq)\\
+11 & \minitab \minitab \minitab der $\leftarrow$ traducir\_SAT\_lineal(nodo.der)\\
+12 & \minitab \minitab \minitab {\bf retornar} AND(izq, der)\\
+13 & \minitab \minitab {\bf caso} OR: \\
+14 & \minitab \minitab \minitab izq $\leftarrow$ traducir\_SAT\_lineal(nodo.izq)\\
+15 & \minitab \minitab \minitab der $\leftarrow$ traducir\_SAT\_lineal(nodo.der)\\
+16 & \minitab \minitab \minitab {\bf retornar} NEG(AND(NEG(izq), NEG(der)))\\
+17 & \minitab \minitab {\bf caso} IMPLIES: \\
+18 & \minitab \minitab \minitab izq $\leftarrow$ traducir\_SAT\_lineal(nodo.izq)\\
+19 & \minitab \minitab \minitab der $\leftarrow$ traducir\_SAT\_lineal(nodo.der)\\
+20 & \minitab \minitab \minitab {\bf retornar} NEG(AND(izq, NEG(der)))\\
+21 & \minitab \minitab {\bf caso} TOP o BOT: {\bf retornar} copia(nodo)\\
+\end{tabular}
+~~~
+\newline
+~
+\newline
+\newline
+\textbf{Algorithm} Evaluador de Satisfacibilidad
+\newline
+\newline
+
+\begin{tabular}{l l}
+\textbf{Input}:  & Árbol sintáctico \texttt{raiz} que representa una fórmula proposicional lógica. \\
+                 & $\texttt{raiz} \in \mathcal{A}$, donde $\mathcal{A}$ es el conjunto de árboles con nodos de tipo: \\
+                 & $\{$VAR, NEG, AND, OR, TOP, BOT$\}$. \\
+\textbf{Output}: & Valor booleano: \texttt{VERDADERO} si la fórmula es satisfacible, \\
+                 & \texttt{FALSO} en caso contrario. \\
+\end{tabular}
+~~
+\newline
+\begin{tabular}{r l}
+\\
+1  & {\bf función} es\_satisfacible(raiz) \\
+2  & \minitab vars $\leftarrow$ lista de variables únicas extraídas del árbol \\
+3  & \minitab $n \leftarrow$ cantidad de variables \\
+4  & \minitab total $\leftarrow 2^n$ \hspace{1em} // número de combinaciones posibles \\
+5  & \minitab {\bf para} $i \leftarrow 0$ hasta total $- 1$ {\bf hacer} \\
+6  & \minitab \minitab asignacion $\leftarrow$ arreglo de tamaño $n$ \\
+7  & \minitab \minitab {\bf para} $j \leftarrow 0$ hasta $n - 1$ {\bf hacer} \\
+8  & \minitab \minitab \minitab asignacion[$j$] $\leftarrow$ $(i \gg j) \, \& \, 1$ \\
+9  & \minitab \minitab {\bf si} evaluar(raiz, vars, asignacion) = VERDADERO {\bf entonces} \\
+10 & \minitab \minitab \minitab {\bf retornar} VERDADERO \\
+11 & \minitab {\bf retornar} FALSO \\
+\\
+12 & {\bf función} evaluar(nodo, vars, asignacion) \\
+13 & \minitab {\bf según} tipo de nodo {\bf hacer} \\
+14 & \minitab \minitab {\bf caso} VAR: \\
+15 & \minitab \minitab \minitab índice $\leftarrow$ posición de nodo.nombre en vars \\
+16 & \minitab \minitab \minitab {\bf retornar} asignacion[índice] \\
+17 & \minitab \minitab {\bf caso} NEG: \\
+18 & \minitab \minitab \minitab {\bf retornar} $\neg$ evaluar(nodo.izq, vars, asignacion) \\
+19 & \minitab \minitab {\bf caso} AND: \\
+20 & \minitab \minitab \minitab {\bf retornar} evaluar(nodo.izq, vars, asignacion) $\land$ evaluar(nodo.der, vars, asignacion) \\
+21 & \minitab \minitab {\bf caso} OR: \\
+22 & \minitab \minitab \minitab {\bf retornar} evaluar(nodo.izq, vars, asignacion) $\lor$ evaluar(nodo.der, vars, asignacion) \\
+23 & \minitab \minitab {\bf caso} TOP: \\
+24 & \minitab \minitab \minitab {\bf retornar} VERDADERO \\
+25 & \minitab \minitab {\bf caso} BOT: \\
+26 & \minitab \minitab \minitab {\bf retornar} FALSO \\
+\end{tabular}
+~~~
+
+%
+\newpage
+\section{Implementaci\'on}
+\begin{verbatim}
+Algorithm Traducción a SAT lineal
+
+Input: AST con fórmula a traducir 
+Output: un AST equivalente con fórmula traducida respetando SAT lineal 
+(usando sólo negación, conjunción y variables)
+
+struct Nodo* traducir(struct Nodo *nodo) {
+    struct Nodo *izq_t = NULL, *der_t = NULL;
+    if (!nodo) {
+        return NULL;
+    }
+
+    switch (nodo->tipo) {
+        case VAR:
+            return copiar_nodo(nodo);
+
+        case NEG:
+            return negacion(traducir(nodo->izq));
+
+        case AND:
+            return conjuncion(traducir(nodo->izq), traducir(nodo->der));
+
+        case OR: {
+            // T(1 ∨ 2) = ¬(¬T(1) ∧ ¬T(2))
+            izq_t = traducir(nodo->izq);
+            der_t = traducir(nodo->der);
+            return negacion(conjuncion(negacion(izq_t), negacion(der_t)));
+        }
+
+        case IMPLIES: {
+            // T(1 → 2) = ¬(T(1) ∧ ¬T(2))
+            izq_t = traducir(nodo->izq);
+            der_t = traducir(nodo->der);
+            return negacion(conjuncion(izq_t, negacion(der_t)));
+        }
+
+        default:
+            return NULL;
+    }
+}
+
+
+
+
+
+
+
+Algorithm Determina Satisfacibilidad
+
+
+Input: fórmula ya traducida a SAT lineal
+Output: 1 si la fórmula es satisfacible, 0 de caso contrario
+
+
+int eval(struct Nodo *n, char **vars, int *vals, int n_vars) {
+    int i, a, b;
+    if (!n) {
+        return 0;
+    }
+
+    switch (n->tipo) {
+        case VAR:
+            for (i = 0; i < n_vars; i = i + 1) {
+                if (son_iguales(vars[i], n->nombre)) {
+                    return vals[i];
+                }
+            }
+            return 0;
+
+        case NEG:
+            return !eval(n->izq, vars, vals, n_vars);
+
+        case AND:
+            return eval(n->izq, vars, vals, n_vars) && eval(n->der, vars, vals, n_vars);
+
+        case OR:
+            return eval(n->izq, vars, vals, n_vars) || eval(n->der, vars, vals, n_vars);
+
+        case IMPLIES: {
+            a = eval(n->izq, vars, vals, n_vars);
+            b = eval(n->der, vars, vals, n_vars);
+            return !a || b;
+        }
+
+        case TOP: 
+            return 1;
+        case BOT: 
+            return 0;
+    }
+    return 0;
+}
+
+
+Algoritmo de evaluación exhaustiva
+
+int es_satisfacible(struct Nodo *n) {
+    char **vars_tmp, **vars;
+    int i, j, capacidad, n_vars, *vals, total, result;
+
+    capacidad = 10;
+    n_vars = 0;
+    vars_tmp = calloc(capacidad, sizeof(char *));
+
+    recolectar_vars(n, vars_tmp, &n_vars);
+
+    vars = calloc(n_vars, sizeof(char *));
+    vals = calloc(n_vars, sizeof(int));
+
+    for (i = 0; i < n_vars; i = i + 1) {
+        vars[i] = vars_tmp[i];
+    }
+
+    free(vars_tmp);
+
+    total = 1 << n_vars; // 2^n combinaciones
+
+    for (i = 0; i < total; i = i + 1) {
+        for (j = 0; j < n_vars; j = j + 1) {
+            vals[j] = (i >> j) & 1;
+        }
+        result = eval(n, vars, vals, n_vars);
+        if (result == 1) {
+            free(vars);
+            free(vals);
+            return 1; // satisfacible
+        }
+    }
+
+    free(vars);
+    free(vals);
+    return 0; // no satisfacible
+}
+
+
+\end{verbatim}
+%
+\newpage
+%\section{Experimentaci\'on}
+
+
+\newpage
+\section{Conclusiones}
+En este informe se logró construir un algoritmo funcional para determinar la satisfacibilidad de fórmulas expresadas en lógica proposicional, respetando las reglas del sistema SAT lineal. La implementación fue realizada mediante una secuencia de funciones que transforman la expresión de entrada hasta llevarla a su forma normal conjuntiva (CNF). Esto nos permite que cada cláusula pueda ser evaluada de forma independiente, ya que basta con que al menos un literal en cada cláusula sea satisfecho por alguna asignación.
+\\\\
+El algoritmo de evaluación implementado es de fuerza bruta, ya que explora todas las posibles asignaciones de valores de verdad para cada variable proposicional. Esto implica una complejidad temporal exponencial de orden O($2^n \cdot m$), donde $n$ es el número de variables distintas en la fórmula y $m$ es el total de nodos del DAG.\\\\
+Como trabajo futuro, se propone incorporar un algoritmo de resolución de cláusulas de tipo Horn, lo que permitiría reducir significativamente la complejidad computacional en casos donde la fórmula cumpla con dicha restricción. Esta mejora no solo optimizaría el tiempo de ejecución, sino que también permitiría manejar instancias más grandes y complejas de forma eficiente.\\
+
+
+%
+\end{document}

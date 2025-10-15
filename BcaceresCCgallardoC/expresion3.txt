@@ -1,0 +1,1 @@
+$\neg \wedge (a \vee b) \wedge (c \vee d) \wedge r \vee f$
